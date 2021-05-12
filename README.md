@@ -1,44 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# <div align=center>React-Redux Reddit Client <br/> <div align=center> Challenge Project
 
-## Available Scripts
+### Project Requirements:
 
-In the project directory, you can run:
+- App must be built using React and Redux.
+- Version control application with Git and host the repository on GitHub.
+- Use a project management tool (GitHub Projects, Trello, etc...)
+- Write a README.md that documents the project including:
+  - Wireframes
+  - Technologies used
+  - Features
+  - Future work
+- Write unit tests for the app's components using Jest and Enzyme
+- Write E2E tests for the application.
+- App is available on both desktop and mobile.
+- Users can access the application live.
+- Users see an intial view of the data when first visiting the app.
+- Users can search the data using terms.
+- users can filter the data based on categories that are predefined.
+- Users are show a detail view(modal or new page/route) when they select an item.
+- Users are delighted with a cohesive design system.
+- users are delighted with animations and transitions.
+- users are able to leave an error state.
+- App gets 90+ scores on [Lighthouse](https://web.dev/measure/)
+  - Note: it is understood that how media assets like videos and images are sent to the client, may impact performance. It is okay to have a score below 90 for Performance **if** they are related to media from Reddit.
 
-### `yarn start`
+OPTIONAL EXTRAS:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- custom domain name.
+- set up CI/CD workflow to automatically deploy your application when the master branch in the repository changes.
+- Make it a progressive web app,
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Setup
 
-### `yarn test`
+### The API
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+> For this project, we will be using the Reddit JSON API. There is no maintained documentation but the API is simple enough to use. We will provide you with some pointers on how to use it.
+>
+> Note that Reddit has 2 APIs: the official API and an undocumented JSON API. You are welcome to use either APIs but we recommend using the JSON API because it doesn’t require an OAuth workflow. Using the JSON API does have limitations such as no write operations. For the purposes of this project, we find the JSON API adequate.
+>
+> You can take any Reddit URL, add .json at the end of it, and get JSON. For example, if you want to get the Popular page data in JSON:
+>
+> Original URL: https://www.reddit.com/r/popular/<br>
+> JSON URL: https://www.reddit.com/r/popular.json
