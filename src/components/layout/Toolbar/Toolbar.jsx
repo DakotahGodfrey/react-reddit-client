@@ -15,7 +15,7 @@ const Toolbar = () => {
         </button>
       </div>
       <button className="toolbar-view">
-        List View <i>view_list</i>
+        <i className="material-icons">view_list</i>
       </button>
     </nav>
   );

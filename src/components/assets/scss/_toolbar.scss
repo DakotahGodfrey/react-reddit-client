@@ -1,0 +1,34 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  background: #dae0e6;
+  .filter {
+    &-controls {
+      display: flex;
+      width: 50%;
+      justify-content: space-between;
+    }
+    &-option {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: $bg-dark;
+      color: $text-light;
+      border-radius: 50px;
+      i {
+        margin: 0 0 0 0.5rem;
+      }
+    }
+  }
+  &-view {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: $bg-dark-lighten-4;
+    color: $text-light;
+    border-radius: 50px;
+  }
+}
