@@ -29,6 +29,15 @@
       background-color: $bg-dark-lighten-2;
       border-radius: 50px;
       color: $text-light;
+      &::-webkit-input-placeholder {
+        transition: all 0.5s ease-out;
+      }
+      &:hover::-webkit-input-placeholder {
+        color: #adadad;
+      }
+      &:focus::-webkit-input-placeholder {
+        opacity: 0;
+      }
     }
     i {
       position: absolute;
@@ -44,15 +53,39 @@
       border-radius: 50px;
       width: 4.4rem;
       height: 4.4rem;
-      background: $brand-color;
+      //   background: $brand-color;
+      background: $bg-dark-lighten-1;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 2px 3px 3px inset rgba($color: $text-light, $alpha: 0.2),
+      box-shadow: 2px 3px 3px inset
+          rgba($color: $bg-dark-lighten-2, $alpha: 0.2),
         0 2px 4px rgba($color: #000, $alpha: 1);
+      transition: box-shadow 0.5s ease-out;
+      &:hover {
+        i {
+          animation: spinSlow 5s linear infinite;
+        }
+      }
+      &:active {
+        // box-shadow: none;
+        box-shadow: 2px 3px 3px inset rgba($color: #000, $alpha: 0.5),
+          -2px -4px 10px inset rgba($color: #000, $alpha: 0.5);
+        i {
+          animation: none;
+          opacity: 0.4;
+        }
+      }
     }
     i {
       color: $text-light;
+      transition: all 0.4s ease-out;
     }
+  }
+}
+
+@keyframes spinSlow {
+  100% {
+    transform: rotate(360deg);
   }
 }
