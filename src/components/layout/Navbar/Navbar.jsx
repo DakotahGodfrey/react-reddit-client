@@ -1,5 +1,6 @@
 import React from "react";
 import smallLogo from "../../assets/media/logoSmall.png";
+import NavControls from "./navControls/NavControls";
 import SearchInput from "./searchInput/SearchInput";
 const Navbar = () => {
   return (
@@ -8,9 +9,10 @@ const Navbar = () => {
       <figure className="logo">
         <img src={smallLogo} alt="reddit snoo logo" />
       </figure>
-      <SearchInput />
       {/* Search Input Here */}
-      {/* navToggles Here */}
+      <SearchInput />
+      {/* navControls Here */}
+      <NavControls />
     </nav>
   );
 };

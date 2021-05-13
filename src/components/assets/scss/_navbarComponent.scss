@@ -1,6 +1,6 @@
 .site-nav {
   background-color: $bg-dark;
-  padding: 0.75rem;
+  padding: 0.75rem 2rem;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
@@ -9,7 +9,8 @@
     height: 44px;
     margin: 0.25rem;
     border-radius: 50%;
-    box-shadow: 0 4px 4px inset $bg-light;
+    box-shadow: 2px 3px 3px inset rgba($color: $text-light, $alpha: 0.2),
+      0 2px 4px rgba($color: #000, $alpha: 1);
     img {
       width: 100%;
     }
@@ -32,6 +33,25 @@
     i {
       position: absolute;
       right: 13%;
+      color: $text-light;
+    }
+  }
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      border-radius: 50px;
+      width: 4.4rem;
+      height: 4.4rem;
+      background: $brand-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 3px 3px inset rgba($color: $text-light, $alpha: 0.2),
+        0 2px 4px rgba($color: #000, $alpha: 1);
+    }
+    i {
       color: $text-light;
     }
   }
