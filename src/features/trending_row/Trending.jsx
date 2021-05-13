@@ -11,6 +11,20 @@ const Trending = () => {
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
     },
+    {
+      title: "Doge",
+      image: Doge,
+      subreddit: "r/finance",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+    },
+    {
+      title: "Doge",
+      image: Doge,
+      subreddit: "r/finance",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+    },
   ];
   return (
     <section className="trending">

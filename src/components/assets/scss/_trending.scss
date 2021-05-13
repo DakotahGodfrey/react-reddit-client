@@ -4,12 +4,23 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
+    padding: 2.5rem 0;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
     padding-left: 2rem;
+
     figure {
       height: 20vh;
       width: 40vw;
+      max-width: 350px;
       position: relative;
       border-radius: 50px;
+      transition: transform 0.4s ease-out;
+      flex-shrink: 0;
+      &:hover {
+        transform: scale(1.1);
+      }
 
       img {
         width: 100%;
