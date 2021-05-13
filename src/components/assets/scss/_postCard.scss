@@ -1,0 +1,32 @@
+.post {
+  &-card {
+    display: grid;
+    margin: 5rem;
+    grid-template-columns: min-content 1fr;
+  }
+  &-vote-control {
+    grid-column: 1;
+    display: flex;
+    grid-row: 1 / span 3;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10rem;
+    padding: 1.5rem;
+    border-right: 2px solid;
+    margin: 0 1rem 0 0;
+  }
+  &-content {
+    height: 66vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    img {
+      object-fit: contain;
+      height: 90%;
+    }
+    iframe {
+      object-fit: contain;
+      height: 90%;
+    }
+  }
+}
