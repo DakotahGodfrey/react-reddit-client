@@ -29,6 +29,15 @@
       background-color: $bg-dark-lighten-2;
       border-radius: 50px;
       color: $text-light;
+      &::-webkit-input-placeholder {
+        transition: all 0.5s ease-out;
+      }
+      &:hover::-webkit-input-placeholder {
+        color: #adadad;
+      }
+      &:focus::-webkit-input-placeholder {
+        opacity: 0;
+      }
     }
     i {
       position: absolute;
