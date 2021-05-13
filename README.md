@@ -42,3 +42,7 @@ OPTIONAL EXTRAS:
 >
 > Original URL: https://www.reddit.com/r/popular/<br>
 > JSON URL: https://www.reddit.com/r/popular.json
+
+### Wireframes
+
+Wireframe images can be found [on google drive](https://drive.google.com/drive/u/0/folders/1-3_-mmoRuCtq_8cmj6fGyj6nWEXLgJ4H)
