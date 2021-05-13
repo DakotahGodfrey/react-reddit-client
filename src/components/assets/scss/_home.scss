@@ -2,5 +2,7 @@
   main {
     display: grid;
     grid-template-columns: 3fr 1fr;
+    max-width: 120rem;
+    margin: 0 auto;
   }
 }
