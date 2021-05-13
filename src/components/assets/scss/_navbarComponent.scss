@@ -58,12 +58,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 2px 3px 3px inset rgba($color: $text-light, $alpha: 0.2),
+      box-shadow: 2px 3px 3px inset
+          rgba($color: $bg-dark-lighten-2, $alpha: 0.2),
         0 2px 4px rgba($color: #000, $alpha: 1);
       transition: box-shadow 0.5s ease-out;
       &:hover {
         i {
-          animation: spinSlow 3s linear infinite;
+          animation: spinSlow 5s linear infinite;
         }
       }
       &:active {
@@ -72,11 +73,13 @@
           -2px -4px 10px inset rgba($color: #000, $alpha: 0.5);
         i {
           animation: none;
+          opacity: 0.4;
         }
       }
     }
     i {
       color: $text-light;
+      transition: all 0.4s ease-out;
     }
   }
 }
