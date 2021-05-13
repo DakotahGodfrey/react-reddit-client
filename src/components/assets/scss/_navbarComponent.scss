@@ -1,0 +1,32 @@
+.site-nav {
+  background-color: $bg-dark;
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  .logo {
+    width: 44px;
+    height: 44px;
+    margin: 0.25rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px inset $bg-light;
+    img {
+      width: 100%;
+    }
+  }
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    input {
+      width: 80%;
+      height: 3.6rem;
+      padding: 0.25rem 1.25rem;
+      font-size: 1.6rem;
+      background-color: $bg-dark-lighten-2;
+      border-radius: 50px;
+      color: $text-light;
+    }
+  }
+}
