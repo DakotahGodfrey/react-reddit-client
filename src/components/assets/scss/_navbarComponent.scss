@@ -44,15 +44,36 @@
       border-radius: 50px;
       width: 4.4rem;
       height: 4.4rem;
-      background: $brand-color;
+      //   background: $brand-color;
+      background: $bg-dark-lighten-1;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 2px 3px 3px inset rgba($color: $text-light, $alpha: 0.2),
         0 2px 4px rgba($color: #000, $alpha: 1);
+      transition: box-shadow 0.5s ease-out;
+      &:hover {
+        i {
+          animation: spinSlow 3s linear infinite;
+        }
+      }
+      &:active {
+        // box-shadow: none;
+        box-shadow: 2px 3px 3px inset rgba($color: #000, $alpha: 0.5),
+          -2px -4px 10px inset rgba($color: #000, $alpha: 0.5);
+        i {
+          animation: none;
+        }
+      }
     }
     i {
       color: $text-light;
     }
+  }
+}
+
+@keyframes spinSlow {
+  100% {
+    transform: rotate(360deg);
   }
 }
