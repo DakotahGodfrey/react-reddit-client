@@ -1,0 +1,31 @@
+// Global Resets
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &::before {
+    box-sizing: inherit;
+  }
+  &::after {
+    box-sizing: inherit;
+  }
+}
+input,
+button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+html {
+  font-size: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+// Global CSS Variables
+
+$bg-dark: #121212;
+$bg-dark-lighten-2: #444;
+$bg-light: #e4e4e4;
+
+$text-light: #fff;
+
+$brand-color: #ff4500;
