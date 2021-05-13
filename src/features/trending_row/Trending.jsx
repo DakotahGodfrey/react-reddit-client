@@ -5,21 +5,21 @@ import Doge from "../../components/assets/media/dogecoin.jpeg.jpg";
 const Trending = () => {
   const trendingItems = [
     {
-      title: "Doge",
+      title: "Doge to the moon",
       image: Doge,
       subreddit: "r/finance",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
     },
     {
-      title: "Doge",
+      title: "Stonks",
       image: Doge,
       subreddit: "r/finance",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
     },
     {
-      title: "Doge",
+      title: "Much Doge",
       image: Doge,
       subreddit: "r/finance",
       content:
