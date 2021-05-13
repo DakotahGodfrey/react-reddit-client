@@ -3,7 +3,8 @@ import React from "react";
 const SearchInput = () => {
   return (
     <form>
-      <input type="search" name="search" id="search" />
+      <i className="material-icons">search</i>
+      <input type="search" name="search" id="search" placeholder="Search" />
     </form>
   );
 };

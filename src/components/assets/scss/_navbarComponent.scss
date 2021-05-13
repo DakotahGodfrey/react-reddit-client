@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    position: relative;
     input {
       width: 80%;
       height: 3.6rem;
@@ -26,6 +27,11 @@
       font-size: 1.6rem;
       background-color: $bg-dark-lighten-2;
       border-radius: 50px;
+      color: $text-light;
+    }
+    i {
+      position: absolute;
+      right: 13%;
       color: $text-light;
     }
   }
