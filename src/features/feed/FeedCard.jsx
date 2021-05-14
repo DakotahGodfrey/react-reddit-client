@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const FeedCard = ({ post }) => {
   const { title, image, video, author, commentCount, subreddit } = post;
   return (
@@ -20,13 +20,24 @@ const FeedCard = ({ post }) => {
       </header>
       {/* Post Content Here */}
       <article className="post-content">
-        <h2>{title}</h2>
+        <h2 className="post-title">{title}</h2>
         {image && <img src={image} alt="post image" />}
         {video && <iframe src={video}></iframe>}
       </article>
       {/* Post Footer Here */}
-      <footer>
-        <span>{commentCount} comments</span>
+      <footer className="post-footer">
+        <Link className="post-links">
+          <i className="material-icons">comment</i>
+          {commentCount} Comments
+        </Link>
+        <Link className="post-links">
+          <i className="material-icons">share</i>
+          Share
+        </Link>
+        <button className="post-links">
+          <i className="material-icons">star</i>
+          Add to favorites
+        </button>
       </footer>
     </section>
   );
