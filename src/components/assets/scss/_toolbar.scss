@@ -5,6 +5,8 @@
   padding: 1rem 2rem;
   background: $bg-dark-lighten-2;
   border-radius: 10px;
+  box-shadow: 0 4px 4px inset rgba($color: $bg-light-grey, $alpha: 0.2),
+    0 -4px 10px inset rgba($color: $bg-dark-lighten-1, $alpha: 1);
   .filter {
     &-controls {
       display: flex;

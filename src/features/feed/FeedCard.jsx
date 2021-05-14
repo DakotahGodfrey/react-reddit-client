@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const FeedCard = ({ post }) => {
   const { title, image, video, author, commentCount, subreddit } = post;
   return (
@@ -26,18 +26,18 @@ const FeedCard = ({ post }) => {
       </article>
       {/* Post Footer Here */}
       <footer className="post-footer">
-        <span className="post-links">
+        <Link className="post-links">
           <i className="material-icons">comment</i>
           {commentCount} Comments
-        </span>
-        <span className="post-links">
+        </Link>
+        <Link className="post-links">
           <i className="material-icons">share</i>
           Share
-        </span>
-        <span className="post-links">
+        </Link>
+        <button className="post-links">
           <i className="material-icons">star</i>
           Add to favorites
-        </span>
+        </button>
       </footer>
     </section>
   );
