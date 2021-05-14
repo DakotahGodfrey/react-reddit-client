@@ -20,13 +20,24 @@ const FeedCard = ({ post }) => {
       </header>
       {/* Post Content Here */}
       <article className="post-content">
-        <h2>{title}</h2>
+        <h2 className="post-title">{title}</h2>
         {image && <img src={image} alt="post image" />}
         {video && <iframe src={video}></iframe>}
       </article>
       {/* Post Footer Here */}
-      <footer>
-        <span>{commentCount} comments</span>
+      <footer className="post-footer">
+        <span className="post-links">
+          <i className="material-icons">comment</i>
+          {commentCount} Comments
+        </span>
+        <span className="post-links">
+          <i className="material-icons">share</i>
+          Share
+        </span>
+        <span className="post-links">
+          <i className="material-icons">star</i>
+          Add to favorites
+        </span>
       </footer>
     </section>
   );
