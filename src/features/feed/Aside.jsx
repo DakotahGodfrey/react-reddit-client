@@ -1,37 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Aside = ({ trendingSubs }) => {
+const Aside = () => {
   return (
     <aside className="sidebar">
       <article className="aside-trending">
-        <div className="aside-header">
+        <header role="banner" className="aside-header">
           <h2>Trending Communities</h2>
-        </div>
+        </header>
         <ul className="trending-subs">
-          <Link to="/" className="trending-sub">
+          <Link to="/" data-testid="anchor-link" className="trending-sub">
             <li>
-              <span className="ranking">1</span> {trendingSubs[0]}
+              <span className="ranking">1</span>
             </li>
           </Link>
-          <Link to="/" className="trending-sub">
+          <Link to="/" data-testid="anchor-link" className="trending-sub">
             <li>
-              <span className="ranking">2</span> {trendingSubs[1]}
+              <span className="ranking">2</span>
             </li>
           </Link>
-          <Link to="/" className="trending-sub">
+          <Link to="/" data-testid="anchor-link" className="trending-sub">
             <li>
-              <span className="ranking">3</span> {trendingSubs[2]}
+              <span className="ranking">3</span>
             </li>
           </Link>
-          <Link to="/" className="trending-sub">
+          <Link to="/" data-testid="anchor-link" className="trending-sub">
             <li>
-              <span className="ranking">4</span> {trendingSubs[3]}
+              <span className="ranking">4</span>
             </li>
           </Link>
-          <Link to="/" className="trending-sub">
+          <Link to="/" data-testid="anchor-link" className="trending-sub">
             <li>
-              <span className="ranking">5</span> {trendingSubs[4]}
+              <span className="ranking">5</span>
             </li>
           </Link>
         </ul>
