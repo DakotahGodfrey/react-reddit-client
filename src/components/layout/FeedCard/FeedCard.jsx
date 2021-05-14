@@ -1,44 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PostBanner from "../PostBanner/PostBanner";
+import PostContent from "../PostContent/PostContent";
+import PostFooter from "../PostFooter/PostFooter";
+import VoteBar from "../VoteBar/VoteBar";
 const FeedCard = ({ post }) => {
   const { title, image, video, author, commentCount, subreddit } = post;
+  const postDetails = {
+    author,
+    subreddit,
+  };
+  const postContent = {
+    title,
+    image,
+    video,
+  };
+  const postLinks = {
+    commentCount,
+  };
   return (
-    <section className="post-card">
+    <section aria-label="user post" className="post-card">
       {/* Vote Component Here */}
-      <div className="post-vote-control">
-        <button>
-          <i className="material-icons">arrow_upward</i>
-        </button>
-        <button>
-          <i className="material-icons">arrow_downward</i>
-        </button>
-      </div>
+      <VoteBar />
       {/* Post Information Here */}
-      <header className="post-information">
-        <span className="post-subreddit">{subreddit}</span>
-        <span className="post-author">{author}</span>
-      </header>
+      <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
-      <article className="post-content">
-        <h2 className="post-title">{title}</h2>
-        {image && <img src={image} alt="post image" />}
-        {video && <iframe src={video}></iframe>}
-      </article>
+      <PostContent postContent={postContent} />
       {/* Post Footer Here */}
-      <footer className="post-footer">
-        <Link to="/" className="post-links">
-          <i className="material-icons">comment</i>
-          {commentCount} Comments
-        </Link>
-        <Link to="/" className="post-links">
-          <i className="material-icons">share</i>
-          Share
-        </Link>
-        <button className="post-links">
-          <i className="material-icons">star</i>
-          Add to favorites
-        </button>
-      </footer>
+      <PostFooter postLinks={postLinks} />
     </section>
   );
 };
