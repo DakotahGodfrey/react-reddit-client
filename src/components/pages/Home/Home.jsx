@@ -5,17 +5,17 @@ import Navbar from "../../layout/Navbar/Navbar";
 
 const Home = () => {
   return (
-    <div className="home">
+    <main className="home">
+      <Navbar />
       <header>
-        <Navbar />
         <Trending />
       </header>
-      <main>
+      <section className="feed-wrapper">
         <Feed />
         {/* FeedContainer and Sub Components */}
         {/* Sidebar and Sidebar cards */}
-      </main>
-    </div>
+      </section>
+    </main>
   );
 };
 

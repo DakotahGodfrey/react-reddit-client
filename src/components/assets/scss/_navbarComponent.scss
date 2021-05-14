@@ -4,6 +4,9 @@
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   .logo {
     width: 44px;
     height: 44px;

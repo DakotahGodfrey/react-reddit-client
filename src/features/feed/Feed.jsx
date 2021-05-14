@@ -33,9 +33,11 @@ const Feed = () => {
     <section className="feed-container">
       {/* Feed Navigation Component */}
       <Toolbar />
-      {posts.map((post) => (
-        <FeedCard post={post} />
-      ))}
+      <div className="posts-container">
+        {posts.map((post) => (
+          <FeedCard post={post} />
+        ))}
+      </div>
     </section>
   );
 };
