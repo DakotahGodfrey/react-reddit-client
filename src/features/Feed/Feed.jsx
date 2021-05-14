@@ -1,7 +1,6 @@
 import React from "react";
 import Toolbar from "../../components/layout/Toolbar/Toolbar";
-import Aside from "./Aside";
-import FeedCard from "./FeedCard";
+import FeedCard from "../../components/layout/FeedCard/FeedCard";
 
 const Feed = () => {
   const posts = [

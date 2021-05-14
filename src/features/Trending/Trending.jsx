@@ -1,5 +1,5 @@
 import React from "react";
-import TrendingItem from "./TrendingItem";
+import TrendingItem from "../../components/layout/TrendingItem/TrendingItem";
 import Doge from "../../assets/media/dogecoin.jpeg.jpg";
 
 const Trending = () => {

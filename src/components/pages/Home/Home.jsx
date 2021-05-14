@@ -1,7 +1,7 @@
 import React from "react";
-import Aside from "../../../features/feed/Aside";
-import Feed from "../../../features/feed/Feed";
-import Trending from "../../../features/trending_row/Trending";
+import Aside from "../../../components/layout/Aside/Aside";
+import Feed from "../../../features/Feed/Feed";
+import Trending from "../../../features/Trending/Trending";
 import Navbar from "../../layout/Navbar/Navbar";
 
 const Home = () => {
@@ -14,9 +14,7 @@ const Home = () => {
       </header>
       <section className="feed" data-testid="feed">
         <div className="feed-wrapper" data-testid="feed-wrapper">
-          {/* FeedContainer and Sub Components */}
           <Feed />
-          {/* Sidebar and Sidebar cards */}
           <Aside trendingSubs={trendingSubs} />
         </div>
       </section>
