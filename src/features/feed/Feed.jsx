@@ -44,7 +44,7 @@ const Feed = () => {
       <Toolbar />
       <div className="posts-container">
         {posts.map((post) => (
-          <FeedCard post={post} />
+          <FeedCard post={post} key={post.commentCount} />
         ))}
       </div>
     </section>

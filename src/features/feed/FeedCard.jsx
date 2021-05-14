@@ -26,11 +26,11 @@ const FeedCard = ({ post }) => {
       </article>
       {/* Post Footer Here */}
       <footer className="post-footer">
-        <Link className="post-links">
+        <Link to="/" className="post-links">
           <i className="material-icons">comment</i>
           {commentCount} Comments
         </Link>
-        <Link className="post-links">
+        <Link to="/" className="post-links">
           <i className="material-icons">share</i>
           Share
         </Link>

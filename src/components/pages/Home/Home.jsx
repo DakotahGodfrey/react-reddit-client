@@ -9,11 +9,11 @@ const Home = () => {
   return (
     <main className="home">
       <Navbar />
-      <header>
+      <header className="trending-container" data-testid="trending-container">
         <Trending />
       </header>
-      <section className="feed">
-        <div className="feed-wrapper">
+      <section className="feed" data-testid="feed">
+        <div className="feed-wrapper" data-testid="feed-wrapper">
           {/* FeedContainer and Sub Components */}
           <Feed />
           {/* Sidebar and Sidebar cards */}

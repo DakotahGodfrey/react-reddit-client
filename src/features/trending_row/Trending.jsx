@@ -1,6 +1,6 @@
 import React from "react";
 import TrendingItem from "./TrendingItem";
-import Doge from "../../components/assets/media/dogecoin.jpeg.jpg";
+import Doge from "../../assets/media/dogecoin.jpeg.jpg";
 
 const Trending = () => {
   const trendingItems = [
@@ -10,6 +10,7 @@ const Trending = () => {
       subreddit: "r/finance",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+      id: 1,
     },
     {
       title: "Stonks",
@@ -17,6 +18,7 @@ const Trending = () => {
       subreddit: "r/finance",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+      id: 2,
     },
     {
       title: "Much Doge",
@@ -24,13 +26,14 @@ const Trending = () => {
       subreddit: "r/finance",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+      id: 3,
     },
   ];
   return (
     <section className="trending">
       <div className="trending-row">
         {trendingItems.map((trendingItem) => (
-          <TrendingItem trendingItem={trendingItem} />
+          <TrendingItem trendingItem={trendingItem} key={trendingItem.id} />
         ))}
       </div>
     </section>
