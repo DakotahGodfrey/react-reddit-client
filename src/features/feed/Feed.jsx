@@ -47,7 +47,6 @@ const Feed = () => {
           <FeedCard post={post} />
         ))}
       </div>
-      <Aside />
     </section>
   );
 };

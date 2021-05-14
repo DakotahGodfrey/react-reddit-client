@@ -1,4 +1,5 @@
 import React from "react";
+import Aside from "../../../features/feed/Aside";
 import Feed from "../../../features/feed/Feed";
 import Trending from "../../../features/trending_row/Trending";
 import Navbar from "../../layout/Navbar/Navbar";
@@ -10,10 +11,13 @@ const Home = () => {
       <header>
         <Trending />
       </header>
-      <section className="feed-wrapper">
-        <Feed />
-        {/* FeedContainer and Sub Components */}
-        {/* Sidebar and Sidebar cards */}
+      <section className="feed">
+        <div className="feed-wrapper">
+          {/* FeedContainer and Sub Components */}
+          <Feed />
+          {/* Sidebar and Sidebar cards */}
+          <Aside />
+        </div>
       </section>
     </main>
   );
