@@ -15,20 +15,20 @@ const FeedCard = ({ post }) => {
       </div>
       {/* Post Information Here */}
       <header className="post-information">
-        <span className="post-subreddit">{subreddit}</span>
-        <span className="post-author">{author}</span>
+        <span className="post-subreddit"></span>
+        <span className="post-author"></span>
       </header>
       {/* Post Content Here */}
       <article className="post-content">
-        <h2 className="post-title">{title}</h2>
-        {image && <img src={image} alt="post image" />}
-        {video && <iframe src={video}></iframe>}
+        <h2 className="post-title"></h2>
+        {image && <img src="" alt="post image" />}
+        {video && <iframe src=""></iframe>}
       </article>
       {/* Post Footer Here */}
       <footer className="post-footer">
         <Link className="post-links">
           <i className="material-icons">comment</i>
-          {commentCount} Comments
+          Comments
         </Link>
         <Link className="post-links">
           <i className="material-icons">share</i>

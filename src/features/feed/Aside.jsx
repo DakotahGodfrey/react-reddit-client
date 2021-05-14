@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Aside = ({ trendingSubs }) => {
+const Aside = () => {
   return (
     <aside className="sidebar">
       <article className="aside-trending">
@@ -11,27 +11,27 @@ const Aside = ({ trendingSubs }) => {
         <ul className="trending-subs">
           <Link className="trending-sub">
             <li>
-              <span className="ranking">1</span> {trendingSubs[0]}
+              <span className="ranking">1</span> {}
             </li>
           </Link>
           <Link className="trending-sub">
             <li>
-              <span className="ranking">2</span> {trendingSubs[1]}
+              <span className="ranking">2</span> {}
             </li>
           </Link>
           <Link className="trending-sub">
             <li>
-              <span className="ranking">3</span> {trendingSubs[2]}
+              <span className="ranking">3</span> {}
             </li>
           </Link>
           <Link className="trending-sub">
             <li>
-              <span className="ranking">4</span> {trendingSubs[3]}
+              <span className="ranking">4</span> {}
             </li>
           </Link>
           <Link className="trending-sub">
             <li>
-              <span className="ranking">5</span> {trendingSubs[4]}
+              <span className="ranking">5</span> {}
             </li>
           </Link>
         </ul>
