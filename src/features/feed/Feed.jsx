@@ -1,5 +1,6 @@
 import React from "react";
 import Toolbar from "../../components/layout/Toolbar/Toolbar";
+import Aside from "./Aside";
 import FeedCard from "./FeedCard";
 
 const Feed = () => {
@@ -28,7 +29,15 @@ const Feed = () => {
       subreddit: "r/rarepuppers",
       commentCount: 453,
     },
+    {
+      title:
+        "God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs",
+      author: "u/jeffGoldblum",
+      subreddit: "r/jeffsum",
+      commentCount: 666,
+    },
   ];
+
   return (
     <section className="feed-container">
       {/* Feed Navigation Component */}
@@ -38,6 +47,7 @@ const Feed = () => {
           <FeedCard post={post} />
         ))}
       </div>
+      <Aside />
     </section>
   );
 };
