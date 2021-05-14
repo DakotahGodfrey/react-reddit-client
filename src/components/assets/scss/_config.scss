@@ -20,11 +20,17 @@ html {
   font-size: 10px;
   font-family: Helvetica, Arial, sans-serif;
 }
+ul {
+  list-style: none;
+}
 // Global CSS Variables
 
 $bg-dark: #121212;
 $bg-dark-lighten-1: #222;
 $bg-dark-lighten-2: #444;
+$bg-dark-lighten-3: #666;
+$bg-dark-lighten-4: #999;
+$bg-light-grey: #eee;
 $bg-light: #e4e4e4;
 
 $text-light: #fff;

@@ -1,0 +1,16 @@
+@media screen and (max-width: 959px) {
+  .home {
+    .feed-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      display: none;
+    }
+    .toolbar {
+      padding: 0.5rem 0rem;
+    }
+    .posts-container {
+      padding: 0;
+    }
+  }
+}

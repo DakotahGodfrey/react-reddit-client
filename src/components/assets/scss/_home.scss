@@ -1,0 +1,22 @@
+.home {
+  background-color: $bg-dark-lighten-1;
+  .feed {
+    display: flex;
+    justify-content: center;
+  }
+  .feed-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: 120rem;
+    margin: 0 2rem;
+    justify-content: center;
+    gap: 3rem;
+    flex-grow: 1;
+  }
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem;
+  }
+}
