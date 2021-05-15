@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { popular_url } from "../../../app/api";
+import { popular_url, base_url } from "../../../app/api";
 
 export const getPopularPosts = createAsyncThunk(
   "home/getPopularPosts",
@@ -9,12 +9,16 @@ export const getPopularPosts = createAsyncThunk(
     return data;
   }
 );
-
+export const getTrending = createAsyncThunk("home/getTrending", async () => {
+  const response = await fetch(`${base_url}r/worldNews/.json?limit=5`);
+  const data = await response.json();
+  return data;
+});
 const homeSlice = createSlice({
   name: "home",
   initialState: {
     posts: [],
-    trending: [],
+    trendingItems: [],
     status: "idle",
     errors: "",
   },
@@ -32,6 +36,17 @@ const homeSlice = createSlice({
       state.posts = action.payload.data.children;
     },
     [getPopularPosts.rejected]: (state) => {
+      state.errors = "request failed";
+    },
+    [getTrending.pending]: (state) => {
+      state.status = "pending";
+    },
+    [getTrending.fulfilled]: (state, action) => {
+      state.status = "idle";
+      state.trendingItems = action.payload.data.children;
+    },
+    [getTrending.rejected]: (state) => {
+      state.status = "idle";
       state.errors = "request failed";
     },
   },

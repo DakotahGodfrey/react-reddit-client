@@ -3,15 +3,11 @@ import PostBanner from "../PostBanner/PostBanner";
 import PostContent from "../PostContent/PostContent";
 import PostFooter from "../PostFooter/PostFooter";
 import VoteBar from "../VoteBar/VoteBar";
+import { urlReplace } from "../../../app/api";
 const FeedCard = ({ post }) => {
   const { title, author, subreddit_name_prefixed, num_comments, is_video } =
     post.data;
 
-  function urlReplace(urlToReplace) {
-    const string = urlToReplace;
-    let newUrl = string.replace(/&amp;/g, "&");
-    return newUrl;
-  }
   const image = post.data.preview
     ? urlReplace(post.data.preview.images[0].source.url)
     : null;
@@ -19,7 +15,6 @@ const FeedCard = ({ post }) => {
   const video = is_video
     ? post.data.secure_media.reddit_video.fallback_url
     : null;
-  console.log(video);
   const postDetails = {
     author,
     subreddit_name_prefixed,
