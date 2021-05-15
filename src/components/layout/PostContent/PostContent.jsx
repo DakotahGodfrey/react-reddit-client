@@ -6,8 +6,8 @@ const PostContent = ({ postContent }) => {
     <article className="post-content">
       <h2 className="post-title">{title}</h2>
       {video ? (
-        <video controls>
-          <source src={video} type="video/mp4" />
+        <video data-testid="video" controls>
+          <source data-testid="source" src={video} type="video/mp4" />
         </video>
       ) : image ? (
         <img src={image} alt="post image" />

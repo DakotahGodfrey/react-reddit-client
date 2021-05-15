@@ -6,7 +6,7 @@ const PostFooter = ({ postLinks }) => {
     <footer data-testid="post-footer" className="post-footer">
       <Link to="/" data-testid="comment-link" className="post-links">
         <i className="material-icons">comment</i>
-        {num_comments} Comments
+        <span data-testid="num_comments"></span> Comments
       </Link>
       <Link to="/" data-testid="share-link" className="post-links">
         <i className="material-icons">share</i>

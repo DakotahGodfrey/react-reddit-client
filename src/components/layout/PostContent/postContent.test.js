@@ -26,11 +26,10 @@ describe("Post Content", () => {
     expect(h2).toHaveClass("post-title");
   });
   describe("image", () => {
-    it("should render an img if an image src is passed through props ", () => {
+    it("should render an img if an image src is passed through props and no video exists", () => {
       let postContent = {
         title: "text",
         image: "https://src.png",
-        video: "http://src.mp4",
       };
       render(<PostContent postContent={postContent} />);
       const img = screen.getByRole("img");
@@ -58,7 +57,16 @@ describe("Post Content", () => {
       render(<PostContent postContent={postContent} />);
       const video = screen.getByTestId("video");
       expect(video).toBeInTheDocument();
-      expect(video).toHaveAttribute("src", postContent.video);
+    });
+    it("should render a source element with a src attribute equal to the video src passed through props", () => {
+      let postContent = {
+        title: "text",
+        image: "https://src.png",
+        video: "http://src.mp4",
+      };
+      render(<PostContent postContent={postContent} />);
+      const source = screen.getByTestId("source");
+      expect(source).toHaveAttribute("src", postContent.video);
     });
     it("should not render a video if the video passed through props is falsy", () => {
       let postContent = {
