@@ -9,7 +9,7 @@ const Feed = ({ posts }) => {
       <Toolbar />
       <div className="posts-container" data-testid="posts-container">
         {posts.map((post) => (
-          <FeedCard post={post} key={post.commentCount} />
+          <FeedCard post={post} key={post.data.created} />
         ))}
       </div>
     </section>

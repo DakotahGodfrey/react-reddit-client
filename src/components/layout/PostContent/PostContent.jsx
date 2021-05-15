@@ -6,7 +6,7 @@ const PostContent = ({ postContent }) => {
     <article className="post-content">
       <h2 className="post-title">{title}</h2>
       {image && <img src={image} alt="post image" />}
-      {video && <iframe data-testid="video" src={video}></iframe>}
+      {/* {video && <iframe data-testid="video" src={video}></iframe>} */}
     </article>
   );
 };
