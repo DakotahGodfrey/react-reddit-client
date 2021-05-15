@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 beforeEach(() => {
   let postLinks = {
-    commentCount: 555,
+    num_comments: 555,
   };
   render(
     <Router>
@@ -26,9 +26,11 @@ describe("Post Footer", () => {
     expect(link[0]).toHaveClass("post-links");
     expect(link[1]).toHaveClass("post-links");
   });
-  it('"should render an anchor element with a string representing comment count"', () => {
+  it("should render an anchor element with a span equal to the number of comments", () => {
     const commentLink = screen.getByTestId("comment-link");
-    expect(commentLink).toHaveTextContent(/comment555 Comments/);
+    const commentSpan = screen.getByTestId("num_comments");
+    expect(commentLink).toBeInTheDocument();
+    expect(commentSpan).toBeInTheDocument();
   });
   it('"should render an anchor element with a string representing comment count"', () => {
     const shareLink = screen.getByTestId("share-link");

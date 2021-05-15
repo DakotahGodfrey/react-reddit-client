@@ -5,8 +5,13 @@ const PostContent = ({ postContent }) => {
   return (
     <article className="post-content">
       <h2 className="post-title">{title}</h2>
-      {image && <img src={image} alt="post image" />}
-      {video && <iframe data-testid="video" src={video}></iframe>}
+      {video ? (
+        <video data-testid="video" controls>
+          <source data-testid="source" src={video} type="video/mp4" />
+        </video>
+      ) : image ? (
+        <img src={image} alt="post image" />
+      ) : null}
     </article>
   );
 };

@@ -5,19 +5,34 @@ import { BrowserRouter as Router } from "react-router-dom";
 beforeEach(() => {
   const posts = [
     {
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, nam?",
-      image: "https://i.redd.it/043rme7pzvy61.jpg",
-      author: "u/throwaway",
-      subreddit: "r/rarepuppers",
-      commentCount: 453,
+      data: {
+        title: "text",
+        author: "author",
+        subreddit_name_prefixed: "r/food",
+        num_comments: 666,
+        is_video: false,
+        id: 14,
+      },
     },
     {
-      title:
-        "God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs",
-      author: "u/jeffGoldblum",
-      subreddit: "r/jeffsum",
-      commentCount: 666,
+      data: {
+        title: "text",
+        author: "author",
+        subreddit_name_prefixed: "r/food",
+        num_comments: 666,
+        is_video: false,
+        id: 12,
+      },
+    },
+    {
+      data: {
+        title: "text",
+        author: "author",
+        subreddit_name_prefixed: "r/food",
+        num_comments: 666,
+        is_video: false,
+        id: 11,
+      },
     },
   ];
   render(
@@ -45,6 +60,6 @@ describe("Feed", () => {
   });
   it("should render a userPost for each object in the posts array", () => {
     const userPosts = screen.getAllByTestId("user-post");
-    expect(userPosts.length).toEqual(2);
+    expect(userPosts.length).toEqual(3);
   });
 });

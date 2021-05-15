@@ -4,11 +4,13 @@ import FeedCard from "./FeedCard";
 import { BrowserRouter as Router } from "react-router-dom";
 beforeEach(() => {
   let post = {
-    title: "title",
-    image: "https://test.png.com",
-    author: "your mom",
-    commentCount: "333",
-    subReddit: "r/jokes",
+    data: {
+      title: "title",
+      image: "https://test.png.com",
+      author: "your mom",
+      num_comments: "333",
+      subreddit_name_prefixed: "r/jokes",
+    },
   };
   render(
     <Router>
