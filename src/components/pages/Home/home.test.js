@@ -2,11 +2,15 @@ import React from "react";
 import { screen, render } from "@testing-library/react";
 import Home from "./Home";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "../../../app/store";
 beforeEach(() => {
   render(
-    <Router>
-      <Home />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Home />
+      </Router>
+    </Provider>
   );
 });
 describe("Home", () => {

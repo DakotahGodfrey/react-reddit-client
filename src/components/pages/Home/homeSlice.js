@@ -29,7 +29,7 @@ const homeSlice = createSlice({
     },
     [getPopularPosts.fulfilled]: (state, action) => {
       state.status = "idle";
-      state.posts = action.payload.children;
+      state.posts = action.payload.data.children;
     },
     [getPopularPosts.rejected]: (state) => {
       state.errors = "request failed";
