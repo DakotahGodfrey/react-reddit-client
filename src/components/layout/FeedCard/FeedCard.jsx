@@ -19,7 +19,11 @@ const FeedCard = ({ post }) => {
     commentCount,
   };
   return (
-    <section aria-label="user post" className="post-card">
+    <section
+      aria-label="user post"
+      data-testid="user-post"
+      className="post-card"
+    >
       {/* Vote Component Here */}
       <VoteBar />
       {/* Post Information Here */}
