@@ -8,9 +8,7 @@ aside {
       display: flex;
       background-color: $bg-dark-lighten-2;
       align-items: flex-end;
-      box-shadow: 0 4px 4px inset rgba($color: $bg-light-grey, $alpha: 0.2),
-        0 -4px 10px inset rgba($color: $bg-dark-lighten-1, $alpha: 1);
-      border-top-right-radius: 50px;
+
       h2 {
         font-size: 2.2rem;
         padding: 0 0 1.5rem 2rem;

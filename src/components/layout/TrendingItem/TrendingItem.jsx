@@ -5,8 +5,8 @@ const TrendingItem = ({ trendingItem }) => {
   return (
     <figure>
       <img src={image} alt={title} />
-      <figcaption>
-        <span className="trending-title">{title}</span>
+      <figcaption data-testid="figure-caption">
+        <h3 className="trending-title">{title}</h3>
         <p className="trending-lead">{content}</p>
         <span className="trending-subreddit">{subreddit}</span>
       </figcaption>

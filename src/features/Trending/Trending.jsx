@@ -28,6 +28,22 @@ const Trending = () => {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
       id: 3,
     },
+    {
+      title: "Much Doge",
+      image: Doge,
+      subreddit: "r/finance",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+      id: 4,
+    },
+    {
+      title: "Much Doge",
+      image: Doge,
+      subreddit: "r/finance",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, omnis.",
+      id: 5,
+    },
   ];
   return (
     <section className="trending">
