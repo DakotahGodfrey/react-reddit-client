@@ -5,20 +5,22 @@ import PostContent from "../PostContent/PostContent";
 import PostFooter from "../PostFooter/PostFooter";
 import VoteBar from "../VoteBar/VoteBar";
 const FeedCard = ({ post }) => {
-  const { title, author, subreddit_name_prefixed, num_comments } = post.data;
-  // const video = post.data.media
-  //   ? post.data.media.reddit_video.fallback_url
-  //   : null;
+  const { title, author, subreddit_name_prefixed, num_comments, is_video } =
+    post.data;
+
   function urlReplace(urlToReplace) {
     const string = urlToReplace;
-    console.log(string);
     let newUrl = string.replace(/&amp;/g, "&");
     return newUrl;
   }
-  // const image = post.data.url_overridden_by_dest;
   const image = post.data.preview
     ? urlReplace(post.data.preview.images[0].source.url)
     : null;
+
+  const video = is_video
+    ? post.data.secure_media.reddit_video.fallback_url
+    : null;
+  console.log(video);
   const postDetails = {
     author,
     subreddit_name_prefixed,
@@ -26,7 +28,7 @@ const FeedCard = ({ post }) => {
   const postContent = {
     title,
     image,
-    // video,
+    video,
   };
   const postLinks = {
     num_comments,
