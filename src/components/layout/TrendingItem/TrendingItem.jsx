@@ -1,16 +1,15 @@
 import React from "react";
-
+import { urlReplace } from "../../../app/api";
 const TrendingItem = ({ trendingItem }) => {
-  const { title, subreddit, image, content } = trendingItem;
+  const { subreddit_name_prefixed, title } = trendingItem.data;
+  console.log(trendingItem);
+  const image = trendingItem.data.preview
+    ? urlReplace(trendingItem.data.preview.images[0].source.url)
+    : null;
   return (
-    <figure>
-      <img src={image} alt={title} />
-      <figcaption data-testid="figure-caption">
-        <h3 className="trending-title">{title}</h3>
-        <p className="trending-lead">{content}</p>
-        <span className="trending-subreddit">{subreddit}</span>
-      </figcaption>
-    </figure>
+    <div className="trending-card">
+      <h3 className="trending-title">{title}</h3>
+    </div>
   );
 };
 

@@ -1,5 +1,13 @@
 .trending {
   margin-top: 2rem;
+  position: relative;
+  &-heading {
+    font-size: 3rem;
+    color: $text-light;
+    position: absolute;
+    top: 0;
+    padding: 1.5rem;
+  }
   &-row {
     display: flex;
     flex-wrap: nowrap;
@@ -11,49 +19,38 @@
     padding-left: 2rem;
     max-width: 120rem;
     margin: 0 auto;
+  }
+  &-card {
+    height: 20vh;
+    width: 40vw;
+    min-width: 350px;
+    position: relative;
+    border-radius: 50px;
+    max-width: 500px;
+    transition: transform 0.4s ease-out;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    background-color: $brand-color;
+    color: $text-light;
+    &:hover {
+      transform: scale(1.1);
+    }
 
-    figure {
-      height: 20vh;
-      width: 40vw;
-      max-width: 350px;
-      position: relative;
-      border-radius: 50px;
-      transition: transform 0.4s ease-out;
-      flex-shrink: 0;
-      &:hover {
-        transform: scale(1.1);
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-      }
-      figcaption {
-        position: absolute;
-        padding: 0.5rem 1rem 1rem 1rem;
-        bottom: 0;
-        width: 100%;
-        color: $text-light;
-        background: rgba($color: $bg-dark, $alpha: 0.4);
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        .trending {
-          &-title {
-            font-size: 1.9rem;
-            font-weight: 600;
-          }
-          &-lead {
-            font-size: 1.4rem;
-            //truncate text here
-          }
-          &-subreddit {
-            letter-spacing: 0.25px;
-            font-weight: 700;
-            font-size: 1.2rem;
-          }
-        }
+    .trending {
+      &-title {
+        font-size: 1.9rem;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 2rem;
       }
     }
   }
