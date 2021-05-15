@@ -2,8 +2,10 @@ import React from "react";
 
 const SearchInput = () => {
   return (
-    <form>
-      <i className="material-icons">search</i>
+    <form aria-label="search form">
+      <i role="icon" className="material-icons">
+        search
+      </i>
       <input
         type="search"
         aria-label="search"

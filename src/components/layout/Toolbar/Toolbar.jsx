@@ -3,7 +3,7 @@ import React from "react";
 const Toolbar = () => {
   return (
     <nav className="toolbar">
-      <div className="filter-controls">
+      <div data-testid="filter-controls" className="filter-controls">
         <button className="filter-option">
           Hot <i className="material-icons">whatshot</i>
         </button>
