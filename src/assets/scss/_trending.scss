@@ -1,12 +1,14 @@
 .trending {
   margin-top: 2rem;
   position: relative;
+  &-container {
+    padding: 3rem;
+  }
   &-heading {
     font-size: 3rem;
     color: $text-light;
     position: absolute;
-    top: 0;
-    padding: 1.5rem;
+    top: -20px;
   }
   &-row {
     display: flex;

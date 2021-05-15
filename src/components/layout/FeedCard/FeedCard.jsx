@@ -34,7 +34,7 @@ const FeedCard = ({ post }) => {
       className="post-card"
     >
       {/* Vote Component Here */}
-      <VoteBar />
+      {/* <VoteBar /> */}
       {/* Post Information Here */}
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
