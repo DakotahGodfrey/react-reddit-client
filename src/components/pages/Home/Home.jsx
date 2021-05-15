@@ -11,7 +11,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPopularPosts());
-  }, []);
+  }, [dispatch]);
   const home = useSelector(selectHome);
   const { posts } = home;
   const trendingSubs = ["r/eyebleach", "r/aww", "r/news", "r/doge", "r/stonks"];

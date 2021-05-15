@@ -9,7 +9,7 @@ describe("SearchInput", () => {
   });
   it("should render a search icon", () => {
     render(<SearchInput />);
-    const searchIcon = screen.getByRole("icon");
+    const searchIcon = screen.getByTestId("search");
 
     expect(searchIcon).toBeInTheDocument();
   });

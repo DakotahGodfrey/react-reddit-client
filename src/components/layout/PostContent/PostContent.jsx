@@ -10,7 +10,7 @@ const PostContent = ({ postContent }) => {
           <source data-testid="source" src={video} type="video/mp4" />
         </video>
       ) : image ? (
-        <img src={image} alt="post image" />
+        <img src={image} alt={title} />
       ) : null}
     </article>
   );

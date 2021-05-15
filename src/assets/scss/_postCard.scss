@@ -54,6 +54,10 @@
     padding-top: 1.5rem;
     display: flex;
     align-items: center;
+    span {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
   }
   &-links {
     font-size: 1.4rem;
