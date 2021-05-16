@@ -10,7 +10,7 @@ export const getPostById = createAsyncThunk(
     return data;
   }
 );
-createSlice({
+const postSlice = createSlice({
   name: "post",
   initialState: {
     status: "idle",
@@ -42,6 +42,6 @@ createSlice({
   },
 });
 
-export const { setCurrentPostId, setCurrentPostSubreddit } = post.actions;
+export const { setCurrentPostId, setCurrentPostSubreddit } = postSlice.actions;
 export const selectPost = (state) => state.post;
 export default postSlice.reducer;
