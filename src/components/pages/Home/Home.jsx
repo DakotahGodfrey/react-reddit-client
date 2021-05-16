@@ -3,7 +3,6 @@ import Aside from "../../../components/layout/Aside/Aside";
 import Feed from "../../../features/Feed/Feed";
 import Trending from "../../../features/Trending/Trending";
 import Navbar from "../../layout/Navbar/Navbar";
-import Doge from "../../../assets/media/dogecoin.jpeg.jpg";
 
 import { getPopularPosts, getTrending, selectHome } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";

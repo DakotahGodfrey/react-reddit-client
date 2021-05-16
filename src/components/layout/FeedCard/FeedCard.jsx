@@ -2,7 +2,6 @@ import React from "react";
 import PostBanner from "../PostBanner/PostBanner";
 import PostContent from "../PostContent/PostContent";
 import PostFooter from "../PostFooter/PostFooter";
-import VoteBar from "../VoteBar/VoteBar";
 import { urlReplace } from "../../../app/api";
 const FeedCard = ({ post }) => {
   const { title, author, subreddit_name_prefixed, num_comments, is_video } =
