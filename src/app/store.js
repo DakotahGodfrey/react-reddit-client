@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import homeReducer from "../components/pages/Home/homeSlice";
 import postReducer from "../components/pages/Post/postSlice";
 import { persistStore, persistReducer } from "redux-persist";
@@ -15,6 +15,9 @@ const store = configureStore({
     home: homeReducer,
     post: persistedPostReducer,
   },
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
 
 export let persistor = persistStore(store);
