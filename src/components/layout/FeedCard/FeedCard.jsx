@@ -49,22 +49,23 @@ const FeedCard = ({ post }) => {
     dispatch(getPostById(postToGet));
   };
   return (
-    <Link to="/post" onClick={handleClick}>
-      <section
-        aria-label="user post"
-        data-testid="user-post"
-        className="post-card"
-      >
-        {/* Vote Component Here */}
-        {/* <VoteBar /> */}
-        {/* Post Information Here */}
-        <PostBanner postDetails={postDetails} />
-        {/* Post Content Here */}
+    <section
+      aria-label="user post"
+      data-testid="user-post"
+      className="post-card"
+    >
+      {/* Vote Component Here */}
+      {/* <VoteBar /> */}
+      {/* Post Information Here */}
+      <PostBanner postDetails={postDetails} />
+      {/* Post Content Here */}
+      <Link to="/post" onClick={handleClick}>
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
-        <PostFooter postLinks={postLinks} />
-      </section>
-    </Link>
+      </Link>
+
+      <PostFooter postLinks={postLinks} />
+    </section>
   );
 };
 

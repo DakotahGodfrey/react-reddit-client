@@ -9,10 +9,12 @@ const Post = () => {
     ? currentPostData[0].data.children[0].data
     : null;
   return (
-    <main className="post">
+    <main className="page">
       <Navbar />
-      <section className="post">
-        <PostCard post={post} />
+      <section className="page-content">
+        <div className="page-wrapper">
+          <PostCard post={post} />
+        </div>
       </section>
     </main>
   );

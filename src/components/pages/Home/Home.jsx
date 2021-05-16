@@ -17,13 +17,13 @@ const Home = () => {
 
   const trendingSubs = ["r/eyebleach", "r/aww", "r/news", "r/doge", "r/stonks"];
   return (
-    <main className="home">
+    <main className="page">
       <Navbar />
       <header className="trending-container" data-testid="trending-container">
         <Trending trendingItems={trendingItems} />
       </header>
-      <section className="feed" data-testid="feed">
-        <div className="feed-wrapper" data-testid="feed-wrapper">
+      <section className="page-content" data-testid="feed">
+        <div className="page-wrapper" data-testid="feed-wrapper">
           {errors ? (
             <p className="feed-error">Sorry, something went wrong</p>
           ) : (

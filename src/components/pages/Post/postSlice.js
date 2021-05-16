@@ -30,6 +30,7 @@ const postSlice = createSlice({
   },
   extraReducers: {
     [getPostById.pending]: (state) => {
+      state.currentPostData = "";
       state.status = "pending";
     },
     [getPostById.fulfilled]: (state, action) => {
