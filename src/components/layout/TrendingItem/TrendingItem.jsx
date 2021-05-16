@@ -7,7 +7,7 @@ const TrendingItem = ({ trendingItem }) => {
     ? urlReplace(trendingItem.data.preview.images[0].source.url)
     : null;
   return (
-    <div className="trending-card">
+    <div className="trending-card" data-testid="trending-card">
       <h3 className="trending-title">{title}</h3>
     </div>
   );

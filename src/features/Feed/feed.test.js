@@ -2,43 +2,40 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Feed from "./Feed";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import homeReducer from "../../components/pages/Home/homeSlice";
+
 beforeEach(() => {
+  const store = configureStore({ reducer: { home: homeReducer } });
   const posts = [
     {
       data: {
         title: "text",
         author: "author",
-        subreddit_name_prefixed: "r/food",
-        num_comments: 666,
-        is_video: false,
-        id: 14,
+        subreddit_name_prefixed: "r/sub",
+        num_comments: 444,
+        isVideo: false,
+        id: 4444,
       },
     },
     {
       data: {
         title: "text",
         author: "author",
-        subreddit_name_prefixed: "r/food",
-        num_comments: 666,
-        is_video: false,
-        id: 12,
-      },
-    },
-    {
-      data: {
-        title: "text",
-        author: "author",
-        subreddit_name_prefixed: "r/food",
-        num_comments: 666,
-        is_video: false,
-        id: 11,
+        subreddit_name_prefixed: "r/sub",
+        num_comments: 444,
+        isVideo: false,
+        id: 444334,
       },
     },
   ];
   render(
-    <Router>
-      <Feed posts={posts} />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Feed posts={posts} />
+      </Router>
+    </Provider>
   );
 });
 
@@ -60,6 +57,6 @@ describe("Feed", () => {
   });
   it("should render a userPost for each object in the posts array", () => {
     const userPosts = screen.getAllByTestId("user-post");
-    expect(userPosts.length).toEqual(3);
+    expect(userPosts.length).toEqual(2);
   });
 });
