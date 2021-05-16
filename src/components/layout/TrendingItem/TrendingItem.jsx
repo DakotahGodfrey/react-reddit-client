@@ -1,7 +1,6 @@
 import React from "react";
 const TrendingItem = ({ trendingItem }) => {
   const { title } = trendingItem.data;
-  console.log(trendingItem);
 
   return (
     <div className="trending-card" data-testid="trending-card">
