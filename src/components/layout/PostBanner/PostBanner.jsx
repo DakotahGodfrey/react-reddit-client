@@ -8,7 +8,7 @@ const PostBanner = ({ postDetails }) => {
         {subreddit_name_prefixed}
       </span>
       <span data-testid="author" className="post-author">
-        {author}
+        Posted by u/{author}
       </span>
     </header>
   );
