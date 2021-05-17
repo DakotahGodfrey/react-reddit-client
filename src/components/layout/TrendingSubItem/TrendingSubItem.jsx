@@ -8,7 +8,10 @@ const TrendingSubItem = ({ subreddit }) => {
     <li className="trending-subreddit">
       <Link to="/" data-testid="anchor-link" className="trending-sub">
         <div className="trending-subreddit-content">
-          <div className="trending-subreddit-icon">
+          <div
+            className="trending-subreddit-icon"
+            style={{ backgroundColor: "#ff4500" }}
+          >
             <img src={icon_img} alt="" />
           </div>
           <span>{display_name_prefixed}</span>
