@@ -5,6 +5,7 @@ import Aside from "../../layout/Aside/Aside";
 import { selectCurrentPost } from "./postSlice";
 import { useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/CommentsContainer/CommentsContainer";
+import PostAside from "../../layout/PostAside/PostAside";
 const Post = () => {
   const currentPostData = useSelector(selectCurrentPost);
   const post = currentPostData[0]
@@ -20,7 +21,7 @@ const Post = () => {
         <div className="page-wrapper">
           <PostCard post={post} />
           <CommentsContainer comments={commentsArr} />
-          <Aside />
+          <PostAside />
         </div>
       </section>
     </main>

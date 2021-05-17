@@ -44,6 +44,54 @@
   &-title {
     color: $bg-dark-lighten-1;
   }
+  &-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+    .aside {
+      &-subreddit {
+        margin-top: 3rem;
+      }
+      &-header {
+        background-color: $bg-dark-lighten-2;
+        color: $text-light;
+        // height: 8rem;0 0 0
+        display: grid;
+        grid-template-rows: 0.5fr 1fr;
+        align-items: flex-end;
+        h2 {
+          font-size: 2.2rem;
+          padding: 0 0 1.5rem 2rem;
+          grid-row: 2;
+        }
+        span {
+          padding: 1rem 0 1rem 2rem;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 600;
+        }
+      }
+      &-information {
+        background-color: $bg-dark-lighten-3;
+        color: $text-light;
+        padding: 2rem;
+        p {
+          font-size: 1.8rem;
+          padding-bottom: 1rem;
+        }
+      }
+      &-member-info {
+        display: flex;
+        border-top: $bg-dark-lighten-2 2px solid;
+      }
+      &-member-count {
+        padding: 1rem 1rem 1rem 0;
+      }
+      &-count {
+        font-size: 1.8rem;
+      }
+    }
+  }
 }
 
 .posts-container {

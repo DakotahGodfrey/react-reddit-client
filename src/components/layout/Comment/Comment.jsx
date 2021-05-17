@@ -1,7 +1,11 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 const Comment = ({ comment }) => {
   const { author, body } = comment.data;
+  // console.log(body);
+  const bodyMarkdown = body.replace(/&gt;/g, "> ");
+  console.log(bodyMarkdown);
   return (
     <div className="comment-card">
       <div className="comment-avatar">
@@ -16,7 +20,11 @@ const Comment = ({ comment }) => {
           <span className="comment-time">hours ago</span>
         </div>
         <p className="comment-body">
-          <ReactMarkdown className="comment-markdown">{body}</ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[gfm]}
+            children={bodyMarkdown}
+            className="comment-markdown"
+          />
         </p>
       </div>
     </div>

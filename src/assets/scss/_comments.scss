@@ -35,5 +35,15 @@
       text-decoration: none;
       font-style: normal;
     }
+    blockquote {
+      margin-left: 2rem;
+      // font-style: oblique;
+      font-size: 1.5rem;
+      padding: 1rem;
+      font-family: "Times New Roman", Times, serif;
+      display: inline-block;
+      background-color: rgba($color: $bg-dark-lighten-3, $alpha: 0.2);
+      border-left: $bg-light-grey 2px solid;
+    }
   }
 }
