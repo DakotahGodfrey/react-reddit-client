@@ -1,0 +1,49 @@
+.comment {
+  &-card {
+    background-color: $bg-dark-lighten-2;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 1.6rem;
+  }
+  &-avatar {
+    height: 30px;
+    width: 30px;
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  &-byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  &-body {
+    line-height: 1.5;
+    hyphens: auto;
+  }
+  &-content {
+    overflow: hidden;
+  }
+  &-markdown {
+    a {
+      color: #0ecbfa;
+      text-decoration: none;
+      font-style: normal;
+    }
+    blockquote {
+      margin-left: 2rem;
+      // font-style: oblique;
+      font-size: 1.5rem;
+      padding: 1rem;
+      font-family: "Times New Roman", Times, serif;
+      display: inline-block;
+      background-color: rgba($color: $bg-dark-lighten-3, $alpha: 0.2);
+      border-left: $bg-light-grey 2px solid;
+    }
+  }
+}

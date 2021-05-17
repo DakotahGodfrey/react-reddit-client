@@ -1,9 +1,9 @@
 import React from "react";
 
-const LargePost = ({ postContent }) => {
-  const { title, video, image } = postContent;
+const PostContent = ({ postContent }) => {
+  const { title, image, video, selftext } = postContent;
   return (
-    <div>
+    <article className="post-content">
       <h2 className="post-title">{title}</h2>
       {video ? (
         <video data-testid="video" controls>
@@ -12,8 +12,8 @@ const LargePost = ({ postContent }) => {
       ) : image ? (
         <img src={image} alt={title} />
       ) : null}
-    </div>
+    </article>
   );
 };
 
-export default LargePost;
+export default PostContent;

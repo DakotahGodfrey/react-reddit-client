@@ -11,6 +11,14 @@ export const getPostById = createAsyncThunk(
     return data;
   }
 );
+export const getSubredditDescription = createAsyncThunk(
+  "post/getSubredditDescription",
+  async (subreddit) => {
+    const response = await fetch(`${base_url}r/${subreddit}/about/.json`);
+    const data = await response.json();
+    return data;
+  }
+);
 const postSlice = createSlice({
   name: "post",
   initialState: {
@@ -19,6 +27,7 @@ const postSlice = createSlice({
     currentPostSubreddit: "",
     currentPostData: {},
     errors: null,
+    subredditDescription: {},
   },
   reducers: {
     setCurrentPostId(state, action) {
@@ -30,6 +39,7 @@ const postSlice = createSlice({
   },
   extraReducers: {
     [getPostById.pending]: (state) => {
+      state.currentPostData = "";
       state.status = "pending";
     },
     [getPostById.fulfilled]: (state, action) => {
@@ -40,9 +50,22 @@ const postSlice = createSlice({
       state.status = "idle";
       state.errors = "request failed";
     },
+    [getSubredditDescription.pending]: (state) => {
+      state.status = "pending";
+    },
+    [getSubredditDescription.fulfilled]: (state, action) => {
+      state.status = "idle";
+      state.subredditDescription = action.payload;
+    },
+    [getSubredditDescription.rejected]: (state) => {
+      state.status = "idle";
+      state.errors = "request failed";
+    },
   },
 });
 
 export const { setCurrentPostId, setCurrentPostSubreddit } = postSlice.actions;
 export const selectCurrentPost = (state) => state.post.currentPostData;
+export const selectSubredditDescription = (state) =>
+  state.post.subredditDescription;
 export default postSlice.reducer;
