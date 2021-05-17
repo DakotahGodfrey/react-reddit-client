@@ -4,9 +4,13 @@ import { popular_url, base_url } from "../../../app/api";
 export const getPopularPosts = createAsyncThunk(
   "home/getPopularPosts",
   async () => {
-    const response = await fetch(popular_url);
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(popular_url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 export const getTrending = createAsyncThunk("home/getTrending", async () => {
@@ -26,6 +30,20 @@ export const getPostsBySubreddit = createAsyncThunk(
     }
   }
 );
+export const getTrendingSubreddits = createAsyncThunk(
+  "home/getTrendingSubreddits",
+  async () => {
+    try {
+      const response = await fetch(
+        `${base_url}subreddits/popular/.json?limit=10`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 const homeSlice = createSlice({
   name: "home",
   initialState: {
@@ -34,12 +52,9 @@ const homeSlice = createSlice({
     status: "idle",
     errors: "",
     currentSubreddit: "popular",
+    trendingSubreddits: [],
   },
-  reducers: {
-    setCurrentSubreddit(state, action) {
-      state.currentSubreddit = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [getPopularPosts.pending]: (state) => {
       state.status = "pending";
@@ -84,9 +99,23 @@ const homeSlice = createSlice({
       state.errors = "request failed";
       state.posts = null;
     },
+
+    [getTrendingSubreddits.pending]: (state) => {
+      state.status = "pending";
+    },
+
+    [getTrendingSubreddits.fulfilled]: (state, action) => {
+      state.status = "idle";
+      state.trendingSubreddits = action.payload.data;
+    },
+
+    [getTrendingSubreddits.rejected]: (state) => {
+      state.status = "idle";
+      state.errors = "request failed";
+    },
   },
 });
 
-export const { setStatus, setCurrentSubreddit } = homeSlice.actions;
+export const { setStatus } = homeSlice.actions;
 export const selectHome = (state) => state.home;
 export default homeSlice.reducer;

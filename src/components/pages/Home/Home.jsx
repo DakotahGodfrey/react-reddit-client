@@ -4,18 +4,24 @@ import Feed from "../../../features/Feed/Feed";
 import Trending from "../../../features/Trending/Trending";
 import Navbar from "../../layout/Navbar/Navbar";
 
-import { getPopularPosts, getTrending, selectHome } from "./homeSlice";
+import {
+  getPopularPosts,
+  getTrending,
+  getTrendingSubreddits,
+  selectHome,
+} from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Home = () => {
   const home = useSelector(selectHome);
-  const { posts, trendingItems, currentSubreddit, errors } = home;
+  const { posts, trendingItems, currentSubreddit, errors, trendingSubreddits } =
+    home;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPopularPosts());
     dispatch(getTrending());
+    dispatch(getTrendingSubreddits());
   }, [dispatch]);
 
-  const trendingSubs = ["r/eyebleach", "r/aww", "r/news", "r/doge", "r/stonks"];
   return (
     <main className="page">
       <Navbar />
@@ -29,7 +35,7 @@ const Home = () => {
           ) : (
             <Feed posts={posts} currentSubreddit={currentSubreddit} />
           )}
-          <Aside trendingSubs={trendingSubs} />
+          <Aside trendingSubreddits={trendingSubreddits} />
         </div>
       </section>
     </main>
