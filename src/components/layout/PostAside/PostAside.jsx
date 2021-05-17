@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const PostAside = ({ subredditData }) => {
   const {
@@ -26,7 +27,9 @@ const PostAside = ({ subredditData }) => {
           <h2>{display_name_prefixed}</h2>
         </header>
         <div className="aside-information">
-          <p>{public_description}</p>
+          <p>
+            <ReactMarkdown>{public_description}</ReactMarkdown>
+          </p>
           <div className="aside-member-info">
             <div className="aside-member-count">
               <div className="aside-count">{subscribersRounded}</div>
