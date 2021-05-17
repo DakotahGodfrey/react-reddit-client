@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactMarkdown from "react-markdown";
 const Comment = ({ comment }) => {
   const { author, body } = comment.data;
   return (
@@ -15,7 +15,9 @@ const Comment = ({ comment }) => {
           <span className="comment-author">u/{author}</span>
           <span className="comment-time">hours ago</span>
         </div>
-        <p className="comment-body">{body}</p>
+        <p className="comment-body">
+          <ReactMarkdown>{body}</ReactMarkdown>
+        </p>
       </div>
     </div>
   );
