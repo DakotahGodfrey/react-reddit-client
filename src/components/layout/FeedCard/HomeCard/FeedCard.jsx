@@ -2,15 +2,10 @@ import React from "react";
 import PostBanner from "../PostBanner/PostBanner";
 import PostContent from "../PostContent/PostContent";
 import PostFooter from "../PostFooter/PostFooter";
-import { urlReplace } from "../../../app/api";
+import { urlReplace } from "../../../../app/api";
 import { Link } from "react-router-dom";
-import {
-  getPostById,
-  setCurrentPostId,
-  setCurrentPostSubreddit,
-  selectPost,
-} from "../../pages/Post/postSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { getPostById } from "../../../pages/Post/postSlice";
+import { useDispatch } from "react-redux";
 const FeedCard = ({ post }) => {
   const {
     title,

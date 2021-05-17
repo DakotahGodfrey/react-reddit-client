@@ -1,0 +1,15 @@
+.comment {
+  &-card {
+    background-color: $bg-dark-lighten-4;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+  }
+  &-avatar {
+    height: 30px;
+    width: 30px;
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+}
