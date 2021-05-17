@@ -4,7 +4,7 @@ import gfm from "remark-gfm";
 const Comment = ({ comment }) => {
   const { author, body } = comment.data;
   // console.log(body);
-  const bodyMarkdown = body.replace(/&gt;/g, "> ");
+  const bodyMarkdown = body ? body.replace(/&gt;/g, "> ") : "";
   console.log(bodyMarkdown);
   return (
     <div className="comment-card">

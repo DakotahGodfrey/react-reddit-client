@@ -78,10 +78,13 @@
         p {
           font-size: 1.8rem;
           padding-bottom: 1rem;
+          max-width: 320px;
         }
       }
       &-member-info {
         display: flex;
+        align-items: center;
+        justify-content: space-evenly;
         border-top: $bg-dark-lighten-2 2px solid;
       }
       &-member-count {
