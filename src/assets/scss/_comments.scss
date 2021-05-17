@@ -1,15 +1,28 @@
 .comment {
   &-card {
-    background-color: $bg-dark-lighten-4;
+    background-color: $bg-dark-lighten-2;
     display: grid;
     grid-template-columns: min-content 1fr;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 1.6rem;
   }
   &-avatar {
     height: 30px;
     width: 30px;
+
     img {
       width: 100%;
       border-radius: 50%;
     }
+  }
+  &-byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  &-body {
+    line-height: 1.5;
   }
 }
