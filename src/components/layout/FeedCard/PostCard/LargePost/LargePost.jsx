@@ -1,7 +1,7 @@
 import React from "react";
 
 const LargePost = ({ postContent }) => {
-  const { title, video, image } = postContent;
+  const { title, video, image, selftext } = postContent;
   return (
     <article className="post-large-content">
       <h2 className="">{title}</h2>
@@ -11,7 +11,9 @@ const LargePost = ({ postContent }) => {
         </video>
       ) : image ? (
         <img src={image} alt={title} />
-      ) : null}
+      ) : (
+        <p className="post-large-body">{selftext}</p>
+      )}
     </article>
   );
 };

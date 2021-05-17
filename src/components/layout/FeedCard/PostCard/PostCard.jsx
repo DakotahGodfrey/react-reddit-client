@@ -4,7 +4,7 @@ import { urlReplace } from "../../../../app/api";
 import LargePost from "./LargePost/LargePost";
 const PostCard = ({ post }) => {
   if (post) {
-    const { title, subreddit_name_prefixed, author, is_video } = post;
+    const { title, subreddit_name_prefixed, author, is_video, selftext } = post;
     console.log(title);
     const image = post.preview
       ? urlReplace(post.preview.images[0].source.url)
@@ -19,6 +19,7 @@ const PostCard = ({ post }) => {
       title,
       image,
       video,
+      selftext,
     };
     const isLarge = true;
     return (

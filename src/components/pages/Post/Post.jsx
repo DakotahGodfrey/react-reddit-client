@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../layout/Navbar/Navbar";
 import PostCard from "../../layout/FeedCard/PostCard/PostCard";
+import Aside from "../../layout/Aside/Aside";
 import { selectCurrentPost } from "./postSlice";
 import { useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/CommentsContainer/CommentsContainer";
@@ -19,6 +20,7 @@ const Post = () => {
         <div className="page-wrapper">
           <PostCard post={post} />
           <CommentsContainer comments={commentsArr} />
+          <Aside />
         </div>
       </section>
     </main>
