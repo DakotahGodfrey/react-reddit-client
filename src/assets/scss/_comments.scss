@@ -29,4 +29,11 @@
   &-content {
     overflow: hidden;
   }
+  &-markdown {
+    a {
+      color: #0ecbfa;
+      text-decoration: none;
+      font-style: normal;
+    }
+  }
 }

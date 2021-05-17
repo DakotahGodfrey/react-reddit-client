@@ -16,7 +16,7 @@ const Comment = ({ comment }) => {
           <span className="comment-time">hours ago</span>
         </div>
         <p className="comment-body">
-          <ReactMarkdown>{body}</ReactMarkdown>
+          <ReactMarkdown className="comment-markdown">{body}</ReactMarkdown>
         </p>
       </div>
     </div>
