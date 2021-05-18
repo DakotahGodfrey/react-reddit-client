@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Aside from "../../../components/layout/sidebar/Aside/Aside";
 import Feed from "../features/Feed/Feed";
 import Trending from "../features/Trending/Trending";
-import Navbar from "../../layout/Navbar/Navbar";
+import Navbar from "../features/Searchbar/Navbar/Navbar";
 
 import {
   getPopularPosts,
