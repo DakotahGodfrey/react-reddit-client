@@ -27,7 +27,7 @@ const PostAside = ({ subredditData }) => {
           <h2>{display_name_prefixed}</h2>
         </header>
         <div className="aside-information">
-          <p>
+          <p className="aside-description">
             <ReactMarkdown>{public_description}</ReactMarkdown>
           </p>
           <div className="aside-member-info">

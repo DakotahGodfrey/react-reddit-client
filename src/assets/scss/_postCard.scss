@@ -2,7 +2,7 @@
   &-card {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: $bg-light-grey;
+
     padding: 1rem 2rem 2rem 2rem;
     max-width: 100vw;
     max-height: 800px;
@@ -58,7 +58,6 @@
     align-items: center;
     margin-right: 0.5rem;
     padding: 0.8rem;
-    color: $bg-dark;
     text-decoration: none;
     i {
       font-size: inherit;

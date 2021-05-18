@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: $bg-dark-lighten-2;
-
+  background-color: $bg-light;
   margin-bottom: 4rem;
   .filter {
     &-controls {
@@ -16,8 +15,7 @@
       display: flex;
       align-items: center;
       padding: 0.5rem 1rem;
-      background: $bg-dark;
-      color: $text-light;
+
       border-radius: 50px;
       margin: 0 1rem;
       i {

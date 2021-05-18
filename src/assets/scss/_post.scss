@@ -2,17 +2,14 @@
   &-card {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: $bg-light-grey;
+    background-color: $bg-light;
     padding: 1rem 2rem 2rem 2rem;
     max-width: 100vw;
     grid-column: 1;
     &-large {
       max-width: 100vw;
-      background-color: $bg-dark-lighten-2;
-      color: $text-light;
       padding: 2rem;
-      margin-top: 3rem;
-      align-self: center;
+      background-color: $bg-light;
     }
   }
   &-large {
@@ -27,79 +24,16 @@
       }
     }
     &-comments {
-      background-color: $bg-dark-lighten-3;
       grid-column: 1;
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding: 1.4rem;
-      color: $text-light;
       max-width: 100vw;
+      background: $bg-light;
     }
     &-body {
       font-size: 1.6rem;
       line-height: 1.7;
     }
-  }
-  &-title {
-    color: $bg-dark-lighten-1;
-  }
-  &-sidebar {
-    grid-column: 2;
-    grid-row: 1;
-    .aside {
-      &-subreddit {
-        margin-top: 3rem;
-      }
-      &-header {
-        background-color: $bg-dark-lighten-2;
-        color: $text-light;
-        // height: 8rem;0 0 0
-        display: grid;
-        grid-template-rows: 0.5fr 1fr;
-        align-items: flex-end;
-        h2 {
-          font-size: 2.2rem;
-          padding: 0 0 1.5rem 2rem;
-          grid-row: 2;
-        }
-        span {
-          padding: 1rem 0 1rem 2rem;
-          font-size: 1.2rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-        }
-      }
-      &-information {
-        background-color: $bg-dark-lighten-3;
-        color: $text-light;
-        padding: 2rem;
-        p {
-          font-size: 1.8rem;
-          padding-bottom: 1rem;
-          max-width: 320px;
-        }
-      }
-      &-member-info {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        border-top: $bg-dark-lighten-2 2px solid;
-      }
-      &-member-count {
-        padding: 1rem 1rem 1rem 0;
-      }
-      &-count {
-        font-size: 1.8rem;
-      }
-    }
-  }
-}
-
-.posts-container {
-  a {
-    color: $bg-dark-lighten-1;
-    text-decoration: none;
   }
 }

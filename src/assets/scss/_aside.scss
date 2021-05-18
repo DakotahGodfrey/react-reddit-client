@@ -1,32 +1,25 @@
 aside {
   .aside-trending {
-    height: 450px;
-    border-radius: 20px;
+    background-color: $bg-light;
 
     .aside-header {
-      height: 8rem;
+      padding-top: 2rem;
       display: flex;
-      background-color: $bg-dark-lighten-2;
+      background-color: $bg-light;
       align-items: flex-end;
 
       h2 {
         font-size: 2.2rem;
         padding: 0 0 1.5rem 2rem;
-        color: $text-light;
       }
     }
     .trending-sub {
       font-size: 1.6rem;
       display: block;
       padding: 1rem;
-      color: $bg-dark;
       text-decoration: none;
-      background-color: $bg-light-grey;
-      border-bottom: 2px solid #d8d8d8;
+      border-top: 2px solid $bg-light-grey;
 
-      &:last-child {
-        border: none;
-      }
       li {
         display: flex;
         align-items: center;
@@ -36,6 +29,55 @@ aside {
           padding: 0.5rem;
         }
       }
+    }
+  }
+}
+
+.sidebar.post-sidebar {
+  grid-column: 2;
+  grid-row: 1;
+  .aside {
+    &-subreddit {
+      background: $bg-light;
+    }
+    &-header {
+      display: grid;
+      grid-template-rows: 0.5fr 1fr;
+      align-items: flex-end;
+      h2 {
+        font-size: 2.2rem;
+        padding: 0 0 1.5rem 2rem;
+        grid-row: 2;
+      }
+      span {
+        padding: 1rem 0 1rem 2rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+    }
+    &-information {
+      .aside-description {
+        padding: 2rem;
+      }
+      p {
+        font-size: 1.8rem;
+        max-width: 320px;
+      }
+    }
+    &-member-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    &-count {
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-align: left;
     }
   }
 }

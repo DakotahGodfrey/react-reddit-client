@@ -1,24 +1,23 @@
 .results-display {
   padding: 2rem;
-  background-color: $bg-dark-lighten-2;
   margin: 3rem;
   border-radius: 20px;
+  background: $bg-light;
   .results-term {
-    color: $text-light;
     font-size: 3rem;
     margin: 1.5rem 0;
   }
   .results-count {
     font-size: 2rem;
-    color: $bg-light-grey;
   }
 }
 .results {
   &-subreddit {
+    background: $bg-light;
     align-items: center;
+    border-radius: 20px;
     .subreddit-link {
       display: grid;
-      color: $text-light;
       text-decoration: none;
       grid-template-columns: min-content 1fr 2fr;
       gap: 1.5rem;
@@ -31,12 +30,10 @@
     gap: 1.5rem;
     .results-subreddit {
       padding: 2rem;
-      background-color: $bg-dark-lighten-3;
       display: grid;
       grid-template-columns: min-content 1fr;
       p {
         font-size: 1.4rem;
-        color: $text-light;
       }
       &-title {
         font-size: 1.6rem;
@@ -66,11 +63,11 @@
     gap: 2rem;
   }
   &-post {
+    background: $bg-light;
+    border-radius: 20px;
     padding: 2rem;
-    background-color: $bg-dark-lighten-3;
     .post-link {
       display: grid;
-      color: $text-light;
       text-decoration: none;
       grid-template-columns: min-content 1fr;
       gap: 1.5rem;

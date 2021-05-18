@@ -1,5 +1,5 @@
 .page {
-  background-color: $bg-dark-lighten-1;
+  background-color: #dae0e6;
   .page-content {
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     max-width: 120rem;
-    margin: 0 2rem;
+    margin: 5rem 2rem;
     justify-content: center;
     gap: 3rem;
     flex-grow: 1;
@@ -21,7 +21,7 @@
   }
   &-heading {
     font-size: 2.5rem;
-    color: $text-light;
+    color: #333;
     padding: 1rem;
   }
   .posts-container {
