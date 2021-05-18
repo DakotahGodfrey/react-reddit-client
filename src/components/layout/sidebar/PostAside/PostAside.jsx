@@ -1,13 +1,24 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-
+import { Link } from "react-router-dom";
+import {
+  fetchDestSubreddit,
+  setCurrentSubreddit,
+} from "../../../pages/Subreddit/subredditSlice";
+import { useDispatch } from "react-redux";
 const PostAside = ({ subredditData }) => {
+  const dispatch = useDispatch();
   const {
     display_name_prefixed,
     public_description,
+    display_name,
     subscribers,
     accounts_active,
   } = subredditData;
+  const handleClick = () => {
+    dispatch(setCurrentSubreddit(display_name));
+    dispatch(fetchDestSubreddit(display_name));
+  };
   const roundSubs = (subscribers) => {
     let roundedSubs;
     if (subscribers >= 1000000) {
@@ -24,7 +35,9 @@ const PostAside = ({ subredditData }) => {
       <aside className="aside-subreddit">
         <header role="banner" className="aside-header">
           <span>About Community</span>
-          <h2>{display_name_prefixed}</h2>
+          <Link to="/subreddit" onClick={handleClick}>
+            <h2>{display_name_prefixed}</h2>
+          </Link>
         </header>
         <div className="aside-information">
           <p className="aside-description">
