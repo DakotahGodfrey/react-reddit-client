@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../../layout/Navbar/Navbar";
+import Navbar from "../features/Searchbar/Navbar/Navbar";
 import { selectSubreddit } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";

@@ -3,6 +3,11 @@
   .page-content {
     display: flex;
     justify-content: center;
+    &.results {
+      flex-direction: column;
+      gap: 5rem;
+      margin: 0 5rem;
+    }
   }
   &-wrapper {
     display: grid;
