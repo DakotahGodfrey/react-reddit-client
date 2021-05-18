@@ -1,3 +1,12 @@
+// Global CSS Variables
+// dark-Colors
+$text-dark: #222;
+// accents
+$brand-color: #ff4500;
+
+// bg colors
+$bg-light: #fefefe;
+$bg-light-grey: #d8d8d8;
 // Global Resets
 * {
   box-sizing: border-box;
@@ -23,17 +32,7 @@ html {
 ul {
   list-style: none;
 }
-// Global CSS Variables
-
-$bg-dark: #121212;
-$bg-dark-lighten-1: #222;
-$bg-dark-lighten-2: #444;
-$bg-dark-lighten-3: #666;
-$bg-dark-lighten-4: #999;
-$bg-medium-grey: #ddd;
-$bg-light-grey: #eee;
-$bg-light: #e4e4e4;
-
-$text-light: #fff;
-
-$brand-color: #ff4500;
+a {
+  text-decoration: none;
+  color: $text-dark;
+}

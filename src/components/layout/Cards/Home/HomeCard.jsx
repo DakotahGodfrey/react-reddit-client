@@ -9,15 +9,16 @@ import {
   getSubredditDescription,
 } from "../../../pages/Post/postSlice";
 import { useDispatch } from "react-redux";
+import Loading from "../../Loading/Loading";
 const HomeCard = ({ post }) => {
   // destructure passed prop.
   const {
     title,
     author,
     subreddit_name_prefixed,
+    subreddit,
     num_comments,
     is_video,
-    subreddit,
     id,
   } = post.data;
 
@@ -33,6 +34,7 @@ const HomeCard = ({ post }) => {
   const postDetails = {
     author,
     subreddit_name_prefixed,
+    subreddit,
   };
   // post content object
   const postContent = {
@@ -69,7 +71,6 @@ const HomeCard = ({ post }) => {
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
       </Link>
-
       <PostFooter postLinks={postLinks} />
     </section>
   );

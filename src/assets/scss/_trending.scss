@@ -6,9 +6,8 @@
   }
   &-heading {
     font-size: 3rem;
-    color: $text-light;
     position: absolute;
-    top: -20px;
+    top: 0px;
   }
   &-row {
     display: flex;
@@ -21,22 +20,21 @@
     padding-left: 1rem;
     max-width: 120rem;
     margin: 0 auto;
+    background-color: $bg-light;
   }
   &-card {
     height: 20vh;
     width: 40vw;
     min-width: 350px;
     position: relative;
-    border-radius: 50px;
     max-width: 500px;
     transition: transform 0.4s ease-out;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     margin: 2rem;
-    background-color: $brand-color;
-    color: $text-light;
     overflow-y: scroll;
+    border: 2px solid $text-dark;
     padding: 1.5rem;
     &:hover {
       transform: scale(1.1);

@@ -60,4 +60,5 @@ const postSlice = createSlice({
 export const selectCurrentPost = (state) => state.post.currentPostData;
 export const selectSubredditDescription = (state) =>
   state.post.subredditDescription;
+export const selectStatus = (state) => state.post.status;
 export default postSlice.reducer;

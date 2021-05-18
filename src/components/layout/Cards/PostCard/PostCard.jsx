@@ -4,15 +4,22 @@ import { urlReplace } from "../../../../app/api";
 import LargePost from "../cardComponents/LargePost/LargePost";
 const PostCard = ({ post }) => {
   if (post) {
-    const { title, subreddit_name_prefixed, author, is_video, selftext } = post;
+    const {
+      title,
+      subreddit_name_prefixed,
+      author,
+      is_video,
+      selftext,
+      subreddit,
+    } = post;
     const image = post.preview
       ? urlReplace(post.preview.images[0].source.url)
       : null;
-
     const video = is_video ? post.secure_media.reddit_video.fallback_url : null;
     const postDetails = {
       subreddit_name_prefixed,
       author,
+      subreddit,
     };
     const postContent = {
       title,

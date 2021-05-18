@@ -42,4 +42,5 @@ const searchBarSlice = createSlice({
 export const { setTerm } = searchBarSlice.actions;
 export const selectTerm = (state) => state.search.term;
 export const selectResults = (state) => state.search.results;
+export const selectStatus = (state) => state.search.status;
 export default searchBarSlice.reducer;

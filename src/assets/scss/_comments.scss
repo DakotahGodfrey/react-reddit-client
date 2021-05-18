@@ -1,11 +1,11 @@
 .comment {
   &-card {
-    background-color: $bg-dark-lighten-2;
     display: grid;
     grid-template-columns: min-content 1fr;
     padding: 1rem;
     gap: 1rem;
     font-size: 1.6rem;
+    background: $bg-light;
   }
   &-avatar {
     height: 30px;
@@ -42,8 +42,6 @@
       padding: 1rem;
       font-family: "Times New Roman", Times, serif;
       display: inline-block;
-      background-color: rgba($color: $bg-dark-lighten-3, $alpha: 0.2);
-      border-left: $bg-light-grey 2px solid;
     }
   }
 }
