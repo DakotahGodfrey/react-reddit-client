@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import {
   fetchDestSubreddit,
   setCurrentSubreddit,
-} from "../../pages/Subreddit/subredditSlice";
+} from "../../../../pages/Subreddit/subredditSlice";
 const TrendingSubItem = ({ subreddit }) => {
   const subredditData = subreddit.data;
   const { display_name_prefixed, icon_img, display_name } = subredditData;
