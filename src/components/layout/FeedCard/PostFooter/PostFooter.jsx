@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 const PostFooter = ({ postLinks }) => {
   const { num_comments } = postLinks;
   return (

@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../../layout/Navbar/Navbar";
 import PostCard from "../../layout/FeedCard/PostCard/PostCard";
-import Aside from "../../layout/Aside/Aside";
 import { selectCurrentPost, selectSubredditDescription } from "./postSlice";
 import { useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/CommentsContainer/CommentsContainer";
