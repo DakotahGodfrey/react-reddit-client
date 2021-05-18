@@ -5,11 +5,12 @@ import { selectSubreddit } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";
 import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
+import Loading from "../../layout/Loading/Loading";
 const Subreddit = () => {
   const subreddit = useSelector(selectSubreddit);
   const trendingSubreddits = useSelector(selectTrendingSubs);
   const dispatch = useDispatch();
-  const { posts, errors, currentSubreddit } = subreddit;
+  const { posts, errors, currentSubreddit, status } = subreddit;
   useEffect(() => {
     dispatch(getTrendingSubreddits());
   }, [dispatch]);
@@ -21,6 +22,8 @@ const Subreddit = () => {
         <div className="page-wrapper">
           {errors ? (
             <p className="feed-error">Sorry, something went wrong</p>
+          ) : status === "pending" ? (
+            <Loading />
           ) : (
             <Feed posts={posts} currentSubreddit={currentSubreddit} />
           )}
