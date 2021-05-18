@@ -1,6 +1,6 @@
 import React from "react";
-import Toolbar from "../../components/layout/Toolbar/Toolbar";
-import HomeCard from "../../components/layout/cardComponents/HomeCard/HomeCard";
+import Toolbar from "../../../layout/Toolbar/Toolbar";
+import HomeCard from "../../../layout/HomeCard/HomeCard";
 
 const Feed = ({ posts, currentSubreddit }) => {
   return (

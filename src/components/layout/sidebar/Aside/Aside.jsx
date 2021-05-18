@@ -1,5 +1,5 @@
 import React from "react";
-import TrendingSubsList from "../TrendingSubsList/TrendingSubsList";
+import TrendingSubsList from "../../TrendingSubsList/TrendingSubsList";
 
 const Aside = ({ trendingSubreddits }) => {
   return (
