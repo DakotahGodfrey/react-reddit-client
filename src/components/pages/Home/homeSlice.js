@@ -118,4 +118,5 @@ const homeSlice = createSlice({
 
 export const { setStatus } = homeSlice.actions;
 export const selectHome = (state) => state.home;
+export const selectTrendingSubs = (state) => state.home.trendingSubreddits;
 export default homeSlice.reducer;
