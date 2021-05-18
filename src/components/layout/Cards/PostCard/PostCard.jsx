@@ -1,6 +1,6 @@
 import React from "react";
 import PostBanner from "../cardComponents/PostBanner/PostBanner";
-import { urlReplace } from "../../../app/api";
+import { urlReplace } from "../../../../app/api";
 import LargePost from "../cardComponents/LargePost/LargePost";
 const PostCard = ({ post }) => {
   if (post) {

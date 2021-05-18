@@ -2,12 +2,12 @@ import React from "react";
 import PostBanner from "../cardComponents/PostBanner/PostBanner";
 import PostContent from "../cardComponents/PostContent/PostContent";
 import PostFooter from "../cardComponents/PostFooter/PostFooter";
-import { urlReplace } from "../../../app/api";
+import { urlReplace } from "../../../../app/api";
 import { Link } from "react-router-dom";
 import {
   getPostById,
   getSubredditDescription,
-} from "../../pages/Post/postSlice";
+} from "../../../pages/Post/postSlice";
 import { useDispatch } from "react-redux";
 const HomeCard = ({ post }) => {
   // destructure passed prop.

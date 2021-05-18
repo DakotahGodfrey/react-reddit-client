@@ -1,5 +1,5 @@
 import React from "react";
-import TrendingItem from "../../../layout/TrendingItem/TrendingItem";
+import TrendingItem from "../../../layout/Cards/TrendingItem/TrendingItem";
 
 const Trending = ({ trendingItems }) => {
   return (
