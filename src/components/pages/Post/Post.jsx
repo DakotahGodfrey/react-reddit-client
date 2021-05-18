@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../../layout/Navbar/Navbar";
-import PostCard from "../../layout/FeedCard/PostCard/PostCard";
+import PostCard from "../../layout/cardComponents/PostCard/PostCard";
+import PostAside from "../../layout/sidebar/PostAside/PostAside";
 import { selectCurrentPost, selectSubredditDescription } from "./postSlice";
 import { useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/CommentsContainer/CommentsContainer";
-import PostAside from "../../layout/PostAside/PostAside";
 const Post = () => {
   const currentPostData = useSelector(selectCurrentPost);
   const subredditDescription = useSelector(selectSubredditDescription);

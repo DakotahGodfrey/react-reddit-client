@@ -1,6 +1,6 @@
 import React from "react";
 import Toolbar from "../../components/layout/Toolbar/Toolbar";
-import FeedCard from "../../components/layout/FeedCard/HomeCard/FeedCard";
+import HomeCard from "../../components/layout/cardComponents/HomeCard/HomeCard";
 
 const Feed = ({ posts, currentSubreddit }) => {
   return (
@@ -11,7 +11,7 @@ const Feed = ({ posts, currentSubreddit }) => {
         {posts[0] === "not found" ? (
           <p>Sorry, no subreddit was found with that name.</p>
         ) : (
-          posts.map((post) => <FeedCard post={post} key={post.data.id} />)
+          posts.map((post) => <HomeCard post={post} key={post.data.id} />)
         )}
       </div>
     </section>

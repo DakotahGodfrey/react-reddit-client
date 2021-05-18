@@ -9,7 +9,7 @@ import {
   getSubredditDescription,
 } from "../../../pages/Post/postSlice";
 import { useDispatch } from "react-redux";
-const FeedCard = ({ post }) => {
+const HomeCard = ({ post }) => {
   // destructure passed prop.
   const {
     title,
@@ -75,4 +75,4 @@ const FeedCard = ({ post }) => {
   );
 };
 
-export default FeedCard;
+export default HomeCard;
