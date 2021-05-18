@@ -17,16 +17,21 @@ const searchBarSlice = createSlice({
   initialState: {
     errors: "",
     status: "idle",
-    results: "",
+    results: [],
+    term: "",
   },
-  reducers: {},
+  reducers: {
+    setTerm(state, action) {
+      state.term = action.payload;
+    },
+  },
   extraReducers: {
     [searchByTerm.pending]: (state) => {
       state.status = "pending";
     },
     [searchByTerm.fulfilled]: (state, action) => {
       state.status = "idle";
-      state.results = action.payload.data;
+      state.results = action.payload;
     },
     [searchByTerm.rejected]: (state) => {
       state.errors = "request failed";
@@ -34,6 +39,7 @@ const searchBarSlice = createSlice({
     },
   },
 });
-
+export const { setTerm } = searchBarSlice.actions;
+export const selectTerm = (state) => state.search.term;
 export const selectResults = (state) => state.search.results;
 export default searchBarSlice.reducer;
