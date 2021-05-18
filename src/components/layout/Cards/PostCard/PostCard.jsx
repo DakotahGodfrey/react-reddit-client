@@ -1,11 +1,10 @@
 import React from "react";
-import PostBanner from "../PostBanner/PostBanner";
+import PostBanner from "../cardComponents/PostBanner/PostBanner";
 import { urlReplace } from "../../../../app/api";
-import LargePost from "./LargePost/LargePost";
+import LargePost from "../cardComponents/LargePost/LargePost";
 const PostCard = ({ post }) => {
   if (post) {
     const { title, subreddit_name_prefixed, author, is_video, selftext } = post;
-    console.log(title);
     const image = post.preview
       ? urlReplace(post.preview.images[0].source.url)
       : null;

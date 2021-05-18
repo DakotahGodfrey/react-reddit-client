@@ -3,9 +3,7 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 const Comment = ({ comment }) => {
   const { author, body } = comment.data;
-  // console.log(body);
   const bodyMarkdown = body ? body.replace(/&gt;/g, "> ") : "";
-  console.log(bodyMarkdown);
   return (
     <div className="comment-card">
       <div className="comment-avatar">

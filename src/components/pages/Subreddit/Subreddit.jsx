@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../layout/Navbar/Navbar";
 import { selectSubreddit } from "./subredditSlice";
-import Feed from "../../../features/Feed/Feed";
-import Aside from "../../layout/Aside/Aside";
+import Feed from "../features/Feed/Feed";
+import Aside from "../../layout/sidebar/Aside/Aside";
 import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
 const Subreddit = () => {
   const subreddit = useSelector(selectSubreddit);

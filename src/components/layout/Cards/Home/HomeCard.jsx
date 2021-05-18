@@ -1,7 +1,7 @@
 import React from "react";
-import PostBanner from "../PostBanner/PostBanner";
-import PostContent from "../PostContent/PostContent";
-import PostFooter from "../PostFooter/PostFooter";
+import PostBanner from "../cardComponents/PostBanner/PostBanner";
+import PostContent from "../cardComponents/PostContent/PostContent";
+import PostFooter from "../cardComponents/PostFooter/PostFooter";
 import { urlReplace } from "../../../../app/api";
 import { Link } from "react-router-dom";
 import {
@@ -9,7 +9,7 @@ import {
   getSubredditDescription,
 } from "../../../pages/Post/postSlice";
 import { useDispatch } from "react-redux";
-const FeedCard = ({ post }) => {
+const HomeCard = ({ post }) => {
   // destructure passed prop.
   const {
     title,
@@ -75,4 +75,4 @@ const FeedCard = ({ post }) => {
   );
 };
 
-export default FeedCard;
+export default HomeCard;

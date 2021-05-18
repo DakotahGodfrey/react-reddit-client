@@ -9,7 +9,7 @@ const TrendingSubsList = ({ trendingSubreddits }) => {
     <ul className="trending-subs">
       {trendingArray !== null
         ? trendingArray.map((subreddit) => (
-            <TrendingSubItem subreddit={subreddit} />
+            <TrendingSubItem subreddit={subreddit} key={subreddit.data.id} />
           ))
         : null}
     </ul>
