@@ -1,5 +1,13 @@
 .page {
   background-color: #dae0e6;
+  &.dark {
+    background-color: $bg-dark-primary;
+    .page {
+      &-heading {
+        color: $bg-light;
+      }
+    }
+  }
   .page-content {
     display: flex;
     justify-content: center;

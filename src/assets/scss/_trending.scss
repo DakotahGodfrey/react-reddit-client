@@ -1,6 +1,20 @@
 .trending {
   margin-top: 2rem;
   position: relative;
+  &.dark {
+    .trending {
+      &-row {
+        background-color: $bg-dark-primary;
+      }
+      &-heading {
+        color: $bg-light;
+      }
+      &-card {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+      }
+    }
+  }
   &-container {
     padding: 3rem;
   }

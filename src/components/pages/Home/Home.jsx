@@ -12,8 +12,9 @@ import {
 } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
-
+import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
 const Home = () => {
+  const dark = useSelector(selectDarkMode);
   const home = useSelector(selectHome);
 
   const {
@@ -37,7 +38,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <main className="page">
+    <main className={dark ? "dark page" : "page"}>
       <Navbar />
       <header className="trending-container" data-testid="trending-container">
         {status === "pending" ? null : (

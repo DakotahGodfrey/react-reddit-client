@@ -11,8 +11,9 @@
     background-color: $bg-dark-primary;
     .search-form {
       input {
-        background-color: #222;
+        background-color: $bg-dark-secondary;
         box-shadow: none;
+        color: $bg-light;
       }
       i {
         color: $bg-light;
