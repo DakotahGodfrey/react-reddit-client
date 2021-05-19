@@ -5,6 +5,7 @@ import Trending from "../features/Trending/Trending";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 
 import {
+  fetchNextPagePopular,
   getPopularPosts,
   getTrending,
   getTrendingSubreddits,
@@ -14,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
 const Home = () => {
   const home = useSelector(selectHome);
+
   const {
     posts,
     trendingItems,
@@ -21,8 +23,13 @@ const Home = () => {
     errors,
     trendingSubreddits,
     status,
+    paginationId,
   } = home;
+
   const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(fetchNextPagePopular(paginationId));
+  };
   useEffect(() => {
     dispatch(getPopularPosts());
     dispatch(getTrending());
@@ -44,7 +51,11 @@ const Home = () => {
           ) : status === "pending" ? (
             <Loading />
           ) : (
-            <Feed posts={posts} currentSubreddit={currentSubreddit} />
+            <Feed
+              posts={posts}
+              currentSubreddit={currentSubreddit}
+              handleClick={handleClick}
+            />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />
         </div>
