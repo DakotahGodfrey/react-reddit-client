@@ -2,7 +2,10 @@ import React from "react";
 import PostBanner from "../cardComponents/PostBanner/PostBanner";
 import { urlReplace } from "../../../../app/api";
 import LargePost from "../cardComponents/LargePost/LargePost";
+import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
+import { useSelector } from "react-redux";
 const PostCard = ({ post }) => {
+  const dark = useSelector(selectDarkMode);
   if (post) {
     const {
       title,
@@ -36,7 +39,7 @@ const PostCard = ({ post }) => {
     };
     const isLarge = true;
     return (
-      <article className="post-card-large">
+      <article className={dark ? "post-card-large dark" : "post-card-large"}>
         <PostBanner isLarge={isLarge} postDetails={postDetails} />
         <LargePost postContent={postContent} />
       </article>

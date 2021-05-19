@@ -6,6 +6,16 @@
     padding: 1rem 2rem 2rem 2rem;
     max-width: 100vw;
     max-height: 800px;
+    &.dark {
+      background-color: $bg-dark-secondary;
+      color: $bg-light;
+      a {
+        color: $bg-light;
+      }
+      button {
+        color: $bg-light;
+      }
+    }
   }
 
   &-information {

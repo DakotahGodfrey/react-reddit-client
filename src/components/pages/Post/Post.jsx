@@ -10,14 +10,17 @@ import {
 import { useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/Comments/CommentsContainer/CommentsContainer";
 import Loading from "../../layout/Loading/Loading";
+import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
 const Post = () => {
   const currentPostData = useSelector(selectCurrentPost);
   const subredditDescription = useSelector(selectSubredditDescription);
   const status = useSelector(selectStatus);
+  const dark = useSelector(selectDarkMode);
   // handle pending post
   const post = currentPostData[0]
     ? currentPostData[0].data.children[0].data
     : null;
+
   // handle subreddit desc
   const subredditData = subredditDescription.data;
   //handle comments
@@ -26,7 +29,7 @@ const Post = () => {
   let commentsArr = comments.length > 30 ? comments.slice(0, 29) : comments;
 
   return (
-    <main className="page">
+    <main className={dark ? "page dark" : "page"}>
       <Navbar />
       <section className="page-content">
         {status === "pending" ? (

@@ -12,6 +12,7 @@
       &-card {
         background-color: $bg-dark-secondary;
         color: $bg-light;
+        border-color: $bg-light-grey;
       }
     }
   }
@@ -50,6 +51,7 @@
     overflow-y: scroll;
     border: 2px solid $text-dark;
     padding: 1.5rem;
+    border-radius: 20px;
     &:hover {
       transform: scale(1.1);
     }

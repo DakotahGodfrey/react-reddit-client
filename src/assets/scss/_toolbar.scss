@@ -5,6 +5,14 @@
   padding: 1rem 2rem;
   background-color: $bg-light;
   margin-bottom: 4rem;
+  &.dark {
+    background-color: $bg-dark-secondary;
+    .filter {
+      &-option {
+        color: $bg-light;
+      }
+    }
+  }
   .filter {
     &-controls {
       display: flex;
@@ -27,7 +35,7 @@
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: #61dbfb;
+    color: #dae0e6;
     border-radius: 50px;
   }
 }

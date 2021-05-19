@@ -2,12 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  &.dark {
+    background-color: $bg-dark-secondary;
+    .trending-subreddit {
+      &:hover {
+        background-color: $bg-dark-primary;
+      }
+    }
+    a {
+      color: $bg-light;
+    }
+  }
 }
 .trending-subreddit {
   a {
     transition: all 0.4s ease-out;
-    &:hover {
-    }
   }
   &-content {
     display: flex;

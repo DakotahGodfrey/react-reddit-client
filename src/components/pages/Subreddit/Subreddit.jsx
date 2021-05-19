@@ -10,9 +10,11 @@ import {
   selectTrendingSubs,
 } from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
+import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
 const Subreddit = () => {
   const subreddit = useSelector(selectSubreddit);
   const trendingSubreddits = useSelector(selectTrendingSubs);
+  const dark = useSelector(selectDarkMode);
   const dispatch = useDispatch();
   const { posts, errors, currentSubreddit, status, paginationId } = subreddit;
   const handleClick = () => {
@@ -26,7 +28,7 @@ const Subreddit = () => {
     dispatch(getTrendingSubreddits());
   }, [dispatch]);
   return (
-    <main className="page">
+    <main className={dark ? "page dark" : "page"}>
       <Navbar />
       <header className="subreddit-banner"></header>
       <section className="page-content">
