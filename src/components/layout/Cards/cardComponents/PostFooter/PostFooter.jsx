@@ -13,7 +13,7 @@ const PostFooter = ({ postLinks }) => {
       </div>
       <button className="post-links">
         <i className="material-icons">star</i>
-        Add to favorites
+        favorite
       </button>
     </footer>
   );

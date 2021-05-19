@@ -10,7 +10,6 @@ const PostBanner = ({ postDetails, isLarge }) => {
   const { subreddit_name_prefixed, author, subreddit, d } = postDetails;
   const postTime = Date.parse(d);
   const timeStamp = timeSince(postTime);
-  console.log(timeStamp);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(setCurrentSubreddit(subreddit));

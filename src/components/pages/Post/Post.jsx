@@ -23,7 +23,7 @@ const Post = () => {
   //handle comments
   const comments = currentPostData[1] ? currentPostData[1].data.children : [];
   // only display first 30 comments
-  let commentsArr = comments.length > 30 ? comments.slice(0, 30) : comments;
+  let commentsArr = comments.length > 30 ? comments.slice(0, 29) : comments;
 
   return (
     <main className="page">

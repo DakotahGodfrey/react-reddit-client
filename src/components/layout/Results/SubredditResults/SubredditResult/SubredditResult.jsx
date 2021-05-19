@@ -27,16 +27,13 @@ const SubredditResult = ({ subreddit }) => {
       <Link to="/subreddit" className="subreddit-link" onClick={handleClick}>
         <div className="results-subreddit-icon"></div>
         <h3 className="results-subreddit-title">{display_name_prefixed}</h3>
-      </Link>
-      {public_description ? (
+
         <ReactMarkdown
           remarkPlugins={[gfm]}
           children={public_description}
           className="results-subreddit-description"
         />
-      ) : (
-        <p>{description}</p>
-      )}
+      </Link>
     </li>
   );
 };

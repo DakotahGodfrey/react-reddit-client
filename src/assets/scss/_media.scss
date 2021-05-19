@@ -18,3 +18,17 @@
 .page .page-content.results {
   margin: 0 1rem;
 }
+
+@media screen and( max-width:400px) {
+  .results-thumbnail {
+    display: none;
+  }
+  .post-link {
+    display: block !important;
+  }
+  .results-post {
+    .post-footer {
+      justify-content: center;
+    }
+  }
+}
