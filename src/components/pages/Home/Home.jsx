@@ -3,7 +3,6 @@ import Aside from "../../../components/layout/sidebar/Aside/Aside";
 import Feed from "../features/Feed/Feed";
 import Trending from "../features/Trending/Trending";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
-
 import {
   fetchNextPagePopular,
   getPopularPosts,
@@ -13,6 +12,7 @@ import {
 } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
+
 const Home = () => {
   const home = useSelector(selectHome);
 

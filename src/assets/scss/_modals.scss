@@ -1,0 +1,30 @@
+.settings {
+  &-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: $bg-light-grey, $alpha: 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.modal {
+  &-content {
+    width: 50rem;
+    background-color: $bg-light;
+  }
+  &-header {
+    padding: 1rem;
+  }
+  &-footer {
+    @extend .modal-header;
+  }
+  &-body {
+    padding: 1rem;
+    border-top: 2px solid $bg-light-grey;
+    border-bottom: 2px solid $bg-light-grey;
+  }
+}

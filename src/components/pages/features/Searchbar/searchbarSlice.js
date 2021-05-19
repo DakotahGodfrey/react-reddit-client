@@ -19,10 +19,18 @@ const searchBarSlice = createSlice({
     status: "idle",
     results: [],
     term: "",
+    showSettings: false,
+    darkMode: false,
   },
   reducers: {
     setTerm(state, action) {
       state.term = action.payload;
+    },
+    setShowSettings(state) {
+      state.showSettings = !state.showSettings;
+    },
+    setDarkMode(state) {
+      state.darkMode = !state.darkMode;
     },
   },
   extraReducers: {
@@ -39,8 +47,10 @@ const searchBarSlice = createSlice({
     },
   },
 });
-export const { setTerm } = searchBarSlice.actions;
+export const { setTerm, setShowSettings, setDarkMode } = searchBarSlice.actions;
 export const selectTerm = (state) => state.search.term;
 export const selectResults = (state) => state.search.results;
 export const selectStatus = (state) => state.search.status;
+export const selectShowSettings = (state) => state.search.showSettings;
+export const selectDarkMode = (state) => state.search.darkMode;
 export default searchBarSlice.reducer;
