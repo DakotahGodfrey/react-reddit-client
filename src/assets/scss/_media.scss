@@ -37,3 +37,13 @@
     }
   }
 }
+@media screen and( max-width:350px) {
+  section {
+    &.post-card {
+      padding: 0;
+    }
+  }
+  .posts-container {
+    overflow-x: hidden;
+  }
+}
