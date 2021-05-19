@@ -7,6 +7,24 @@
   top: 0;
   z-index: 1;
   background-color: $bg-light;
+  &.dark {
+    background-color: $bg-dark-primary;
+    .search-form {
+      input {
+        background-color: #222;
+        box-shadow: none;
+      }
+      i {
+        color: $bg-light;
+        font-weight: 500;
+      }
+    }
+    .nav-controls {
+      button {
+        color: $bg-light;
+      }
+    }
+  }
   .logo {
     width: 44px;
     height: 44px;
@@ -30,7 +48,7 @@
       font-size: 1.6rem;
       background-color: #eee;
       border-radius: 50px;
-      box-shadow: 0 2px 4px inset rgba($color: $text-dark, $alpha: 0.25);
+      box-shadow: 0 2px 4px inset rgba($color: $bg-dark-primary, $alpha: 0.25);
       &:focus {
         outline-color: $brand-color;
       }
