@@ -20,6 +20,11 @@
 }
 
 @media screen and( max-width:400px) {
+  .page {
+    .page-wrapper {
+      margin: 5rem 0;
+    }
+  }
   .results-thumbnail {
     display: none;
   }
