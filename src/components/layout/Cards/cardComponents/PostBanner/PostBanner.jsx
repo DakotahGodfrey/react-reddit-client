@@ -5,10 +5,12 @@ import {
   fetchDestSubreddit,
 } from "../../../../pages/Subreddit/subredditSlice";
 import { Link } from "react-router-dom";
+import { timeSince } from "../../../../../assets/helpers/helpers";
 const PostBanner = ({ postDetails, isLarge }) => {
   const { subreddit_name_prefixed, author, subreddit, d } = postDetails;
-  console.log(typeof d);
-  console.log(d.toLocaleString());
+  const postTime = Date.parse(d);
+  const timeStamp = timeSince(postTime);
+  console.log(timeStamp);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(setCurrentSubreddit(subreddit));
@@ -26,9 +28,8 @@ const PostBanner = ({ postDetails, isLarge }) => {
         </Link>
       </span>
       <span data-testid="author" className="post-author">
-        Posted by u/{author} on{" "}
+        Posted by u/{author} <span className="post-date">{timeStamp} ago</span>
       </span>
-      <span className="post-author"> {d.toLocaleString()}</span>
     </header>
   );
 };
