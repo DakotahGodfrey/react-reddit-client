@@ -3,6 +3,7 @@
     .page-wrapper {
       grid-template-columns: 1fr;
     }
+
     .sidebar {
       display: none;
     }
@@ -12,5 +13,37 @@
     .posts-container {
       padding: 0;
     }
+  }
+}
+.page .page-content.results {
+  margin: 0 1rem;
+}
+
+@media screen and( max-width:400px) {
+  .page {
+    .page-wrapper {
+      margin: 5rem 0;
+    }
+  }
+  .results-thumbnail {
+    display: none;
+  }
+  .post-link {
+    display: block !important;
+  }
+  .results-post {
+    .post-footer {
+      justify-content: center;
+    }
+  }
+}
+@media screen and( max-width:350px) {
+  section {
+    &.post-card {
+      padding: 0;
+    }
+  }
+  .posts-container {
+    overflow-x: hidden;
   }
 }

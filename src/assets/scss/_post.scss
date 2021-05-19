@@ -10,6 +10,15 @@
       max-width: 100vw;
       padding: 2rem;
       background-color: $bg-light;
+      &.dark {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+        span {
+          a {
+            color: $bg-light;
+          }
+        }
+      }
     }
   }
   &-large {
@@ -22,6 +31,11 @@
         font-size: 2rem;
         margin: 1rem 1rem 1rem 0;
       }
+    }
+    &-information {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
     &-comments {
       grid-column: 1;

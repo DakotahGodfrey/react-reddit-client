@@ -1,8 +1,9 @@
 import React from "react";
 import Toolbar from "../../../layout/Toolbar/Toolbar";
 import HomeCard from "../../../layout/Cards/Home/HomeCard";
+import LoadMore from "../../../layout/Buttons/LoadMore/LoadMore";
 
-const Feed = ({ posts, currentSubreddit }) => {
+const Feed = ({ posts, currentSubreddit, handleClick }) => {
   return (
     <section className="feed-container" data-testid="feed-container">
       <Toolbar />
@@ -13,6 +14,7 @@ const Feed = ({ posts, currentSubreddit }) => {
         ) : (
           posts.map((post) => <HomeCard post={post} key={post.data.id} />)
         )}
+        <LoadMore handleClick={handleClick} />
       </div>
     </section>
   );

@@ -3,8 +3,8 @@ import Aside from "../../../components/layout/sidebar/Aside/Aside";
 import Feed from "../features/Feed/Feed";
 import Trending from "../features/Trending/Trending";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
-
 import {
+  fetchNextPagePopular,
   getPopularPosts,
   getTrending,
   getTrendingSubreddits,
@@ -12,8 +12,11 @@ import {
 } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
+import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
 const Home = () => {
+  const dark = useSelector(selectDarkMode);
   const home = useSelector(selectHome);
+
   const {
     posts,
     trendingItems,
@@ -21,8 +24,13 @@ const Home = () => {
     errors,
     trendingSubreddits,
     status,
+    paginationId,
   } = home;
+
   const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(fetchNextPagePopular(paginationId));
+  };
   useEffect(() => {
     dispatch(getPopularPosts());
     dispatch(getTrending());
@@ -30,7 +38,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <main className="page">
+    <main className={dark ? "dark page" : "page"}>
       <Navbar />
       <header className="trending-container" data-testid="trending-container">
         {status === "pending" ? null : (
@@ -44,7 +52,11 @@ const Home = () => {
           ) : status === "pending" ? (
             <Loading />
           ) : (
-            <Feed posts={posts} currentSubreddit={currentSubreddit} />
+            <Feed
+              posts={posts}
+              currentSubreddit={currentSubreddit}
+              handleClick={handleClick}
+            />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />
         </div>

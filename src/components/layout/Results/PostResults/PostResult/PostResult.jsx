@@ -6,6 +6,7 @@ import {
 } from "../../../../pages/Post/postSlice";
 import { useDispatch } from "react-redux";
 import PostFooter from "../../../Cards/cardComponents/PostFooter/PostFooter";
+import noImgThumbnail from "../../../../../assets/media/img_placeholder.png";
 
 const PostResult = ({ post }) => {
   const {
@@ -32,11 +33,13 @@ const PostResult = ({ post }) => {
   return (
     <li className="results-post">
       <Link to="/post" onClick={handleClick} className="post-link">
-        {/* thumbnail */}
         <div className="results-thumbnail">
-          <img src={thumbnail} alt={"post thumbnail"} />
+          {thumbnail === "self" || thumbnail === "default" || !thumbnail ? (
+            <img src={noImgThumbnail} alt="post thumbnail" />
+          ) : (
+            <img src={thumbnail} alt="no thumbnail available" />
+          )}
         </div>
-        {/* banner */}
         <div className="results-title">
           <h3>{title}</h3>
           <div className="post-information">
@@ -47,7 +50,6 @@ const PostResult = ({ post }) => {
           </div>
         </div>
       </Link>
-      {/* buttons */}
       <PostFooter postLinks={postLinks} />
     </li>
   );

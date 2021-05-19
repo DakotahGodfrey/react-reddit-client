@@ -14,7 +14,7 @@ export const getPopularPosts = createAsyncThunk(
   }
 );
 export const getTrending = createAsyncThunk("home/getTrending", async () => {
-  const response = await fetch(`${base_url}r/worldNews/.json?limit=5`);
+  const response = await fetch(`${base_url}r/worldNews/new.json?limit=5`);
   const data = await response.json();
   return data;
 });
@@ -44,6 +44,21 @@ export const getTrendingSubreddits = createAsyncThunk(
     }
   }
 );
+
+export const fetchNextPagePopular = createAsyncThunk(
+  "home/fetchNextPagePopular",
+  async (nextPageId) => {
+    try {
+      const response = await fetch(
+        `${popular_url}?count=30&after=${nextPageId}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 const homeSlice = createSlice({
   name: "home",
   initialState: {
@@ -53,6 +68,7 @@ const homeSlice = createSlice({
     errors: "",
     currentSubreddit: "popular",
     trendingSubreddits: [],
+    paginationId: "",
   },
   reducers: {},
   extraReducers: {
@@ -61,8 +77,8 @@ const homeSlice = createSlice({
     },
     [getPopularPosts.fulfilled]: (state, action) => {
       state.status = "idle";
-
       state.posts = action.payload.data.children;
+      state.paginationId = action.payload.data.after;
     },
     [getPopularPosts.rejected]: (state) => {
       state.status = "idle";
@@ -113,10 +129,24 @@ const homeSlice = createSlice({
       state.status = "idle";
       state.errors = "request failed";
     },
+
+    [fetchNextPagePopular.pending]: (state) => {
+      state.status = "pending";
+    },
+    [fetchNextPagePopular.fulfilled]: (state, action) => {
+      state.status = "idle";
+      state.posts = state.posts.concat(action.payload.data.children);
+      state.paginationId = action.payload.data.after;
+    },
+    [fetchNextPagePopular.rejected]: (state) => {
+      state.status = "idle";
+      state.errors = "request failed";
+    },
   },
 });
 
 export const { setStatus } = homeSlice.actions;
 export const selectHome = (state) => state.home;
 export const selectTrendingSubs = (state) => state.home.trendingSubreddits;
+export const selectPaginationId = (state) => state.home.paginationId;
 export default homeSlice.reducer;

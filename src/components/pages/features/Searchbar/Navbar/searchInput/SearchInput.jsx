@@ -18,7 +18,11 @@ const SearchInput = () => {
     console.log(term);
   };
   return (
-    <form aria-label="search form" onSubmit={(e) => handleSubmit(e)}>
+    <form
+      aria-label="search form"
+      className="search-form"
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <input
         type="search"
         aria-label="search"

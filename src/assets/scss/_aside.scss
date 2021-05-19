@@ -1,4 +1,12 @@
-aside {
+.sidebar {
+  &.dark {
+    .aside-trending {
+      .aside-header {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+      }
+    }
+  }
   .aside-trending {
     background-color: $bg-light;
 

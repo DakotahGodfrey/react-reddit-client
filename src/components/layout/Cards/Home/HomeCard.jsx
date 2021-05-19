@@ -8,8 +8,8 @@ import {
   getPostById,
   getSubredditDescription,
 } from "../../../pages/Post/postSlice";
-import { useDispatch } from "react-redux";
-import Loading from "../../Loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
 const HomeCard = ({ post }) => {
   // destructure passed prop.
   const {
@@ -20,7 +20,12 @@ const HomeCard = ({ post }) => {
     num_comments,
     is_video,
     id,
+    created_utc,
   } = post.data;
+  let utcSeconds = created_utc;
+  let d = new Date(0);
+
+  d.setUTCSeconds(utcSeconds);
 
   // handle images
   const image = post.data.preview
@@ -35,6 +40,7 @@ const HomeCard = ({ post }) => {
     author,
     subreddit_name_prefixed,
     subreddit,
+    d,
   };
   // post content object
   const postContent = {
@@ -46,6 +52,7 @@ const HomeCard = ({ post }) => {
   const postLinks = {
     num_comments,
   };
+  const dark = useSelector(selectDarkMode);
 
   const dispatch = useDispatch();
   const handleClick = () => {
@@ -60,7 +67,7 @@ const HomeCard = ({ post }) => {
     <section
       aria-label="user post"
       data-testid="user-post"
-      className="post-card"
+      className={dark ? "post-card dark" : "post-card "}
     >
       {/* Vote Component Here */}
       {/* <VoteBar /> */}

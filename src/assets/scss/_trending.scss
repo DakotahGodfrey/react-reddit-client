@@ -1,6 +1,21 @@
 .trending {
   margin-top: 2rem;
   position: relative;
+  &.dark {
+    .trending {
+      &-row {
+        background-color: $bg-dark-primary;
+      }
+      &-heading {
+        color: $bg-light;
+      }
+      &-card {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+        border-color: $bg-light-grey;
+      }
+    }
+  }
   &-container {
     padding: 3rem;
   }
@@ -36,6 +51,7 @@
     overflow-y: scroll;
     border: 2px solid $text-dark;
     padding: 1.5rem;
+    border-radius: 20px;
     &:hover {
       transform: scale(1.1);
     }

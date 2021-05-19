@@ -4,6 +4,7 @@ import ResultsBanner from "../../layout/Results/ResultsBanner/ResultsBanner";
 import SubredditResults from "../../layout/Results/SubredditResults/SubredditResults";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import {
+  selectDarkMode,
   selectResults,
   selectStatus,
   selectTerm,
@@ -17,15 +18,16 @@ const Results = () => {
   const subredditsArray = results[0].data.children;
   const postsArray = results[1].data.children;
   const resultNum = subredditsArray.length + postsArray.length;
+  const dark = useSelector(selectDarkMode);
   return (
-    <main className="page">
+    <main className={dark ? "page dark" : "page"}>
       <Navbar />
       <ResultsBanner term={term} resultNum={resultNum} />
       <section className="page-content results" data-testid="feed">
         {status === "pending" ? (
           <Loading />
         ) : (
-          <div>
+          <div className="results-wrapper">
             <article className="results-subreddits">
               <SubredditResults subredditsArray={subredditsArray} />
             </article>

@@ -2,7 +2,7 @@
   &-card {
     display: grid;
     grid-template-columns: min-content 1fr;
-    padding: 1rem;
+    padding: 2rem;
     gap: 1rem;
     font-size: 1.6rem;
     background: $bg-light;
@@ -21,6 +21,7 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.2rem;
+    flex-wrap: wrap;
   }
   &-body {
     line-height: 1.5;
@@ -37,7 +38,7 @@
     }
     blockquote {
       margin-left: 2rem;
-      // font-style: oblique;
+
       font-size: 1.5rem;
       padding: 1rem;
       font-family: "Times New Roman", Times, serif;

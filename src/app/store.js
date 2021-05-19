@@ -15,6 +15,7 @@ const persistedSubredditReducer = persistReducer(
   persistConfig,
   subredditReducer
 );
+
 const persistedSearchReducer = persistReducer(persistConfig, searchReducer);
 const store = configureStore({
   reducer: {

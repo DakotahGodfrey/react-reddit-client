@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactMarkdown from "react-markdown";
 const LargePost = ({ postContent }) => {
   const { title, video, image, selftext } = postContent;
   return (
@@ -12,7 +12,7 @@ const LargePost = ({ postContent }) => {
       ) : image ? (
         <img src={image} alt={title} />
       ) : (
-        <p className="post-large-body">{selftext}</p>
+        <ReactMarkdown className="post-large-body">{selftext}</ReactMarkdown>
       )}
     </article>
   );

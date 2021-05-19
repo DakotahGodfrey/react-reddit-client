@@ -1,5 +1,51 @@
 .page {
   background-color: #dae0e6;
+  &.dark {
+    background-color: $bg-dark-primary;
+    .page {
+      &-heading {
+        color: $bg-light;
+      }
+      &-wrapper {
+        button {
+          color: $bg-light;
+        }
+        .post-large-comments {
+          background: $bg-dark-primary;
+          .comment-card {
+            background: $bg-dark-secondary;
+            color: $bg-light;
+          }
+        }
+        .aside-subreddit {
+          background: $bg-dark-secondary;
+          color: $bg-light;
+          a {
+            color: $bg-light;
+          }
+        }
+      }
+    }
+    .results {
+      &-display {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+      }
+      &-subreddit {
+        background-color: $bg-dark-secondary;
+      }
+      &-post {
+        background-color: $bg-dark-secondary;
+      }
+      a {
+        color: $bg-light;
+      }
+      color: $bg-light;
+      button {
+        color: $bg-light;
+      }
+    }
+  }
   .page-content {
     display: flex;
     justify-content: center;
@@ -29,5 +75,8 @@
     flex-direction: column;
     gap: 3rem;
     padding: 1rem;
+  }
+  video {
+    width: 100%;
   }
 }
