@@ -11,7 +11,8 @@
   &-information {
     display: flex;
     padding-bottom: 1rem;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   &-subreddit {
     font-size: 1.4rem;

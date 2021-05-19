@@ -20,7 +20,12 @@ const HomeCard = ({ post }) => {
     num_comments,
     is_video,
     id,
+    created_utc,
   } = post.data;
+  let utcSeconds = created_utc;
+  let d = new Date(0);
+
+  d.setUTCSeconds(utcSeconds);
 
   // handle images
   const image = post.data.preview
@@ -35,6 +40,7 @@ const HomeCard = ({ post }) => {
     author,
     subreddit_name_prefixed,
     subreddit,
+    d,
   };
   // post content object
   const postContent = {

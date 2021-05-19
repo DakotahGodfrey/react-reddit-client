@@ -11,7 +11,13 @@ const PostCard = ({ post }) => {
       is_video,
       selftext,
       subreddit,
+      created_utc,
     } = post;
+    let utcSeconds = created_utc;
+    let d = new Date(0);
+
+    d.setUTCSeconds(utcSeconds);
+
     const image = post.preview
       ? urlReplace(post.preview.images[0].source.url)
       : null;
@@ -20,6 +26,7 @@ const PostCard = ({ post }) => {
       subreddit_name_prefixed,
       author,
       subreddit,
+      d,
     };
     const postContent = {
       title,

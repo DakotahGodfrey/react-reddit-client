@@ -25,7 +25,7 @@ const Results = () => {
         {status === "pending" ? (
           <Loading />
         ) : (
-          <div>
+          <div className="results-wrapper">
             <article className="results-subreddits">
               <SubredditResults subredditsArray={subredditsArray} />
             </article>

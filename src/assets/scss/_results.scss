@@ -1,6 +1,6 @@
 .results-display {
   padding: 2rem;
-  margin: 3rem;
+  margin: 3rem 1rem 3rem 1rem;
   border-radius: 20px;
   background: $bg-light;
   .results-term {
@@ -12,6 +12,11 @@
   }
 }
 .results {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
   &-subreddit {
     background: $bg-light;
     align-items: center;
@@ -19,7 +24,7 @@
     .subreddit-link {
       display: grid;
       text-decoration: none;
-      grid-template-columns: min-content 1fr 2fr;
+      grid-template-columns: min-content 1fr;
       gap: 1.5rem;
       align-items: center;
     }
@@ -30,8 +35,8 @@
     gap: 1.5rem;
     .results-subreddit {
       padding: 2rem;
-      display: grid;
-      grid-template-columns: min-content 1fr;
+      display: flex;
+      flex-wrap: wrap;
       p {
         font-size: 1.4rem;
       }

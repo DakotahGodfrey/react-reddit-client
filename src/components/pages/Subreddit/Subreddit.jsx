@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
-import { selectSubreddit } from "./subredditSlice";
+import { fetchNextPageBySubreddit, selectSubreddit } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";
-import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
+import {
+  fetchNextPagePopular,
+  getTrendingSubreddits,
+  selectTrendingSubs,
+} from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
 const Subreddit = () => {
   const subreddit = useSelector(selectSubreddit);
   const trendingSubreddits = useSelector(selectTrendingSubs);
   const dispatch = useDispatch();
-  const { posts, errors, currentSubreddit, status } = subreddit;
+  const { posts, errors, currentSubreddit, status, paginationId } = subreddit;
+  const handleClick = () => {
+    const action = {
+      currentSubreddit,
+      paginationId,
+    };
+    dispatch(fetchNextPageBySubreddit(action));
+  };
   useEffect(() => {
     dispatch(getTrendingSubreddits());
   }, [dispatch]);
@@ -25,7 +36,11 @@ const Subreddit = () => {
           ) : status === "pending" ? (
             <Loading />
           ) : (
-            <Feed posts={posts} currentSubreddit={currentSubreddit} />
+            <Feed
+              posts={posts}
+              currentSubreddit={currentSubreddit}
+              handleClick={handleClick}
+            />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />
         </div>
