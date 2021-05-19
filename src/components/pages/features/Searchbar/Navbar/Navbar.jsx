@@ -22,7 +22,7 @@ const Navbar = () => {
     dispatch(setDarkMode());
   };
   return (
-    <nav className="site-nav">
+    <nav className={dark ? "site-nav dark" : "site-nav"}>
       {/* Logo Goes Here */}
       <Link to="/">
         <figure className="logo">
