@@ -9,7 +9,6 @@ const NotFound = () => {
   const dark = useSelector(selectDarkMode);
   return (
     <main className={dark ? "page dark" : "page"}>
-      <Navbar />
       <div className="content">
         <header className="greeting">
           <h1>Uh Oh, page not found!</h1>
