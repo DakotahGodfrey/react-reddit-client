@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Aside from "../../../components/layout/sidebar/Aside/Aside";
 import Feed from "../features/Feed/Feed";
-import Trending from "../features/Trending/Trending";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import {
   fetchNextPagePopular,
@@ -42,10 +41,8 @@ const Home = () => {
   return (
     <main className={dark ? "dark page" : "page"}>
       <Navbar />
-      <header className="trending-container" data-testid="trending-container">
-        {status === "pending" ? null : (
-          <WorldNewsCarousel trendingItems={trendingItems} />
-        )}
+      <header className="carousel">
+        <WorldNewsCarousel trendingItems={trendingItems} />
       </header>
       <section className="page-content" data-testid="feed">
         <div className="page-wrapper" data-testid="feed-wrapper">
