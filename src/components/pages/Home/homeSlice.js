@@ -14,7 +14,7 @@ export const getPopularPosts = createAsyncThunk(
   }
 );
 export const getTrending = createAsyncThunk("home/getTrending", async () => {
-  const response = await fetch(`${base_url}r/worldNews/new.json?limit=5`);
+  const response = await fetch(`${base_url}r/worldNews/top.json?limit=10`);
   const data = await response.json();
   return data;
 });

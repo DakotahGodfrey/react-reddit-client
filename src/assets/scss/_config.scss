@@ -30,6 +30,7 @@ button {
 html {
   font-size: 10px;
   font-family: Helvetica, Arial, sans-serif;
+  padding: env(safe-area-inset);
 }
 ul {
   list-style: none;

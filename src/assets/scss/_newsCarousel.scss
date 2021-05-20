@@ -1,0 +1,57 @@
+.carousel {
+  padding-top: 3rem;
+  margin: 0 auto;
+  max-width: 120rem;
+  margin: 5rem auto;
+  &-heading {
+    font-size: 2.5rem;
+    margin-left: 3rem;
+  }
+  &-container {
+    display: flex;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  &-card {
+    flex-shrink: 0;
+    height: 250px;
+    max-width: 300px;
+    margin: 0 2rem;
+    background: $bg-light;
+    padding: 1.5rem;
+    display: grid;
+    align-items: center;
+    border-radius: 20px;
+    transition: all 0.4s ease-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+    .card {
+      &-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 2rem;
+      }
+      &-link {
+        font-size: 1.6rem;
+        a {
+          display: flex;
+          max-width: 250px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #0ecbfa;
+          height: 44px;
+          align-items: center;
+          &:hover {
+            filter: brightness(75%);
+          }
+        }
+      }
+    }
+  }
+}

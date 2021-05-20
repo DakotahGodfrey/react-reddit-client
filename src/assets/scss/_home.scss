@@ -27,6 +27,15 @@
         }
       }
     }
+    .carousel {
+      &-container {
+        .carousel {
+          &-card {
+            background: $bg-dark-secondary;
+          }
+        }
+      }
+    }
     .results {
       &-display {
         background-color: $bg-dark-secondary;
