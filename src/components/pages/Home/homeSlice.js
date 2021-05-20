@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { popular_url, base_url } from "../../../app/api";
+import { base_url } from "../../../app/api";
 
 export const getPopularPosts = createAsyncThunk(
   "home/getPopularPosts",
-  async () => {
+  async (filter) => {
     try {
-      const response = await fetch(popular_url);
+      const response = await fetch(`${base_url}${filter}.json?`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -47,10 +47,11 @@ export const getTrendingSubreddits = createAsyncThunk(
 
 export const fetchNextPagePopular = createAsyncThunk(
   "home/fetchNextPagePopular",
-  async (nextPageId) => {
+  async (action) => {
+    const { filter, nextPageId } = action;
     try {
       const response = await fetch(
-        `${popular_url}?count=30&after=${nextPageId}`
+        `${base_url}${filter}/.json?count=30&after=${nextPageId}`
       );
       const data = await response.json();
       return data;
@@ -69,8 +70,13 @@ const homeSlice = createSlice({
     currentSubreddit: "popular",
     trendingSubreddits: [],
     paginationId: "",
+    filter: "",
   },
-  reducers: {},
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: {
     [getPopularPosts.pending]: (state) => {
       state.status = "pending";
@@ -143,7 +149,7 @@ const homeSlice = createSlice({
   },
 });
 
-export const { setStatus } = homeSlice.actions;
+export const { setStatus, setFilter } = homeSlice.actions;
 export const selectHome = (state) => state.home;
 export const selectTrendingSubs = (state) => state.home.trendingSubreddits;
 export const selectPaginationId = (state) => state.home.paginationId;
