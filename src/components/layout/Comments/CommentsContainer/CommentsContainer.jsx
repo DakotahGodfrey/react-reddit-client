@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../../Loading/Loading";
 import Comment from "../Comment/Comment";
 
 export const CommentsContainer = ({ comments }) => {
@@ -9,7 +10,7 @@ export const CommentsContainer = ({ comments }) => {
           <Comment comment={comment} key={comment.data.id} />
         ))
       ) : (
-        <p className="status-message">No Comments Yet! </p>
+        <Loading />
       )}
     </section>
   );

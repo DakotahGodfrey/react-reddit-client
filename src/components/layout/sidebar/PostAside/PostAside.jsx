@@ -40,9 +40,10 @@ const PostAside = ({ subredditData }) => {
           </Link>
         </header>
         <div className="aside-information">
-          <p className="aside-description">
-            <ReactMarkdown>{public_description}</ReactMarkdown>
-          </p>
+          <ReactMarkdown className="aside-description">
+            {public_description}
+          </ReactMarkdown>
+
           <div className="aside-member-info">
             <div className="aside-member-count">
               <div className="aside-count">{subscribersRounded}</div>

@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../pages/features/Searchbar/searchbarSlice";
 import ufo from "../../../assets/media/404ufo.svg";
-import Navbar from "../../pages/features/Searchbar/Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
@@ -16,7 +15,7 @@ const NotFound = () => {
           <Link to="/">Return Home</Link>
         </header>
         <div className="ufoContainer">
-          <img className="ufo" src={ufo} alt="decorative ufo 404 page image" />
+          <img className="ufo" src={ufo} alt="cartoon ufo" />
         </div>
       </div>
     </main>

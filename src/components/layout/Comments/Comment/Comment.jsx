@@ -25,13 +25,11 @@ const Comment = ({ comment }) => {
           <span className="comment-author">u/{author}</span>
           <span className="comment-time">{timeStamp} ago</span>
         </div>
-        <p className="comment-body">
-          <ReactMarkdown
-            remarkPlugins={[gfm]}
-            children={bodyMarkdown}
-            className="comment-markdown"
-          />
-        </p>
+        <ReactMarkdown
+          remarkPlugins={[gfm]}
+          children={bodyMarkdown}
+          className="comment-markdown"
+        />
       </div>
     </div>
   );

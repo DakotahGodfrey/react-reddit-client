@@ -12,7 +12,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
 import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
-import CarouselCard from "../../layout/Cards/CarouselCard/CarouselCard/CarouselCard";
 import WorldNewsCarousel from "../../layout/Carousels/WorldNews/WorldNewsCarousel";
 const Home = () => {
   const dark = useSelector(selectDarkMode);

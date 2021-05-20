@@ -6,7 +6,7 @@ const SubredditResults = ({ subredditsArray }) => {
   return (
     <ul className="results-subreddit-container">
       {subredditsArray.map((subreddit) => (
-        <SubredditResult subreddit={subreddit} />
+        <SubredditResult subreddit={subreddit} key={subreddit.data.id} />
       ))}
     </ul>
   );
