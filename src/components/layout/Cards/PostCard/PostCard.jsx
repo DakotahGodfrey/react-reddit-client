@@ -15,6 +15,7 @@ const PostCard = ({ post }) => {
       selftext,
       subreddit,
       created_utc,
+      thumbnail,
     } = post;
     let utcSeconds = created_utc;
     let d = new Date(0);
@@ -36,6 +37,7 @@ const PostCard = ({ post }) => {
       image,
       video,
       selftext,
+      thumbnail,
     };
     const isLarge = true;
     return (

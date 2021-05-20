@@ -15,18 +15,18 @@ const Results = () => {
   const results = useSelector(selectResults);
   const term = useSelector(selectTerm);
   const status = useSelector(selectStatus);
-  const subredditsArray = results[0].data.children;
-  const postsArray = results[1].data.children;
+  const subredditsArray = results[0] ? results[0].data.children : [];
+  const postsArray = results[1] ? results[1].data.children : [];
   const resultNum = subredditsArray.length + postsArray.length;
   const dark = useSelector(selectDarkMode);
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
-      <ResultsBanner term={term} resultNum={resultNum} />
+      <ResultsBanner term={term} resultNum={resultNum} status={status} />
       <section className="page-content results" data-testid="feed">
         {status === "pending" ? (
           <Loading />
-        ) : (
+        ) : resultNum === 0 ? null : (
           <div className="results-wrapper">
             <article className="results-subreddits">
               <SubredditResults subredditsArray={subredditsArray} />
