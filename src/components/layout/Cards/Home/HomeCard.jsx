@@ -21,6 +21,7 @@ const HomeCard = ({ post }) => {
     is_video,
     id,
     created_utc,
+    thumbnail,
   } = post.data;
   let utcSeconds = created_utc;
   let d = new Date(0);
@@ -47,6 +48,7 @@ const HomeCard = ({ post }) => {
     title,
     image,
     video,
+    thumbnail,
   };
   // post footer object
   const postLinks = {

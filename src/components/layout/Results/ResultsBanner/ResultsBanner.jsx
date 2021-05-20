@@ -1,10 +1,17 @@
 import React from "react";
-const ResultsBanner = ({ term, resultNum }) => {
-  console.log(resultNum);
+const ResultsBanner = ({ term, resultNum, status }) => {
   return (
     <header className="results-display">
       <h2 className="results-term">Query: {term}</h2>
-      <span className="results-count">{resultNum} results</span>
+      {status === "pending" ? (
+        <span className="results-count">Searching...</span>
+      ) : (
+        <span className="results-count">
+          {resultNum > 0
+            ? resultNum
+            : "No results found, try narrowing your search"}
+        </span>
+      )}
     </header>
   );
 };

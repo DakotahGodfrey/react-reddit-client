@@ -15,7 +15,6 @@ const SearchInput = () => {
   };
   const handleChange = (e) => {
     term = e.target.value;
-    console.log(term);
   };
   return (
     <form
