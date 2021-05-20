@@ -4,6 +4,7 @@ import Home from "../components/pages/Home/Home";
 import Post from "../components/pages/Post/Post";
 import Subreddit from "../components/pages/Subreddit/Subreddit";
 import Results from "../components/pages/Results/Results";
+import NotFound from "../components/layout/NotFound/NotFound";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/post" component={Post} />
           <Route exact path="/subreddit" component={Subreddit} />
           <Route exact path="/results" component={Results} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>
