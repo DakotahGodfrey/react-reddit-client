@@ -13,6 +13,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
 import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
+import CarouselCard from "../../layout/Cards/CarouselCard/CarouselCard/CarouselCard";
+import WorldNewsCarousel from "../../layout/Carousels/WorldNews/WorldNewsCarousel";
 const Home = () => {
   const dark = useSelector(selectDarkMode);
   const home = useSelector(selectHome);
@@ -42,7 +44,7 @@ const Home = () => {
       <Navbar />
       <header className="trending-container" data-testid="trending-container">
         {status === "pending" ? null : (
-          <Trending trendingItems={trendingItems} />
+          <WorldNewsCarousel trendingItems={trendingItems} />
         )}
       </header>
       <section className="page-content" data-testid="feed">

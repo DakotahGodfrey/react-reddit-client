@@ -76,44 +76,42 @@ const homeSlice = createSlice({
       state.status = "pending";
     },
     [getPopularPosts.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.posts = action.payload.data.children;
       state.paginationId = action.payload.data.after;
+      state.status = "idle";
     },
     [getPopularPosts.rejected]: (state) => {
-      state.status = "idle";
-
       state.errors = "request failed";
+      state.status = "idle";
     },
 
     [getTrending.pending]: (state) => {
       state.status = "pending";
     },
     [getTrending.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.trendingItems = action.payload.data.children
         ? action.payload.data.children
         : null;
+      state.status = "idle";
     },
     [getTrending.rejected]: (state) => {
-      state.status = "idle";
-
       state.errors = "request failed";
+      state.status = "idle";
     },
 
     [getPostsBySubreddit.pending]: (state) => {
       state.status = "pending";
     },
     [getPostsBySubreddit.fulfilled]: (state, action) => {
-      state.status = "pending";
       state.posts = action.payload.data
         ? action.payload.data.children
         : ["not found"];
+      state.status = "idle";
     },
     [getPostsBySubreddit.rejected]: (state) => {
-      state.status = "idle";
       state.errors = "request failed";
       state.posts = null;
+      state.status = "idle";
     },
 
     [getTrendingSubreddits.pending]: (state) => {
@@ -121,26 +119,26 @@ const homeSlice = createSlice({
     },
 
     [getTrendingSubreddits.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.trendingSubreddits = action.payload.data;
+      state.status = "idle";
     },
 
     [getTrendingSubreddits.rejected]: (state) => {
-      state.status = "idle";
       state.errors = "request failed";
+      state.status = "idle";
     },
 
     [fetchNextPagePopular.pending]: (state) => {
       state.status = "pending";
     },
     [fetchNextPagePopular.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.posts = state.posts.concat(action.payload.data.children);
       state.paginationId = action.payload.data.after;
+      state.status = "idle";
     },
     [fetchNextPagePopular.rejected]: (state) => {
-      state.status = "idle";
       state.errors = "request failed";
+      state.status = "idle";
     },
   },
 });
