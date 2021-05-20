@@ -3,10 +3,21 @@ import Toolbar from "../../../layout/Toolbar/Toolbar";
 import HomeCard from "../../../layout/Cards/Home/HomeCard";
 import LoadMore from "../../../layout/Buttons/LoadMore/LoadMore";
 
-const Feed = ({ posts, currentSubreddit, handleClick }) => {
+const Feed = ({
+  posts,
+  currentSubreddit,
+  handleLoadMoreClick,
+  handleNewClick,
+  handleTopClick,
+  handleHotClick,
+}) => {
   return (
     <section className="feed-container" data-testid="feed-container">
-      <Toolbar />
+      <Toolbar
+        handleNewClick={handleNewClick}
+        handleTopClick={handleTopClick}
+        handleHotClick={handleHotClick}
+      />
       <h2 className="page-heading">r/{currentSubreddit}</h2>
       <div className="posts-container" data-testid="posts-container">
         {posts[0] === "not found" ? (
@@ -14,7 +25,7 @@ const Feed = ({ posts, currentSubreddit, handleClick }) => {
         ) : (
           posts.map((post) => <HomeCard post={post} key={post.data.id} />)
         )}
-        <LoadMore handleClick={handleClick} />
+        <LoadMore handleLoadMoreClick={handleLoadMoreClick} />
       </div>
     </section>
   );

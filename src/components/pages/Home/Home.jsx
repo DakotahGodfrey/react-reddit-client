@@ -8,6 +8,7 @@ import {
   getTrending,
   getTrendingSubreddits,
   selectHome,
+  setFilter,
 } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
@@ -25,17 +26,31 @@ const Home = () => {
     trendingSubreddits,
     status,
     paginationId,
+    filter,
   } = home;
 
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(fetchNextPagePopular(paginationId));
+  const handleLoadMoreClick = () => {
+    const action = {
+      nextPageId: paginationId,
+      filter: filter,
+    };
+    dispatch(fetchNextPagePopular(action));
+  };
+  const handleNewClick = () => {
+    dispatch(setFilter("new"));
+  };
+  const handleTopClick = () => {
+    dispatch(setFilter("top"));
+  };
+  const handleHotClick = () => {
+    dispatch(setFilter("hot"));
   };
   useEffect(() => {
-    dispatch(getPopularPosts());
+    dispatch(getPopularPosts(filter));
     dispatch(getTrending());
     dispatch(getTrendingSubreddits());
-  }, [dispatch]);
+  }, [dispatch, filter]);
 
   return (
     <main className={dark ? "dark page" : "page"}>
@@ -53,7 +68,10 @@ const Home = () => {
             <Feed
               posts={posts}
               currentSubreddit={currentSubreddit}
-              handleClick={handleClick}
+              handleLoadMoreClick={handleLoadMoreClick}
+              handleNewClick={handleNewClick}
+              handleTopClick={handleTopClick}
+              handleHotClick={handleHotClick}
             />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />
