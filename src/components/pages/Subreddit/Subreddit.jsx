@@ -13,7 +13,7 @@ const Subreddit = () => {
   const dark = useSelector(selectDarkMode);
   const dispatch = useDispatch();
   const { posts, errors, currentSubreddit, status, paginationId } = subreddit;
-  const handleClick = () => {
+  const handleLoadMoreClick = () => {
     const action = {
       currentSubreddit,
       paginationId,
@@ -37,7 +37,7 @@ const Subreddit = () => {
             <Feed
               posts={posts}
               currentSubreddit={currentSubreddit}
-              handleClick={handleClick}
+              handleLoadMoreClick={handleLoadMoreClick}
             />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />
