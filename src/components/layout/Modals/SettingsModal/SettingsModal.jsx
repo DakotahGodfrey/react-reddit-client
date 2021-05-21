@@ -20,7 +20,7 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
                 name="dark-mode"
                 id="dark-mode"
               />
-              <i className="material-icons">dark_mode</i>
+              <i className="material-icons"></i>
             </div>
           </form>
         </div>

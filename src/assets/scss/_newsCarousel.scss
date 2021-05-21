@@ -44,7 +44,7 @@
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          color: #0ecbfa;
+          color: $link-color;
           height: 44px;
           align-items: center;
           &:hover {
