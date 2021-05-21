@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  overflow-x: scroll;
   max-width: 100vw;
   &.dark {
     background: $bg-dark-secondary;
