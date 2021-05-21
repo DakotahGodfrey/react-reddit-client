@@ -71,6 +71,7 @@ const Home = () => {
               handleLoadMoreClick={handleLoadMoreClick}
               handleNewClick={handleNewClick}
               handleTopClick={handleTopClick}
+              filter={filter}
               handleHotClick={handleHotClick}
             />
           )}
