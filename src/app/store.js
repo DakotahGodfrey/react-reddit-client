@@ -5,7 +5,7 @@ import searchReducer from "../components/pages/features/Searchbar/searchbarSlice
 import subredditReducer from "../components/pages/Subreddit/subredditSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-
+import bookmarkReducer from "../components/pages/Bookmarks/bookmarksSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -15,6 +15,7 @@ const persistedSubredditReducer = persistReducer(
   persistConfig,
   subredditReducer
 );
+const persistedBookmarkReducer = persistReducer(persistConfig, bookmarkReducer);
 
 const persistedSearchReducer = persistReducer(persistConfig, searchReducer);
 const store = configureStore({
@@ -23,6 +24,7 @@ const store = configureStore({
     post: persistedPostReducer,
     subreddit: persistedSubredditReducer,
     search: persistedSearchReducer,
+    bookmark: persistedBookmarkReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,
