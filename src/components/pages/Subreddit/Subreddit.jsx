@@ -62,6 +62,7 @@ const Subreddit = () => {
               handleNewClick={handleNewClick}
               handleTopClick={handleTopClick}
               handleHotClick={handleHotClick}
+              filter={filter}
             />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />

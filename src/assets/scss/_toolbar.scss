@@ -10,6 +10,11 @@
     .filter {
       &-option {
         color: $bg-light;
+        border-color: $bg-light;
+        &.current {
+          background-color: $bg-light;
+          color: $bg-dark-secondary;
+        }
       }
     }
   }
@@ -23,9 +28,13 @@
       display: flex;
       align-items: center;
       padding: 0.5rem 1rem;
-
+      border: 2px solid $bg-dark-secondary;
       border-radius: 50px;
       margin: 0 1rem;
+      &.current {
+        background-color: $bg-dark-secondary;
+        color: $bg-light;
+      }
       i {
         margin: 0 0 0 0.5rem;
       }
