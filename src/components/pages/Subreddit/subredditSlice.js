@@ -2,14 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { base_url } from "../../../app/api";
 export const fetchDestSubreddit = createAsyncThunk(
   "subreddit/fetchDestSubreddit",
-  async (subreddit) => {
-    const response = await fetch(`${base_url}r/${subreddit}/.json`);
+  async (action) => {
+    const { subreddit, filter } = action;
+    const response = await fetch(`${base_url}r/${subreddit}/${filter}.json`);
     const data = await response.json();
     return data;
   }
 );
 export const fetchNextPageBySubreddit = createAsyncThunk(
-  "home/fetchNextPagePopular",
+  "subreddit/fetchNextPageBySubreddit",
   async (action) => {
     const { currentSubreddit, paginationId } = action;
     try {
@@ -31,10 +32,14 @@ const subredditSlice = createSlice({
     posts: "",
     currentSubreddit: "",
     paginationId: "",
+    filter: "top",
   },
   reducers: {
     setCurrentSubreddit(state, action) {
       state.currentSubreddit = action.payload;
+    },
+    setFilter(state, action) {
+      state.filter = action.payload;
     },
   },
   extraReducers: {
@@ -64,6 +69,7 @@ const subredditSlice = createSlice({
     },
   },
 });
-export const { setCurrentSubreddit } = subredditSlice.actions;
+export const { setCurrentSubreddit, setFilter } = subredditSlice.actions;
 export const selectSubreddit = (state) => state.subreddit;
+export const selectFilter = (state) => state.subreddit.filter;
 export default subredditSlice.reducer;
