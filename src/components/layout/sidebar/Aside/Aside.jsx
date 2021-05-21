@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
 import TrendingSubsList from "../../Lists/TrendingSubreddits/TrendingSubsList/TrendingSubsList";
+import { Link } from "react-router-dom";
 const Aside = ({ trendingSubreddits }) => {
   const dark = useSelector(selectDarkMode);
   return (

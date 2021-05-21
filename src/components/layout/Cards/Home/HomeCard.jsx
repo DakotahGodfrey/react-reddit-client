@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PostBanner from "../cardComponents/PostBanner/PostBanner";
 import PostContent from "../cardComponents/PostContent/PostContent";
 import PostFooter from "../cardComponents/PostFooter/PostFooter";
@@ -10,8 +10,13 @@ import {
 } from "../../../pages/Post/postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
-const HomeCard = ({ post }) => {
-  // destructure passed prop.
+import {
+  addBookmarkById,
+  removeFavorite,
+} from "../../../pages/Bookmarks/bookmarksSlice";
+
+const HomeCard = ({ post, bookmarked }) => {
+  const [isBookmarked, setIsBookmarked] = useState(false);
   const {
     title,
     author,
@@ -23,36 +28,31 @@ const HomeCard = ({ post }) => {
     created_utc,
     thumbnail,
   } = post.data;
+
   let utcSeconds = created_utc;
   let d = new Date(0);
-
   d.setUTCSeconds(utcSeconds);
 
-  // handle images
   const image = post.data.preview
     ? urlReplace(post.data.preview.images[0].source.url)
     : post.data.url_overridden_by_dest
     ? post.data.url_overridden_by_dest
     : null;
-  // handle video
   const video = is_video
     ? post.data.secure_media.reddit_video.fallback_url
     : null;
-  // post banner object
   const postDetails = {
     author,
     subreddit_name_prefixed,
     subreddit,
     d,
   };
-  // post content object
   const postContent = {
     title,
     image,
     video,
     thumbnail,
   };
-  // post footer object
   const postLinks = {
     num_comments,
   };
@@ -66,6 +66,17 @@ const HomeCard = ({ post }) => {
     };
     dispatch(getPostById(postToGet));
     dispatch(getSubredditDescription(postToGet.subreddit));
+  };
+  const handleBookmark = () => {
+    const postToAdd = {
+      subreddit,
+      id,
+    };
+    dispatch(addBookmarkById(postToAdd));
+    setIsBookmarked(!isBookmarked);
+  };
+  const removeBookmark = () => {
+    dispatch(removeFavorite(id));
   };
   return (
     <section
@@ -82,7 +93,13 @@ const HomeCard = ({ post }) => {
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
       </Link>
-      <PostFooter postLinks={postLinks} />
+      <PostFooter
+        postLinks={postLinks}
+        handleBookmark={handleBookmark}
+        isBookmarked={isBookmarked}
+        bookmarked={bookmarked}
+        removeBookmark={removeBookmark}
+      />
     </section>
   );
 };
