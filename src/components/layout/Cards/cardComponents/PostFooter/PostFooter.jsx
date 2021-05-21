@@ -18,7 +18,7 @@ const PostFooter = ({
         Share
       </div>
       <button
-        style={bookmarked ? { display: "none" } : "null"}
+        style={bookmarked ? { display: "none" } : null}
         disabled={isBookmarked}
         className="post-links"
         onClick={handleBookmark}
