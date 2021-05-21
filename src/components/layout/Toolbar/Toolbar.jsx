@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../pages/features/Searchbar/searchbarSlice";
+import { Link } from "react-router-dom";
 const Toolbar = ({
   handleNewClick,
   handleTopClick,
@@ -56,6 +57,9 @@ const Toolbar = ({
         >
           New <i className="material-icons">new_releases</i>
         </button>
+        <Link className="filter-option" to="/bookmarks">
+          <i className="material-icons">bookmarks</i>
+        </Link>
       </div>
     </nav>
   );
