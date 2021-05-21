@@ -58,8 +58,10 @@ const subredditSlice = createSlice({
     },
     [fetchDestSubreddit.fulfilled]: (state, action) => {
       state.status = "idle";
-      state.posts = action.payload.data.children;
-      state.paginationId = action.payload.data.after;
+      state.posts = action.payload.data ? action.payload.data.children : [];
+      state.paginationId = action.payload.data
+        ? action.payload.data.after
+        : " ";
     },
     [fetchDestSubreddit.rejected]: (state) => {
       state.status = "idle";

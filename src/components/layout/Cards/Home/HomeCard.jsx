@@ -31,6 +31,8 @@ const HomeCard = ({ post }) => {
   // handle images
   const image = post.data.preview
     ? urlReplace(post.data.preview.images[0].source.url)
+    : post.data.url_overridden_by_dest
+    ? post.data.url_overridden_by_dest
     : null;
   // handle video
   const video = is_video
