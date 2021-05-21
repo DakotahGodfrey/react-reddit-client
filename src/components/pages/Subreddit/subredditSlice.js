@@ -3,8 +3,10 @@ import { base_url } from "../../../app/api";
 export const fetchDestSubreddit = createAsyncThunk(
   "subreddit/fetchDestSubreddit",
   async (action) => {
-    const { subreddit, filter } = action;
-    const response = await fetch(`${base_url}r/${subreddit}/${filter}.json`);
+    const { subreddit, filter, time } = action;
+    const response = await fetch(
+      `${base_url}r/${subreddit}/${filter}.json?t=${time}`
+    );
     const data = await response.json();
     return data;
   }
@@ -12,10 +14,10 @@ export const fetchDestSubreddit = createAsyncThunk(
 export const fetchNextPageBySubreddit = createAsyncThunk(
   "subreddit/fetchNextPageBySubreddit",
   async (action) => {
-    const { currentSubreddit, paginationId } = action;
+    const { currentSubreddit, paginationId, time } = action;
     try {
       const response = await fetch(
-        `${base_url}r/${currentSubreddit}/.json?count=30&after=${paginationId}`
+        `${base_url}r/${currentSubreddit}/.json?count=30&after=${paginationId}&t=${time}`
       );
       const data = await response.json();
       return data;
@@ -33,6 +35,8 @@ const subredditSlice = createSlice({
     currentSubreddit: "",
     paginationId: "",
     filter: "top",
+    menuHidden: true,
+    time: "day",
   },
   reducers: {
     setCurrentSubreddit(state, action) {
@@ -40,6 +44,12 @@ const subredditSlice = createSlice({
     },
     setFilter(state, action) {
       state.filter = action.payload;
+    },
+    setMenu(state) {
+      state.menuHidden = !state.menuHidden;
+    },
+    setTime(state, action) {
+      state.time = action.payload;
     },
   },
   extraReducers: {
@@ -69,7 +79,8 @@ const subredditSlice = createSlice({
     },
   },
 });
-export const { setCurrentSubreddit, setFilter } = subredditSlice.actions;
+export const { setCurrentSubreddit, setFilter, setMenu, setTime } =
+  subredditSlice.actions;
 export const selectSubreddit = (state) => state.subreddit;
 export const selectFilter = (state) => state.subreddit.filter;
 export default subredditSlice.reducer;

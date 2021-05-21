@@ -11,6 +11,11 @@ const Feed = ({
   handleTopClick,
   handleHotClick,
   filter,
+  menuHidden,
+  handleAllClick,
+  handleYearClick,
+  handleMonthClick,
+  handleDayClick,
 }) => {
   return (
     <section className="feed-container" data-testid="feed-container">
@@ -18,7 +23,12 @@ const Feed = ({
         handleNewClick={handleNewClick}
         handleTopClick={handleTopClick}
         handleHotClick={handleHotClick}
+        handleAllClick={handleAllClick}
+        handleYearClick={handleYearClick}
+        handleMonthClick={handleMonthClick}
+        handleDayClick={handleDayClick}
         filter={filter}
+        menuHidden={menuHidden}
       />
       <h2 className="page-heading">r/{currentSubreddit}</h2>
       <div className="posts-container" data-testid="posts-container">
