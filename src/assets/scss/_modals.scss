@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
   }
 }
 .modal {
@@ -18,13 +19,48 @@
   }
   &-header {
     padding: 1rem;
+    h3 {
+      font-size: 2.2rem;
+      color: #333;
+    }
   }
   &-footer {
-    @extend .modal-header;
+    text-align: center;
   }
   &-body {
-    padding: 1rem;
+    padding: 1rem 0;
     border-top: 2px solid $bg-light-grey;
     border-bottom: 2px solid $bg-light-grey;
+    .form-control {
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #333;
+      padding: 2rem 1rem;
+      position: relative;
+      label {
+        width: 100%;
+      }
+      input[type="checkbox"] {
+        opacity: 0;
+        z-index: 2;
+      }
+      i {
+        position: absolute;
+        right: 1rem;
+      }
+    }
+  }
+  &-close {
+    font-size: 1.4rem;
+    background: $brand-color;
+    width: 100%;
+    padding: 1rem;
+    color: $bg-light;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
