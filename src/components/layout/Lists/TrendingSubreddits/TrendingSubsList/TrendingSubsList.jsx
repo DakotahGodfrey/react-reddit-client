@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../../../pages/features/Searchbar/searchbarSlice";
 import TrendingSubItem from "../TrendingSubItem/TrendingSubItem";
-import { Link } from "react-router-dom";
 const TrendingSubsList = ({ trendingSubreddits }) => {
   const dark = useSelector(selectDarkMode);
   const trendingArray = trendingSubreddits.children
@@ -15,9 +14,7 @@ const TrendingSubsList = ({ trendingSubreddits }) => {
             <TrendingSubItem subreddit={subreddit} key={subreddit.data.id} />
           ))
         : null}
-      <li className="bookmarks-link">
-        <Link to="/bookmarks">View Your Bookmarks</Link>
-      </li>
+      <li className="bookmarks-link"></li>
     </ul>
   );
 };
