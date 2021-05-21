@@ -14,10 +14,10 @@ export const fetchDestSubreddit = createAsyncThunk(
 export const fetchNextPageBySubreddit = createAsyncThunk(
   "subreddit/fetchNextPageBySubreddit",
   async (action) => {
-    const { currentSubreddit, paginationId, time } = action;
+    const { currentSubreddit, paginationId, time, filter } = action;
     try {
       const response = await fetch(
-        `${base_url}r/${currentSubreddit}/.json?count=30&after=${paginationId}&t=${time}`
+        `${base_url}r/${currentSubreddit}/${filter}/.json?count=30&after=${paginationId}&t=${time}`
       );
       const data = await response.json();
       return data;

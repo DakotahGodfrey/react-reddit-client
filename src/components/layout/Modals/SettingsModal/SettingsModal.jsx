@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
+import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
 const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
+  const dark = useSelector(selectDarkMode);
   if (!show) {
     return null;
   }
@@ -20,7 +22,9 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
                 name="dark-mode"
                 id="dark-mode"
               />
-              <i className="material-icons"></i>
+              <i className="material-icons">
+                {!dark ? "dark_mode" : "light_mode"}
+              </i>
             </div>
           </form>
         </div>

@@ -57,10 +57,6 @@ const Toolbar = ({
         >
           New <i className="material-icons">new_releases</i>
         </button>
-        <Link className="filter-option" to="/bookmarks">
-          <i className="material-icons">bookmarks</i>
-          Bookmarks
-        </Link>
       </div>
     </nav>
   );

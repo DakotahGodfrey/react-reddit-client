@@ -34,6 +34,7 @@ const Subreddit = () => {
       currentSubreddit,
       paginationId,
       time,
+      filter,
     };
 
     dispatch(fetchNextPageBySubreddit(action));
