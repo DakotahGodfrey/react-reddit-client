@@ -5,7 +5,12 @@ const Toolbar = ({
   handleNewClick,
   handleTopClick,
   handleHotClick,
+  handleAllClick,
+  handleYearClick,
+  handleMonthClick,
+  handleDayClick,
   filter,
+  menuHidden,
 }) => {
   const dark = useSelector(selectDarkMode);
   return (
@@ -21,11 +26,27 @@ const Toolbar = ({
         </button>
         <button
           className={
-            filter === "top" ? "filter-option current" : "filter-option"
+            filter === "top" ? "filter-option top current" : "filter-option top"
           }
           onClick={handleTopClick}
         >
           Top <i className="material-icons">emoji_events</i>
+          <div
+            className={menuHidden ? "custom-select-hidden" : "custom-select"}
+          >
+            <button className="option" onClick={handleAllClick}>
+              All time
+            </button>
+            <button className="option" onClick={handleYearClick}>
+              Past year
+            </button>
+            <button className="option" onClick={handleMonthClick}>
+              This month
+            </button>
+            <button className="option" onClick={handleDayClick}>
+              Today
+            </button>
+          </div>
         </button>
         <button
           className={
@@ -36,9 +57,6 @@ const Toolbar = ({
           New <i className="material-icons">new_releases</i>
         </button>
       </div>
-      <button className="toolbar-view">
-        <i className="material-icons">view_list</i>
-      </button>
     </nav>
   );
 };

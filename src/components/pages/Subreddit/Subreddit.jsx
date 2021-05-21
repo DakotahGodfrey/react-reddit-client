@@ -6,6 +6,8 @@ import {
   fetchNextPageBySubreddit,
   selectSubreddit,
   setFilter,
+  setMenu,
+  setTime,
 } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";
@@ -17,12 +19,21 @@ const Subreddit = () => {
   const trendingSubreddits = useSelector(selectTrendingSubs);
   const dark = useSelector(selectDarkMode);
   const dispatch = useDispatch();
-  const { posts, errors, currentSubreddit, status, paginationId, filter } =
-    subreddit;
+  const {
+    posts,
+    errors,
+    currentSubreddit,
+    status,
+    paginationId,
+    filter,
+    menuHidden,
+    time,
+  } = subreddit;
   const handleLoadMoreClick = () => {
     const action = {
       currentSubreddit,
       paginationId,
+      time,
     };
 
     dispatch(fetchNextPageBySubreddit(action));
@@ -32,18 +43,32 @@ const Subreddit = () => {
   };
   const handleTopClick = () => {
     dispatch(setFilter("top"));
+    dispatch(setMenu());
   };
   const handleHotClick = () => {
     dispatch(setFilter("hot"));
+  };
+  const handleAllClick = () => {
+    dispatch(setTime("all"));
+  };
+  const handleYearClick = () => {
+    dispatch(setTime("year"));
+  };
+  const handleMonthClick = () => {
+    dispatch(setTime("month"));
+  };
+  const handleDayClick = () => {
+    dispatch(setTime("day"));
   };
   useEffect(() => {
     const action = {
       filter: filter,
       subreddit: currentSubreddit,
+      time: time,
     };
     dispatch(getTrendingSubreddits());
     dispatch(fetchDestSubreddit(action));
-  }, [dispatch, filter, currentSubreddit]);
+  }, [dispatch, filter, currentSubreddit, time]);
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
@@ -62,7 +87,12 @@ const Subreddit = () => {
               handleNewClick={handleNewClick}
               handleTopClick={handleTopClick}
               handleHotClick={handleHotClick}
+              handleAllClick={handleAllClick}
+              handleYearClick={handleYearClick}
+              handleMonthClick={handleMonthClick}
+              handleDayClick={handleDayClick}
               filter={filter}
+              menuHidden={menuHidden}
             />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />

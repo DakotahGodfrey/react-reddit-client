@@ -1,12 +1,12 @@
 .toolbar {
+  margin-bottom: 4rem;
+  background: $bg-light;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: $bg-light;
-  margin-bottom: 4rem;
+  position: relative;
+
   &.dark {
-    background-color: $bg-dark-secondary;
+    background: $bg-dark-secondary;
     .filter {
       &-option {
         color: $bg-light;
@@ -17,12 +17,16 @@
         }
       }
     }
+    .custom-select {
+      background: $bg-dark-secondary;
+      box-shadow: 0 3px 4px rgba($color: $bg-dark-primary, $alpha: 1);
+    }
   }
   .filter {
     &-controls {
       display: flex;
-      width: 50%;
-      justify-content: flex-start;
+      padding: 1rem;
+      width: 100%;
     }
     &-option {
       display: flex;
@@ -31,6 +35,13 @@
       border: 2px solid $bg-dark-secondary;
       border-radius: 50px;
       margin: 0 1rem;
+      font-size: 1.6rem;
+      min-width: 80px;
+      justify-content: center;
+      &.top {
+        position: relative;
+      }
+
       &.current {
         background-color: $bg-dark-secondary;
         color: $bg-light;
@@ -39,6 +50,11 @@
         margin: 0 0 0 0.5rem;
       }
     }
+    &-time {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+    }
   }
   &-view {
     display: flex;
@@ -46,5 +62,26 @@
     padding: 0.5rem 1rem;
     color: #dae0e6;
     border-radius: 50px;
+  }
+}
+
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+
+  width: max-content;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 4px #dae0e6;
+  justify-content: space-evenly;
+  &-hidden {
+    display: none;
+  }
+  button.option {
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-top: $bg-light-grey 2px solid;
   }
 }
