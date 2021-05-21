@@ -22,8 +22,8 @@ const bookmarkSlice = createSlice({
   },
   reducers: {
     removeFavorite(state, action) {
-      state.likes = state.bookmarks.filter(
-        (bookmark) => bookmark.data.id !== action.payload
+      state.bookmarks = state.bookmarks.filter(
+        (bookmark) => bookmark.children[0].data.id !== action.payload
       );
     },
   },

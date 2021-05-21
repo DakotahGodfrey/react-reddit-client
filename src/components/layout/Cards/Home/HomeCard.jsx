@@ -10,9 +10,12 @@ import {
 } from "../../../pages/Post/postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
-import { addBookmarkById } from "../../../pages/Bookmarks/bookmarksSlice";
+import {
+  addBookmarkById,
+  removeFavorite,
+} from "../../../pages/Bookmarks/bookmarksSlice";
 
-const HomeCard = ({ post }) => {
+const HomeCard = ({ post, bookmarked }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const {
     title,
@@ -72,6 +75,9 @@ const HomeCard = ({ post }) => {
     dispatch(addBookmarkById(postToAdd));
     setIsBookmarked(!isBookmarked);
   };
+  const removeBookmark = () => {
+    dispatch(removeFavorite(id));
+  };
   return (
     <section
       aria-label="user post"
@@ -91,6 +97,8 @@ const HomeCard = ({ post }) => {
         postLinks={postLinks}
         handleBookmark={handleBookmark}
         isBookmarked={isBookmarked}
+        bookmarked={bookmarked}
+        removeBookmark={removeBookmark}
       />
     </section>
   );
