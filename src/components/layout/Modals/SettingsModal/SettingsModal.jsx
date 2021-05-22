@@ -7,7 +7,7 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
     return null;
   }
   return (
-    <div className="settings-modal">
+    <div className={dark ? "settings-modal dark" : "settings-modal"}>
       <div className="modal-content">
         <header className="modal-header">
           <h3>Settings</h3>
@@ -15,15 +15,28 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
         <div className="modal-body">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-control">
-              <label htmlFor="dark-mode">Dark Mode</label>
+              <label htmlFor="dark-mode">
+                {!dark ? "Dark Mode" : "Light Mode"}
+              </label>
               <input
                 type="checkbox"
                 onClick={handleDarkToggle}
                 name="dark-mode"
                 id="dark-mode"
               />
-              <i className="material-icons">
-                {!dark ? "dark_mode" : "light_mode"}
+              <i
+                aria-hidden="true"
+                className={dark ? "material-icons hide" : "material-icons"}
+              >
+                nights_stay
+              </i>
+              <i
+                aria-hidden="true"
+                className={
+                  !dark ? "material-icons hide" : "material-icons light"
+                }
+              >
+                light_mode
               </i>
             </div>
           </form>

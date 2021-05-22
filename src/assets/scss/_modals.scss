@@ -10,6 +10,17 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
+    &.dark {
+      .modal-content {
+        background-color: $bg-dark-secondary;
+        h3 {
+          color: $bg-light;
+        }
+        label {
+          color: $bg-light;
+        }
+      }
+    }
   }
 }
 .modal {
@@ -45,10 +56,20 @@
       input[type="checkbox"] {
         opacity: 0;
         z-index: 2;
+        height: 44px;
+        width: 44px;
       }
       i {
         position: absolute;
         right: 1rem;
+        transition: opacity 0.4s ease-out;
+        border-radius: 50%;
+        &.hide {
+          opacity: 0;
+        }
+        &.light {
+          color: #fad700;
+        }
       }
     }
   }
