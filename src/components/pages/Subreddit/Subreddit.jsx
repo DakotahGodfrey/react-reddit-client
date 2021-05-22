@@ -62,6 +62,7 @@ const Subreddit = () => {
     dispatch(setTime("day"));
   };
   useEffect(() => {
+    document.title = `Subreddit | ${currentSubreddit}`;
     const action = {
       filter: filter,
       subreddit: currentSubreddit,

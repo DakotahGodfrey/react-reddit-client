@@ -31,6 +31,9 @@
   .post-link {
     display: block !important;
   }
+  .filter-controls {
+    justify-content: space-evenly;
+  }
 }
 @media screen and( max-width:350px) {
   section {

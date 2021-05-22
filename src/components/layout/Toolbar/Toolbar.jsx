@@ -22,7 +22,10 @@ const Toolbar = ({
           }
           onClick={handleHotClick}
         >
-          Hot <i className="material-icons">whatshot</i>
+          Hot{" "}
+          <i className="material-icons" aria-hidden="true">
+            whatshot
+          </i>
         </button>
         <button
           className={
@@ -30,7 +33,10 @@ const Toolbar = ({
           }
           onClick={handleTopClick}
         >
-          Top <i className="material-icons">emoji_events</i>
+          Top{" "}
+          <i className="material-icons" aria-hidden="true">
+            emoji_events
+          </i>
           <div
             className={menuHidden ? "custom-select-hidden" : "custom-select"}
           >
@@ -54,7 +60,10 @@ const Toolbar = ({
           }
           onClick={handleNewClick}
         >
-          New <i className="material-icons">new_releases</i>
+          New{" "}
+          <i aria-hidden="true" className="material-icons">
+            new_releases
+          </i>
         </button>
       </div>
     </nav>

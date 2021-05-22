@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   const dark = useSelector(selectDarkMode);
+  document.title = "404 | Not Found";
   return (
     <main className={dark ? "page dark" : "page"}>
       <div className="content">

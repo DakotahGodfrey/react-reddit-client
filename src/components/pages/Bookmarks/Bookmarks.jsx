@@ -6,6 +6,7 @@ import { selectBookmarks } from "./bookmarksSlice";
 import HomeCard from "../../layout/Cards/Home/HomeCard";
 
 const Bookmarks = () => {
+  document.title = "Your Bookmarks";
   const dark = useSelector(selectDarkMode);
   const bookmarksState = useSelector(selectBookmarks);
   const { bookmarks } = bookmarksState;

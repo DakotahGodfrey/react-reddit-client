@@ -7,10 +7,14 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
     return null;
   }
   return (
-    <div className={dark ? "settings-modal dark" : "settings-modal"}>
+    <div
+      role="dialog"
+      aria-labelledby="modal-title"
+      className={dark ? "settings-modal dark" : "settings-modal"}
+    >
       <div className="modal-content">
         <header className="modal-header">
-          <h3>Settings</h3>
+          <h3 id="modal-title">Settings</h3>
         </header>
         <div className="modal-body">
           <form onSubmit={(e) => e.preventDefault()}>
@@ -20,6 +24,7 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
               </label>
               <input
                 type="checkbox"
+                aria-label="toggle theme"
                 onClick={handleDarkToggle}
                 name="dark-mode"
                 id="dark-mode"
@@ -44,7 +49,9 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
         <footer className="modal-footer">
           <button onClick={handleClick} className="modal-close">
             Close
-            <i className="material-icons">close</i>
+            <i aria-hidden="true" className="material-icons">
+              close
+            </i>
           </button>
         </footer>
       </div>

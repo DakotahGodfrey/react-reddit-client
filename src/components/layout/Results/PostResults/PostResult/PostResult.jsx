@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   getPostById,
   getSubredditDescription,
 } from "../../../../pages/Post/postSlice";
+import { addBookmarkById } from "../../../../pages/Bookmarks/bookmarksSlice";
 import { useDispatch } from "react-redux";
 import PostFooter from "../../../Cards/cardComponents/PostFooter/PostFooter";
 import noImgThumbnail from "../../../../../assets/media/img_placeholder.png";
 
 const PostResult = ({ post }) => {
+  const [isBookmarked, setisBookmarked] = useState(false);
+
   const {
     subreddit,
     id,
@@ -27,6 +30,14 @@ const PostResult = ({ post }) => {
     dispatch(getPostById(postToGet));
     dispatch(getSubredditDescription(postToGet.subreddit));
   };
+  const handleBookmark = () => {
+    const postToAdd = {
+      subreddit,
+      id,
+    };
+    dispatch(addBookmarkById(postToAdd));
+    setisBookmarked(!isBookmarked);
+  };
   const postLinks = {
     num_comments,
   };
@@ -35,9 +46,9 @@ const PostResult = ({ post }) => {
       <Link to="/post" onClick={handleClick} className="post-link">
         <div className="results-thumbnail">
           {thumbnail === "self" || thumbnail === "default" || !thumbnail ? (
-            <img src={noImgThumbnail} alt="post thumbnail" />
+            <img src={noImgThumbnail} alt="" />
           ) : (
-            <img src={thumbnail} alt="no thumbnail available" />
+            <img src={thumbnail} alt="" />
           )}
         </div>
         <div className="results-title">
@@ -50,7 +61,11 @@ const PostResult = ({ post }) => {
           </div>
         </div>
       </Link>
-      <PostFooter postLinks={postLinks} />
+      <PostFooter
+        handleBookmark={handleBookmark}
+        isBookmarked={isBookmarked}
+        postLinks={postLinks}
+      />
     </li>
   );
 };

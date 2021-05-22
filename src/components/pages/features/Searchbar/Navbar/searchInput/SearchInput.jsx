@@ -17,14 +17,10 @@ const SearchInput = () => {
     term = e.target.value;
   };
   return (
-    <form
-      aria-label="search form"
-      className="search-form"
-      onSubmit={(e) => handleSubmit(e)}
-    >
+    <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
       <input
         type="search"
-        aria-label="search"
+        aria-label="Search Reddit"
         name="search"
         id="search"
         placeholder="Search"

@@ -35,16 +35,22 @@ const PostFooter = ({
         disabled={isBookmarked}
         className="post-links"
         onClick={handleBookmark}
+        aria-label="add to bookmarks"
       >
-        <i className="material-icons">bookmark</i>
+        <i className="material-icons" aria-hidden="true">
+          bookmark
+        </i>
         {isBookmarked ? "bookmarked" : "bookmark"}
       </button>
       <button
         style={!bookmarked ? { display: "none" } : { display: "flex" }}
         className="post-links"
         onClick={removeBookmark}
+        aria-label="remove from bookmarks"
       >
-        <i className="material-icons">bookmark_remove</i>
+        <i className="material-icons" aria-hidden="true">
+          bookmark_remove
+        </i>
         Remove
       </button>
     </footer>
