@@ -12,6 +12,7 @@
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    // scroll-behavior: smooth;
     flex-wrap: nowrap;
     gap: 2rem;
     padding: 2rem;
@@ -28,7 +29,7 @@
     display: grid;
     align-items: center;
     border-radius: 20px;
-    transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out, transform 0.4s 0.3s linear;
     box-shadow: 4px 4px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
     &:hover {
       transform: scale(1.1);
