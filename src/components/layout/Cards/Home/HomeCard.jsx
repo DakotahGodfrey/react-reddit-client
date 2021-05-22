@@ -89,7 +89,7 @@ const HomeCard = ({ post, bookmarked }) => {
       {/* Post Information Here */}
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
-      <Link to="/post" onClick={handleClick}>
+      <Link to="/post" aria-label={title} onClick={handleClick}>
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
       </Link>
