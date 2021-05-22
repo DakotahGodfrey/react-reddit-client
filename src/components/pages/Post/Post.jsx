@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import PostCard from "../../layout/Cards/PostCard/PostCard";
 import PostAside from "../../layout/sidebar/PostAside/PostAside";
@@ -20,7 +20,11 @@ const Post = () => {
   const post = currentPostData[0]
     ? currentPostData[0].data.children[0].data
     : null;
-
+  useEffect(() => {
+    if (post) {
+      document.title = `Post | ${post.title}`;
+    }
+  }, [post]);
   // handle subreddit desc
   const subredditData = subredditDescription.data;
   //handle comments

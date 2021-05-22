@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ResultsBanner from "../../layout/Results/ResultsBanner/ResultsBanner";
 import SubredditResults from "../../layout/Results/SubredditResults/SubredditResults";
@@ -12,6 +12,9 @@ import {
 import PostResults from "../../layout/Results/PostResults/PostResults";
 import Loading from "../../layout/Loading/Loading";
 const Results = () => {
+  useEffect(() => {
+    document.title = `Results | ${term ? term : null}`;
+  });
   const results = useSelector(selectResults);
   const term = useSelector(selectTerm);
   const status = useSelector(selectStatus);

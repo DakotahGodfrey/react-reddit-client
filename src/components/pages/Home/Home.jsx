@@ -64,6 +64,7 @@ const Home = () => {
     dispatch(setTime("day"));
   };
   useEffect(() => {
+    document.title = "Home | Core for Reddit";
     const action = {
       filter: filter,
       time: time,
