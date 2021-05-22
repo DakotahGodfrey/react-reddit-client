@@ -5,7 +5,7 @@
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: $bg-light;
   box-shadow: 0 4px 4px rgba($color: $bg-dark-primary, $alpha: 0.25);
   &.dark {

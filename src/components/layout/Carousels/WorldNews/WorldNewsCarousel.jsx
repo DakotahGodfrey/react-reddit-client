@@ -4,6 +4,7 @@ const WorldNewsCarousel = ({ trendingItems }) => {
   return (
     <section>
       <h1 className="carousel-heading">r/worldnews</h1>
+      <div className="slot-left"></div>
       <div className="carousel-container">
         {trendingItems.map((trendingItem) => (
           <CarouselCard
@@ -12,6 +13,7 @@ const WorldNewsCarousel = ({ trendingItems }) => {
           />
         ))}
       </div>
+      <div className="slot-right"></div>
     </section>
   );
 };
