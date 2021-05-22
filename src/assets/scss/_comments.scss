@@ -6,6 +6,8 @@
     gap: 1rem;
     font-size: 1.6rem;
     background: $bg-light;
+    box-shadow: 0 3px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
+    border-radius: 10px;
   }
   &-avatar {
     height: 30px;

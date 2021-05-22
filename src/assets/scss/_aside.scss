@@ -61,6 +61,8 @@
   .aside {
     &-subreddit {
       background: $bg-light;
+      border-radius: 20px;
+      box-shadow: 0 3px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
     }
     &-header {
       display: grid;
