@@ -1,7 +1,6 @@
 .trending-subs {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   &.dark {
     background-color: $bg-dark-secondary;
     .trending-subreddit {
@@ -32,6 +31,9 @@
       width: 100%;
       border-radius: 50%;
     }
+  }
+  &:hover {
+    background-color: $bg-light-grey;
   }
 }
 

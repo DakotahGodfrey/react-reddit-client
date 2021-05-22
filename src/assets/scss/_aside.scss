@@ -1,21 +1,32 @@
 .sidebar {
+  height: max-content;
   &.dark {
     .aside-trending {
       .aside-header {
         background-color: $bg-dark-secondary;
         color: $bg-light;
       }
+      .trending-subs {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      .trending-subreddit-icon {
+        border-color: $bg-light-grey;
+      }
     }
   }
   .aside-trending {
     background-color: $bg-light;
+    box-shadow: 0 4px 4px rgba($color: $bg-dark-primary, $alpha: 0.5);
+    border-radius: 20px;
 
     .aside-header {
       padding-top: 2rem;
       display: flex;
       background-color: $bg-light;
       align-items: flex-end;
-
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
       h2 {
         font-size: 2.2rem;
         padding: 0 0 1.5rem 2rem;
@@ -27,6 +38,9 @@
       padding: 1rem;
       text-decoration: none;
       border-top: 2px solid $bg-light-grey;
+      &:hover {
+        background-color: bg-medium-grey;
+      }
 
       li {
         display: flex;
@@ -88,4 +102,7 @@
       text-align: left;
     }
   }
+}
+.trending-subreddit-icon {
+  border: 2px solid $bg-dark-primary;
 }
