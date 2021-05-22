@@ -28,10 +28,32 @@
       }
     }
     .carousel {
+      .slot-left {
+        background-image: linear-gradient(
+          to right,
+          $bg-dark-primary,
+          transparent 100%
+        );
+      }
+      .slot-right {
+        background-image: linear-gradient(
+          to left,
+          $bg-dark-primary,
+          transparent 100%
+        );
+      }
       &-container {
         .carousel {
           &-card {
             background: $bg-dark-secondary;
+            .card {
+              &-link {
+                border-color: $bg-light-grey;
+                a {
+                  color: #0ecbfa;
+                }
+              }
+            }
           }
         }
       }
@@ -89,4 +111,12 @@
   video {
     width: 100%;
   }
+}
+button.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 1.6rem;
+  margin: 0 auto;
 }

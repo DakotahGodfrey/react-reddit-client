@@ -14,7 +14,6 @@ const TrendingSubsList = ({ trendingSubreddits }) => {
             <TrendingSubItem subreddit={subreddit} key={subreddit.data.id} />
           ))
         : null}
-      <li className="bookmarks-link"></li>
     </ul>
   );
 };

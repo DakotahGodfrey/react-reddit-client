@@ -3,6 +3,7 @@
   margin: 0 auto;
   max-width: 120rem;
   margin: 5rem auto;
+  position: relative;
   &-heading {
     font-size: 2.5rem;
     margin-left: 3rem;
@@ -10,9 +11,12 @@
   &-container {
     display: flex;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    // scroll-behavior: smooth;
     flex-wrap: nowrap;
     gap: 2rem;
     padding: 2rem;
+    position: relative;
   }
   &-card {
     flex-shrink: 0;
@@ -21,10 +25,12 @@
     margin: 0 2rem;
     background: $bg-light;
     padding: 1.5rem;
+    scroll-snap-align: center;
     display: grid;
     align-items: center;
     border-radius: 20px;
-    transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out, transform 0.4s 0.3s linear;
+    box-shadow: 4px 4px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
     &:hover {
       transform: scale(1.1);
     }
@@ -35,9 +41,16 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         font-size: 2rem;
+        min-height: 72px;
+        font-weight: 600;
       }
       &-link {
         font-size: 1.6rem;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-top: 0.5px solid $bg-dark-secondary;
         a {
           display: flex;
           max-width: 250px;
@@ -54,4 +67,19 @@
       }
     }
   }
+}
+
+.slot-left {
+  width: 20px;
+  position: absolute;
+  top: 65px;
+  bottom: 0;
+  z-index: 1;
+  background-image: linear-gradient(to right, #dae0e6, transparent 100%);
+}
+
+.slot-right {
+  @extend.slot-left;
+  right: 0;
+  background-image: linear-gradient(to left, #dae0e6, transparent 100%);
 }

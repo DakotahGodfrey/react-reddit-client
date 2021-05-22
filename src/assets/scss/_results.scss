@@ -3,9 +3,11 @@
   margin: 3rem 1rem 3rem 1rem;
   border-radius: 20px;
   background: $bg-light;
+  box-shadow: 0 4px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
   .results-term {
     font-size: 3rem;
     margin: 1.5rem 0;
+    font-weight: 200;
   }
   .results-count {
     font-size: 2rem;
@@ -36,6 +38,7 @@
       padding: 2rem;
       display: flex;
       flex-wrap: wrap;
+      box-shadow: 0 4px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
       p {
         font-size: 1.4rem;
       }
@@ -45,7 +48,6 @@
       &-icon {
         width: 44px;
         height: 44px;
-        background-color: $brand-color;
         border-radius: 50%;
         img {
           width: 100%;
@@ -65,9 +67,11 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 5rem;
   }
   &-post {
     background: $bg-light;
+    box-shadow: 0 4px 4px rgba($color: $bg-dark-secondary, $alpha: 0.25);
     border-radius: 20px;
     padding: 2rem;
     .post-link {
@@ -75,6 +79,12 @@
       text-decoration: none;
       grid-template-columns: min-content 1fr;
       gap: 1.5rem;
+    }
+    .post-footer {
+      border: none;
+    }
+    .post-information {
+      border: none;
     }
     .results-thumbnail {
       width: 10rem;

@@ -29,10 +29,7 @@ const TrendingSubItem = ({ subreddit }) => {
         onClick={handleClick}
       >
         <div className="trending-subreddit-content">
-          <div
-            className="trending-subreddit-icon"
-            style={{ backgroundColor: "#ff4500" }}
-          >
+          <div className="trending-subreddit-icon">
             <img src={icon_img} alt="" />
           </div>
           <span>{display_name_prefixed}</span>
