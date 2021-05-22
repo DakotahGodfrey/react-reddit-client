@@ -8,7 +8,7 @@ const ResultsBanner = ({ term, resultNum, status }) => {
       ) : (
         <span className="results-count">
           {resultNum > 0
-            ? resultNum
+            ? `Results: ${resultNum}`
             : "No results found, try narrowing your search"}
         </span>
       )}

@@ -73,7 +73,6 @@ const Subreddit = () => {
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
-      <header className="subreddit-banner"></header>
       <section className="page-content">
         <div className="page-wrapper">
           {errors ? (
