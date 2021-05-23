@@ -15,7 +15,7 @@ import {
   removeFavorite,
 } from "../../../pages/Bookmarks/bookmarksSlice";
 
-const HomeCard = ({ post, bookmarked }) => {
+const HomeCard = ({ post }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const {
     title,
@@ -89,7 +89,12 @@ const HomeCard = ({ post, bookmarked }) => {
       {/* Post Information Here */}
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
-      <Link to="/post" aria-label={title} onClick={handleClick}>
+      <Link
+        to="/post"
+        aria-label={title}
+        onClick={handleClick}
+        data-testid="content-link"
+      >
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
       </Link>
@@ -97,7 +102,6 @@ const HomeCard = ({ post, bookmarked }) => {
         postLinks={postLinks}
         handleBookmark={handleBookmark}
         isBookmarked={isBookmarked}
-        bookmarked={bookmarked}
         removeBookmark={removeBookmark}
       />
     </section>
