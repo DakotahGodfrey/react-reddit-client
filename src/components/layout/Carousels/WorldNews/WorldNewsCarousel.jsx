@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselCard from "../../Cards/CarouselCard/CarouselCard/CarouselCard";
+import CarouselCard from "../../Cards/CarouselCard/CarouselCard";
 const WorldNewsCarousel = ({ trendingItems }) => {
   return (
     <section>
