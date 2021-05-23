@@ -1,16 +1,35 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import PostFooter from "./PostFooter";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import store, { persistor } from "../../../../../app/store";
+import { PersistGate } from "redux-persist/integration/react";
+const handleBookmark = jest.fn();
+let isBookmarked;
+const removeBookmark = jest.fn();
+let bookmarked = true;
 beforeEach(() => {
   let postLinks = {
-    num_comments: 555,
+    num_comments: 5255,
+    subreddit: "awww",
   };
   render(
-    <Router>
-      <PostFooter postLinks={postLinks} />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router>
+            <PostFooter
+              postLinks={postLinks}
+              bookmarked={bookmarked}
+              handleBookmark={handleBookmark}
+              isBookmarked={isBookmarked}
+              removeBookmark={removeBookmark}
+            />
+          </Router>
+        </PersistGate>
+      </Router>
+    </Provider>
   );
 });
 
@@ -20,20 +39,36 @@ describe("Post Footer", () => {
     expect(footer).toBeInTheDocument();
     expect(footer).toHaveClass("post-footer");
   });
-  it("should render two anchor element with className post-links", () => {
-    const link = screen.getAllByRole("link");
-    expect(link.length).toEqual(2);
-    expect(link[0]).toHaveClass("post-links");
-    expect(link[1]).toHaveClass("post-links");
+  it("renders an element with text content equal to the number comments rounded down ", () => {
+    const comments = screen.getByTestId("comments");
+    expect(comments).toBeInTheDocument();
+    expect(comments).toHaveTextContent("5k Comments");
   });
-  it("should render an anchor element with a span equal to the number of comments", () => {
-    const commentLink = screen.getByTestId("comment-link");
-    const commentSpan = screen.getByTestId("num_comments");
-    expect(commentLink).toBeInTheDocument();
-    expect(commentSpan).toBeInTheDocument();
+  describe("bookmark button", () => {
+    it("should render a button with testid bookmark-button", () => {
+      const bookmarkButton = screen.getByTestId("bookmark-button");
+      expect(bookmarkButton).toBeInTheDocument();
+    });
+    it("should call handleBookmark when clicked", () => {
+      const bookmarkButton = screen.getByTestId("bookmark-button");
+      fireEvent.click(bookmarkButton);
+      expect(handleBookmark).toHaveBeenCalled();
+    });
+    // it("should be disabled if the isBookmarked property is true", () => {
+    //   isBookmarked = true;
+    //   const bookmarkButton = screen.getByTestId("bookmark-button");
+    //   expect(bookmarkButton).toBeDisabled();
+    // });
   });
-  it('"should render an anchor element with a string representing comment count"', () => {
-    const shareLink = screen.getByTestId("share-link");
-    expect(shareLink).toHaveTextContent(/shareShare/);
+  describe("Remove Bookmark Button", () => {
+    it("should render a button with testid remove-bookmark", () => {
+      const removeBookmarkButton = screen.getByTestId("remove-bookmark");
+      expect(removeBookmarkButton).toBeInTheDocument();
+    });
+    it("should call the removeBookmark function when clicked", () => {
+      const removeBookmarkButton = screen.getByTestId("remove-bookmark");
+      fireEvent.click(removeBookmarkButton);
+      expect(removeBookmark).toHaveBeenCalled();
+    });
   });
 });
