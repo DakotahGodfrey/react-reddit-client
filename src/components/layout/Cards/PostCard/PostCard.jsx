@@ -17,10 +17,9 @@ const PostCard = ({ post }) => {
       created_utc,
       thumbnail,
     } = post;
-    let utcSeconds = created_utc;
-    let d = new Date(0);
 
-    d.setUTCSeconds(utcSeconds);
+    let d = new Date(0);
+    d.setUTCSeconds(created_utc);
 
     const image = post.preview
       ? urlReplace(post.preview.images[0].source.url)
@@ -41,7 +40,10 @@ const PostCard = ({ post }) => {
     };
     const isLarge = true;
     return (
-      <article className={dark ? "post-card-large dark" : "post-card-large"}>
+      <article
+        data-testid="card-large"
+        className={dark ? "post-card-large dark" : "post-card-large"}
+      >
         <PostBanner isLarge={isLarge} postDetails={postDetails} />
         <LargePost postContent={postContent} />
       </article>
