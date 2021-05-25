@@ -7,13 +7,13 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
     return null;
   }
   return (
-    <div
+    <article
       role="dialog"
       aria-labelledby="modal-title"
       className={dark ? "settings-modal dark" : "settings-modal"}
     >
-      <div className="modal-content">
-        <header className="modal-header">
+      <div className="modal-content" data-testid="modal-content">
+        <header className="modal-header" data-testid="modal-header">
           <h3 id="modal-title">Settings</h3>
         </header>
         <div className="modal-body">
@@ -55,7 +55,7 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
           </button>
         </footer>
       </div>
-    </div>
+    </article>
   );
 };
 
