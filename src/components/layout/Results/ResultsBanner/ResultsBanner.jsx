@@ -1,7 +1,11 @@
 import React from "react";
 const ResultsBanner = ({ term, resultNum, status }) => {
   return (
-    <header className="results-display" aria-live="assertive">
+    <header
+      className="results-display"
+      aria-live="assertive"
+      data-testid="results-display"
+    >
       <span style={{ display: "block" }} className="results-term">
         Query: {term}
       </span>
