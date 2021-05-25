@@ -11,9 +11,10 @@ const subredditData = {
   public_description: "testing testing testing",
   display_name: "test",
   subscribers: 3333,
-  accounts_active: 20,
+  accounts_active: 2330,
 };
 const roundedSubs = roundSubs(subredditData.subscribers);
+const roundedActive = roundSubs(subredditData.accounts_active);
 beforeEach(() => {
   render(
     <Provider store={store}>
@@ -60,5 +61,8 @@ describe("Post Aside", () => {
   });
   it("should render an element with text content equal to subscribers rounded down", () => {
     expect(screen.getByText(roundedSubs)).toBeInTheDocument();
+  });
+  it("should render an element with text content equal to accounts_active rounded down", () => {
+    expect(screen.getByText(roundedActive)).toBeInTheDocument();
   });
 });
