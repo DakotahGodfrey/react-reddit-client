@@ -6,6 +6,7 @@ import {
   setCurrentSubreddit,
 } from "../../../pages/Subreddit/subredditSlice";
 import { useDispatch } from "react-redux";
+import { roundSubs } from "../../../../assets/helpers/helpers";
 const PostAside = ({ subredditData }) => {
   const dispatch = useDispatch();
   const {
@@ -19,27 +20,27 @@ const PostAside = ({ subredditData }) => {
     dispatch(setCurrentSubreddit(display_name));
     dispatch(fetchDestSubreddit(display_name));
   };
-  const roundSubs = (subscribers) => {
-    let roundedSubs;
-    if (subscribers >= 1000000) {
-      roundedSubs = Math.floor(subscribers / 1000000) + "m";
-    } else if (subscribers >= 1000) {
-      roundedSubs = Math.floor(subscribers / 1000) + "k";
-    }
-    return roundedSubs;
-  };
+
   const subscribersRounded = roundSubs(subscribers);
   const activeRounded = roundSubs(accounts_active);
   return (
-    <div className="sidebar post-sidebar">
+    <div className="sidebar post-sidebar" data-testid="sidebar">
       <aside className="aside-subreddit">
-        <header role="banner" className="aside-header">
+        <header
+          role="banner"
+          className="aside-header"
+          data-testid="aside-header"
+        >
           <span>About Community</span>
-          <Link to="/subreddit" onClick={handleClick}>
+          <Link
+            data-testid="subreddit-link"
+            to="/subreddit"
+            onClick={handleClick}
+          >
             <h2>{display_name_prefixed}</h2>
           </Link>
         </header>
-        <div className="aside-information">
+        <div className="aside-information" data-testid="aside-information">
           <ReactMarkdown className="aside-description">
             {public_description}
           </ReactMarkdown>
