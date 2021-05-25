@@ -33,7 +33,6 @@ const Comment = ({ comment }) => {
           remarkPlugins={[gfm]}
           children={bodyMarkdown}
           className="comment-markdown"
-          data-testid="comment-markdown"
         />
       </div>
     </div>

@@ -28,11 +28,14 @@ const TrendingSubItem = ({ subreddit }) => {
         className="trending-sub"
         onClick={handleClick}
       >
-        <div className="trending-subreddit-content">
+        <div
+          className="trending-subreddit-content"
+          data-testid="subreddit-content"
+        >
           <div className="trending-subreddit-icon">
-            <img src={icon_img} alt="" />
+            <img src={icon_img} alt="subreddit icon" />
           </div>
-          <span>{display_name_prefixed}</span>
+          <span data-testid="display-name">{display_name_prefixed}</span>
         </div>
       </Link>
     </li>
