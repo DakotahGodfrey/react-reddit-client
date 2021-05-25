@@ -5,8 +5,6 @@ import store, { persistor } from "../../../../app/store";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 
-beforeEach(() => {});
-
 describe("Results Banner", () => {
   it("should render an element with testid equal to results-display", () => {
     let term;
