@@ -16,10 +16,10 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
         <header className="modal-header" data-testid="modal-header">
           <h3 id="modal-title">Settings</h3>
         </header>
-        <div className="modal-body">
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="form-control">
-              <label htmlFor="dark-mode">
+        <div className="modal-body" data-testid="modal-body">
+          <form name="settings form" onSubmit={(e) => e.preventDefault()}>
+            <div className="form-control" data-testid="form-control">
+              <label htmlFor="dark-mode" data-testid="dark-mode-label">
                 {!dark ? "Dark Mode" : "Light Mode"}
               </label>
               <input
@@ -28,6 +28,7 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
                 onClick={handleDarkToggle}
                 name="dark-mode"
                 id="dark-mode"
+                data-testid="dark-mode-toggle"
               />
               <i
                 aria-hidden="true"
@@ -46,8 +47,12 @@ const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
             </div>
           </form>
         </div>
-        <footer className="modal-footer">
-          <button onClick={handleClick} className="modal-close">
+        <footer className="modal-footer" data-testid="modal-footer">
+          <button
+            onClick={handleClick}
+            className="modal-close"
+            data-testid="modal-close"
+          >
             Close
             <i aria-hidden="true" className="material-icons">
               close
