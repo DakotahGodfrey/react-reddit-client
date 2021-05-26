@@ -81,6 +81,9 @@ to handle the applications various routes.
 
 to audit the application and ensure it follows best practices, you can view a copy of the current [desktop scores here](./public/desktop_lighthouse_scores.pdf), and [mobile scores here](./public/mobile_lighthouse_scores.pdf).
 
+### **Cypress**
+  
+For writing and executing E2E tests.
 ## Features
 
 - ### Search
@@ -128,4 +131,7 @@ npm run build || yarn build
 
 #Execute jest test suite
 npm run test || yarn test
+  
+#Execute Cypress E2E Tests: 
+npm run cypress || yarn run cypress 
 ```
