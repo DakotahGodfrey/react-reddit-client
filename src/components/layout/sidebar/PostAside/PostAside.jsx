@@ -15,7 +15,7 @@ const PostAside = ({ subredditData }) => {
     display_name,
     subscribers,
     accounts_active,
-  } = subredditData;
+  } = subredditData ? subredditData : null;
   const handleClick = () => {
     dispatch(setCurrentSubreddit(display_name));
     dispatch(fetchDestSubreddit(display_name));
