@@ -1,4 +1,4 @@
-[# <div align=center>React-Redux Reddit Client <br/> <div align=center> Challenge Project](https://modest-bassi-524857.netlify.app/)
+# <div align=center>[React-Redux Reddit Client](https://modest-bassi-524857.netlify.app/) <br/> <div align=center> Challenge Project
 
 ## Project Description
 
