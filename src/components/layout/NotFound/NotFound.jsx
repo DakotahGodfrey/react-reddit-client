@@ -9,13 +9,15 @@ const NotFound = () => {
   document.title = "404 | Not Found";
   return (
     <main className={dark ? "page dark" : "page"}>
-      <div className="content">
-        <header className="greeting">
+      <div className="content" data-testid="content">
+        <header className="greeting" data-testid="greeting">
           <h1>Uh Oh, page not found!</h1>
           <p>It looks like this page is lost in space!</p>
-          <Link to="/">Return Home</Link>
+          <Link data-testid="home-link" to="/">
+            Return Home
+          </Link>
         </header>
-        <div className="ufoContainer">
+        <div className="ufoContainer" data-testid="image-container">
           <img className="ufo" src={ufo} alt="cartoon ufo" />
         </div>
       </div>

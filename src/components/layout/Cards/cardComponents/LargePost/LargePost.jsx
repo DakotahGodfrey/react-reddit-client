@@ -17,7 +17,9 @@ const LargePost = ({ postContent }) => {
       ) : image ? (
         <img src={image} alt={title} />
       ) : (
-        <ReactMarkdown className="post-large-body">{selftext}</ReactMarkdown>
+        <ReactMarkdown data-testid="body" className="post-large-body">
+          {selftext}
+        </ReactMarkdown>
       )}
     </article>
   );

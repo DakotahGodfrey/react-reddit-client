@@ -18,7 +18,12 @@ const SubredditResult = ({ subreddit }) => {
   };
   return (
     <li className="results-subreddit">
-      <Link to="/subreddit" className="subreddit-link" onClick={handleClick}>
+      <Link
+        to="/subreddit"
+        data-testid="subreddit-link"
+        className="subreddit-link"
+        onClick={handleClick}
+      >
         <h3 className="results-subreddit-title">{display_name_prefixed}</h3>
 
         <ReactMarkdown

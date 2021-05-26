@@ -3,7 +3,7 @@ import Navbar from "../features/Searchbar/Navbar/Navbar";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
 import { selectBookmarks } from "./bookmarksSlice";
-import HomeCard from "../../layout/Cards/Home/HomeCard";
+import HomeCard from "../../layout/Cards/HomeCard/HomeCard";
 
 const Bookmarks = () => {
   document.title = "Your Bookmarks";

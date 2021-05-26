@@ -2,12 +2,30 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Aside from "./Aside";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "../../../../app/store";
+import { Provider } from "react-redux";
+import { Children } from "react";
+const trendingSubreddits = {
+  children: [
+    {
+      data: {
+        display_name_prefixed: "r/testing",
+        display_name: "test",
+        id: 24523523,
+      },
+    },
+  ],
+};
 beforeEach(() => {
   render(
-    <Router>
-      <Aside />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <PersistGate loading={null} persistor={persistor}>
+          <Aside trendingSubreddits={trendingSubreddits} />
+        </PersistGate>
+      </Router>
+    </Provider>
   );
 });
 describe("Aside", () => {
@@ -28,8 +46,5 @@ describe("Aside", () => {
     expect(screen.getByRole("heading")).toHaveTextContent(
       "Trending Communities"
     );
-  });
-  it("renders 5 anchor elements ", () => {
-    expect(screen.getAllByTestId("anchor-link").length).toEqual(5);
   });
 });

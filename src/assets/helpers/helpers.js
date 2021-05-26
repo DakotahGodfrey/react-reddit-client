@@ -24,3 +24,13 @@ export const timeSince = (date) => {
   }
   return Math.floor(seconds) + " seconds";
 };
+
+export const roundSubs = (subscribers) => {
+  let roundedSubs;
+  if (subscribers >= 1000000) {
+    roundedSubs = Math.floor(subscribers / 1000000) + "m";
+  } else if (subscribers >= 1000) {
+    roundedSubs = Math.floor(subscribers / 1000) + "k";
+  }
+  return roundedSubs;
+};

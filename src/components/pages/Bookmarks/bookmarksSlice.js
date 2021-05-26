@@ -13,13 +13,14 @@ export const addBookmarkById = createAsyncThunk(
     }
   }
 );
+export const initialState = {
+  bookmarks: [],
+  status: "idle",
+  errors: "",
+};
 const bookmarkSlice = createSlice({
   name: "bookmark",
-  initialState: {
-    bookmarks: [],
-    status: "idle",
-    errors: "",
-  },
+  initialState,
   reducers: {
     removeFavorite(state, action) {
       state.bookmarks = state.bookmarks.filter(

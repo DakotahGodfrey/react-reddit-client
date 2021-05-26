@@ -1,6 +1,6 @@
 import React from "react";
 import Toolbar from "../../../layout/Toolbar/Toolbar";
-import HomeCard from "../../../layout/Cards/Home/HomeCard";
+import HomeCard from "../../../layout/Cards/HomeCard/HomeCard";
 import LoadMore from "../../../layout/Buttons/LoadMore/LoadMore";
 
 const Feed = ({

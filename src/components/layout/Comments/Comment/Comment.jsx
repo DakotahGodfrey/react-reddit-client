@@ -8,22 +8,26 @@ const Comment = ({ comment }) => {
   const bodyMarkdown = body ? body.replace(/&gt;/g, "> ") : "";
   let utcSeconds = created_utc;
   let d = new Date(0);
-
   d.setUTCSeconds(utcSeconds);
   const postTime = Date.parse(d);
   const timeStamp = timeSince(postTime);
+
   return (
-    <div className="comment-card">
-      <div className="comment-avatar">
+    <div data-testid="comment-card" className="comment-card">
+      <div className="comment-avatar" data-testid="comment-avatar">
         <img
           src="https://www.redditstatic.com/avatars/avatar_default_07_7E53C1.png"
-          alt="default reddit snoo avatar"
+          alt="reddit snoo alien avatar"
         />
       </div>
-      <div className="comment-content">
-        <div className="comment-byline">
-          <span className="comment-author">u/{author}</span>
-          <span className="comment-time">{timeStamp} ago</span>
+      <div className="comment-content" data-testid="comment-content">
+        <div className="comment-byline" data-testid="comment-byline">
+          <span className="comment-author" data-testid="comment-author">
+            u/{author}
+          </span>
+          <span className="comment-time" data-testid="comment-time">
+            {timeStamp} ago
+          </span>
         </div>
         <ReactMarkdown
           remarkPlugins={[gfm]}

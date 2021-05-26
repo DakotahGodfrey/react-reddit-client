@@ -10,7 +10,6 @@ const Toolbar = ({
   handleMonthClick,
   handleDayClick,
   filter,
-  menuHidden,
 }) => {
   const dark = useSelector(selectDarkMode);
   return (
@@ -21,44 +20,52 @@ const Toolbar = ({
             filter === "hot" ? "filter-option current" : "filter-option"
           }
           onClick={handleHotClick}
+          data-testid="hot"
         >
           Hot{" "}
           <i className="material-icons" aria-hidden="true">
             whatshot
           </i>
         </button>
-        <button
+        <select
           className={
             filter === "top" ? "filter-option top current" : "filter-option top"
           }
           onClick={handleTopClick}
+          data-testid="combobox"
         >
-          Top{" "}
-          <i className="material-icons" aria-hidden="true">
-            emoji_events
-          </i>
-          <div
-            className={menuHidden ? "custom-select-hidden" : "custom-select"}
+          Top
+          <option
+            className="option"
+            data-testid="all-time"
+            onClick={handleAllClick}
           >
-            <button className="option" onClick={handleAllClick}>
-              All time
-            </button>
-            <button className="option" onClick={handleYearClick}>
-              Past year
-            </button>
-            <button className="option" onClick={handleMonthClick}>
-              This month
-            </button>
-            <button className="option" onClick={handleDayClick}>
-              Today
-            </button>
-          </div>
-        </button>
+            All time
+          </option>
+          <option
+            className="option"
+            data-testid="year"
+            onClick={handleYearClick}
+          >
+            Past year
+          </option>
+          <option
+            className="option"
+            data-testid="month"
+            onClick={handleMonthClick}
+          >
+            This month
+          </option>
+          <option className="option" data-testid="day" onClick={handleDayClick}>
+            Today
+          </option>
+        </select>
         <button
           className={
             filter === "new" ? "filter-option current" : "filter-option"
           }
           onClick={handleNewClick}
+          data-testid="new"
         >
           New{" "}
           <i aria-hidden="true" className="material-icons">

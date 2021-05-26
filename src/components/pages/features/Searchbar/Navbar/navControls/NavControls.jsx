@@ -6,7 +6,7 @@ const NavControls = ({ handleClick }) => {
       <button onClick={handleClick} data-testid="settings-button">
         <i className="material-icons">settings</i>
       </button>
-      <Link to="/bookmarks">
+      <Link to="/bookmarks" data-testid="bookmark-link">
         <i className="material-icons">bookmarks</i>
       </Link>
     </div>

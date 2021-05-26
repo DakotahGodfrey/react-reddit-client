@@ -17,6 +17,7 @@ describe("Post Content", () => {
   it("should render an h2 with className post-title", () => {
     let postContent = {
       title: "text",
+      spell: "spell",
       image: "https://src.png",
       video: "http://src.mp4",
     };

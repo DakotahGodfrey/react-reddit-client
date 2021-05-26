@@ -20,19 +20,26 @@ const PostBanner = ({ postDetails, isLarge }) => {
   };
 
   return (
-    <header
-      aria-label="post metadata"
+    <div
       className={isLarge ? "post-large-information" : "post-information"}
+      data-testid="post-banner"
     >
-      <span data-testid="subreddit" className="post-subreddit">
-        <Link to="/subreddit" onClick={handleClick}>
-          {subreddit_name_prefixed}
-        </Link>
-      </span>
+      <Link
+        to="/subreddit"
+        data-testid="subreddit-link"
+        className="post-subreddit"
+        onClick={handleClick}
+      >
+        {subreddit_name_prefixed}
+      </Link>
+
       <span data-testid="author" className="post-author">
-        Posted by u/{author} <span className="post-date">{timeStamp} ago</span>
+        Posted by u/{author}{" "}
+        <span data-testid="time-stamp" className="post-date">
+          {timeStamp} ago
+        </span>
       </span>
-    </header>
+    </div>
   );
 };
 
