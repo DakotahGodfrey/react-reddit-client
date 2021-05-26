@@ -1,11 +1,10 @@
-beforeEach(() => {
-  cy.visit("/");
-  cy.get(
-    ":nth-child(1) > [data-testid=content-link] > .post-content > img"
-  ).click();
-});
-
 describe("post page", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.get(
+      ":nth-child(1) > [data-testid=content-link] > .post-content > img"
+    ).click();
+  });
   it("should render without error", () => {
     cy.url().should("include", "/post");
     cy.get("#App").should("exist");

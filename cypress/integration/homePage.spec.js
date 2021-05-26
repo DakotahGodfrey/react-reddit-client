@@ -1,8 +1,7 @@
-beforeEach(() => {
-  cy.visit("/");
-});
-
 describe("home page", () => {
+  beforeEach(() => {
+    cy.visit("/");
+  });
   it("should render without error", () => {
     cy.get("#App").should("exist");
   });
@@ -27,6 +26,9 @@ describe("home page", () => {
       ":nth-child(1) > [data-testid=content-link] > .post-content > img"
     ).click();
     cy.url().should("include", "post");
+  });
+  it("should load an initial 25 results", () => {
+    cy.findAllByTestId("user-post").should("have.length", 25);
   });
   it("should load more results when the load more button is clicked", () => {
     /* ==== Generated with Cypress Studio ==== */

@@ -1,9 +1,8 @@
-beforeEach(() => {
-  cy.visit("/");
-  cy.get("[data-testid=search]").type("value{enter}");
-});
-
 describe("results page", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.get("[data-testid=search]").type("value{enter}");
+  });
   it("renders without error", () => {
     cy.url().should("include", "/results");
     cy.get("#App").should("exist");
