@@ -1,4 +1,4 @@
-# <div align=center>React-Redux Reddit Client <br/> <div align=center> Challenge Project
+[# <div align=center>React-Redux Reddit Client <br/> <div align=center> Challenge Project](https://modest-bassi-524857.netlify.app/)
 
 ## Project Description
 
@@ -14,8 +14,8 @@ This project was completed as part of the [Codecademy's](https://www.codecademy.
   - [x] Technologies used
   - [x] Application Features
   - [x] Future update plans
-- [ ] Write unit tests for the app's components using Jest and Enzyme
-- [ ] Write E2E tests for the application.
+- [x] Write unit tests for the app's components using Jest
+- [x] Write E2E tests for the application.
 - [x] The app is available on both desktop and mobile.
 - [x] Users can access the application [live](https://modest-bassi-524857.netlify.app/).
 - [x] Users see an intial view of the data when first visiting the app.
