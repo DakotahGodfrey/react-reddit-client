@@ -8,7 +8,7 @@ import NotFound from "../components/layout/NotFound/NotFound";
 import Bookmarks from "../components/pages/Bookmarks/Bookmarks";
 function App() {
   return (
-    <div className="App">
+    <div className="App" id="App">
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

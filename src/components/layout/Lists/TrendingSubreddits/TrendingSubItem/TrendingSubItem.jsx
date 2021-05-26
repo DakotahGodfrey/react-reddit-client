@@ -33,7 +33,7 @@ const TrendingSubItem = ({ subreddit }) => {
           data-testid="subreddit-content"
         >
           <div className="trending-subreddit-icon">
-            <img src={icon_img} alt="subreddit icon" />
+            <img src={icon_img} alt="" />
           </div>
           <span data-testid="display-name">{display_name_prefixed}</span>
         </div>

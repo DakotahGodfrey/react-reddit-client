@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/cypress": "^7.0.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -15,14 +16,14 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
     "remark-gfm": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^7.4.0",
     "redux-mock-store": "^1.5.4"
   }
 }

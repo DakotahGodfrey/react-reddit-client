@@ -24,7 +24,12 @@ const PostBanner = ({ postDetails, isLarge }) => {
       className={isLarge ? "post-large-information" : "post-information"}
       data-testid="post-banner"
     >
-      <Link to="/subreddit" className="post-subreddit" onClick={handleClick}>
+      <Link
+        to="/subreddit"
+        data-testid="subreddit-link"
+        className="post-subreddit"
+        onClick={handleClick}
+      >
         {subreddit_name_prefixed}
       </Link>
 
