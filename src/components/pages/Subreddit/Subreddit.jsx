@@ -5,9 +5,6 @@ import {
   fetchDestSubreddit,
   fetchNextPageBySubreddit,
   selectSubreddit,
-  setFilter,
-  setMenu,
-  setTime,
 } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";
@@ -33,34 +30,11 @@ const Subreddit = () => {
     const action = {
       currentSubreddit,
       paginationId,
-      time,
-      filter,
     };
 
     dispatch(fetchNextPageBySubreddit(action));
   };
-  const handleNewClick = () => {
-    dispatch(setFilter("new"));
-  };
-  const handleTopClick = () => {
-    dispatch(setFilter("top"));
-    dispatch(setMenu());
-  };
-  const handleHotClick = () => {
-    dispatch(setFilter("hot"));
-  };
-  const handleAllClick = () => {
-    dispatch(setTime("all"));
-  };
-  const handleYearClick = () => {
-    dispatch(setTime("year"));
-  };
-  const handleMonthClick = () => {
-    dispatch(setTime("month"));
-  };
-  const handleDayClick = () => {
-    dispatch(setTime("day"));
-  };
+
   useEffect(() => {
     document.title = `Subreddit | ${currentSubreddit}`;
     const action = {
@@ -85,13 +59,6 @@ const Subreddit = () => {
               posts={posts}
               currentSubreddit={currentSubreddit}
               handleLoadMoreClick={handleLoadMoreClick}
-              handleNewClick={handleNewClick}
-              handleTopClick={handleTopClick}
-              handleHotClick={handleHotClick}
-              handleAllClick={handleAllClick}
-              handleYearClick={handleYearClick}
-              handleMonthClick={handleMonthClick}
-              handleDayClick={handleDayClick}
               filter={filter}
               menuHidden={menuHidden}
             />

@@ -25,7 +25,8 @@ const PostBanner = ({ postDetails, isLarge }) => {
       data-testid="post-banner"
     >
       <Link
-        to="/subreddit"
+        to={`/r/${subreddit}`}
+        replace
         data-testid="subreddit-link"
         className="post-subreddit"
         onClick={handleClick}

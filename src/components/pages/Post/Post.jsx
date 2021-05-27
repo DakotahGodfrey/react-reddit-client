@@ -16,7 +16,7 @@ const Post = ({ match }) => {
   useEffect(() => {
     const action = { subreddit: match.params.subreddit, id: match.params.id };
     dispatch(getPostById(action));
-  }, [dispatch]);
+  }, [dispatch, match.params.subreddit, match.params.id]);
 
   return (
     <main className={dark ? "page dark" : "page"}>

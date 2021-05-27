@@ -13,12 +13,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/r/:display_name/" component={Subreddit} />
           <Route path="/r/:subreddit/post/:id" component={Post} />
-          <Route
-            exact
-            path="/subreddit/r/:display_name/:id"
-            component={Subreddit}
-          />
           <Route exact path="/hot" component={Hot} />
           <Route exact path="/results" component={Results} />
           <Route exact path="/bookmarks" component={Bookmarks} />

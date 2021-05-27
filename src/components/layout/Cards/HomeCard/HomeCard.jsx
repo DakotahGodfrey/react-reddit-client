@@ -43,6 +43,7 @@ const HomeCard = ({ post }) => {
     subreddit_name_prefixed,
     subreddit,
     d,
+    id,
   };
   const postContent = {
     title,
@@ -81,7 +82,8 @@ const HomeCard = ({ post }) => {
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
       <Link
-        to={`r/${subreddit}/post/${id}`}
+        to={`/r/${subreddit}/post/${id}`}
+        replace
         aria-label={title}
         data-testid="content-link"
       >
