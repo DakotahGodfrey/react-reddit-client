@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../../../../../assets/media/logoSmall.png";
+import logo from "../../../../assets/media/logoSmall.png";
 import NavControls from "./navControls/NavControls";
 import SearchInput from "./searchInput/SearchInput";
 import { Link } from "react-router-dom";
-import SettingsModal from "../../../../layout/Modals/SettingsModal/SettingsModal";
+import SettingsModal from "../../../layout/Modals/SettingsModal/SettingsModal";
 import {
   selectShowSettings,
   setShowSettings,

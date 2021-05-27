@@ -2,7 +2,7 @@ import React from "react";
 import PostBanner from "../cardComponents/PostBanner/PostBanner";
 import { urlReplace } from "../../../../app/api";
 import LargePost from "../cardComponents/LargePost/LargePost";
-import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../../features/Searchbar/searchbarSlice";
 import { useSelector } from "react-redux";
 const PostCard = ({ post }) => {
   const dark = useSelector(selectDarkMode);

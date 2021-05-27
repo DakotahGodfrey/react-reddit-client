@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { base_url } from "../../../../app/api";
+import { base_url } from "../../../app/api";
 
 export const searchByTerm = createAsyncThunk(
   "search/searchByTerm",

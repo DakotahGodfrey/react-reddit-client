@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ResultsBanner from "../../layout/Results/ResultsBanner/ResultsBanner";
 import SubredditResults from "../../layout/Results/SubredditResults/SubredditResults";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
   selectDarkMode,
   selectResults,
   selectStatus,
   selectTerm,
-} from "../features/Searchbar/searchbarSlice";
+} from "../../features/Searchbar/searchbarSlice";
 import PostResults from "../../layout/Results/PostResults/PostResults";
 import Loading from "../../layout/Loading/Loading";
 const Results = () => {

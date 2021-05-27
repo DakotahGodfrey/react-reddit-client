@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
   fetchNextPageBySubreddit,
   selectSubreddit,
   fetchSubreddit,
 } from "./subredditSlice";
-import Feed from "../features/Feed/Feed";
-import Aside from "../../layout/sidebar/Aside/Aside";
+import Feed from "../../features/Feed/Feed";
+import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
 import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
-import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 
 const Subreddit = ({ match }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Subreddit = ({ match }) => {
     document.title = `Subreddit | r/${match.params.display_name}`;
     const action = { subreddit: match.params.display_name };
     dispatch(fetchSubreddit(action));
-  }, []);
+  }, [dispatch, match.params.display_name]);
   const subreddit = useSelector(selectSubreddit);
   const dark = useSelector(selectDarkMode);
   const { paginationId, posts, errors, status } = subreddit;
@@ -44,7 +44,7 @@ const Subreddit = ({ match }) => {
               handleLoadMoreClick={handleLoadMoreClick}
             />
           )}
-          {/* <Aside trendingSubreddits={trendingSubreddits} /> */}
+          <TrendingSidebar />
         </div>
       </section>
     </main>

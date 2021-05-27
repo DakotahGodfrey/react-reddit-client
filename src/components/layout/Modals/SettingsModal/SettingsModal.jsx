@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../../features/Searchbar/searchbarSlice";
 const SettingsModal = ({ show, handleClick, handleDarkToggle }) => {
   const dark = useSelector(selectDarkMode);
   if (!show) {

@@ -19,21 +19,6 @@ export const getWorldNews = createAsyncThunk("home/getWorldNews", async () => {
   return data;
 });
 
-export const getTrendingSubreddits = createAsyncThunk(
-  "home/getTrendingSubreddits",
-  async () => {
-    try {
-      const response = await fetch(
-        `${base_url}subreddits/popular/.json?limit=10`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
 export const fetchNextPagePopular = createAsyncThunk(
   "home/fetchNextPagePopular",
   async (action) => {
@@ -88,20 +73,6 @@ const homeSlice = createSlice({
       state.status = "idle";
     },
     [getWorldNews.rejected]: (state) => {
-      state.errors = "request failed";
-      state.status = "idle";
-    },
-
-    [getTrendingSubreddits.pending]: (state) => {
-      state.status = "pending";
-    },
-
-    [getTrendingSubreddits.fulfilled]: (state, action) => {
-      state.trendingSubreddits = action.payload.data;
-      state.status = "idle";
-    },
-
-    [getTrendingSubreddits.rejected]: (state) => {
       state.errors = "request failed";
       state.status = "idle";
     },

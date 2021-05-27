@@ -6,7 +6,7 @@ import { urlReplace } from "../../../../app/api";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../../features/Searchbar/searchbarSlice";
 import {
   addBookmarkById,
   removeFavorite,

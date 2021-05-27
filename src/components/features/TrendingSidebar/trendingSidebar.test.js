@@ -1,11 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Aside from "./Aside";
+import Aside from "./TrendingSidebar";
 import { BrowserRouter as Router } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
-import store, { persistor } from "../../../../app/store";
+import store, { persistor } from "../../../app/store";
 import { Provider } from "react-redux";
-import { Children } from "react";
 const trendingSubreddits = {
   children: [
     {

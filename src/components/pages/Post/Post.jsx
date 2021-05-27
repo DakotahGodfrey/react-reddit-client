@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import PostCard from "../../layout/Cards/PostCard/PostCard";
 import PostAside from "../../layout/sidebar/PostAside/PostAside";
 import { getPostById, selectCurrentPost } from "./postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/Comments/CommentsContainer/CommentsContainer";
 import Loading from "../../layout/Loading/Loading";
-import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 
 const Post = ({ match }) => {
   const dispatch = useDispatch();

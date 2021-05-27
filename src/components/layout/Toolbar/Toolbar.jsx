@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectDarkMode } from "../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 import { Link } from "react-router-dom";
 const Toolbar = ({ filter }) => {
   const dark = useSelector(selectDarkMode);

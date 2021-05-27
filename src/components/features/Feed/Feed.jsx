@@ -1,7 +1,7 @@
 import React from "react";
-import Toolbar from "../../../layout/Toolbar/Toolbar";
-import HomeCard from "../../../layout/Cards/HomeCard/HomeCard";
-import LoadMore from "../../../layout/Buttons/LoadMore/LoadMore";
+import Toolbar from "../../layout/Toolbar/Toolbar";
+import HomeCard from "../../layout/Cards/HomeCard/HomeCard";
+import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
 
 const Feed = ({ posts, currentSubreddit, handleLoadMoreClick, filter }) => {
   return (

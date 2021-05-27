@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
   getHotPosts,
   selectHot,
@@ -10,8 +10,8 @@ import {
 import { selectHome } from "../Home/homeSlice";
 
 import Loading from "../../layout/Loading/Loading";
-import Aside from "../../layout/sidebar/Aside/Aside";
-import Feed from "../../pages/features/Feed/Feed";
+import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
+import Feed from "../../features/Feed/Feed";
 const Hot = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -40,7 +40,7 @@ const Hot = () => {
           ) : (
             <Feed posts={posts} handleLoadMoreClick={handleLoadMoreClick} />
           )}
-          <Aside trendingSubreddits={trendingSubreddits} />
+          <TrendingSidebar />
         </div>
       </section>
     </main>
