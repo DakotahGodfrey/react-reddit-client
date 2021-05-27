@@ -77,7 +77,7 @@ const Home = () => {
   return (
     <main className={dark ? "dark page" : "page"}>
       <Navbar />
-      <header className="carousel">
+      <header className="carousel" data-testid="carousel">
         <WorldNewsCarousel trendingItems={trendingItems} />
       </header>
       <section className="page-content" data-testid="feed">
