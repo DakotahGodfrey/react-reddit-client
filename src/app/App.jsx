@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/post/:id" component={Post} />
+          <Route path="/r/:subreddit/post/:id" component={Post} />
           <Route
             exact
             path="/subreddit/r/:display_name/:id"

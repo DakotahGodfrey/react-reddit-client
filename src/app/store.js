@@ -11,7 +11,6 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const persistedPostReducer = persistReducer(persistConfig, postReducer);
 const persistedSubredditReducer = persistReducer(
   persistConfig,
   subredditReducer
@@ -23,7 +22,7 @@ const store = configureStore({
   reducer: {
     home: homeReducer,
     hot: hotReducer,
-    post: persistedPostReducer,
+    post: postReducer,
     subreddit: persistedSubredditReducer,
     search: persistedSearchReducer,
     bookmark: persistedBookmarkReducer,

@@ -2,39 +2,21 @@ import React, { useEffect } from "react";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import PostCard from "../../layout/Cards/PostCard/PostCard";
 import PostAside from "../../layout/sidebar/PostAside/PostAside";
-import { useHistory } from "react-router";
-import {
-  selectCurrentPost,
-  selectStatus,
-  selectSubredditDescription,
-} from "./postSlice";
-import { useSelector } from "react-redux";
+import { getPostById, selectCurrentPost } from "./postSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/Comments/CommentsContainer/CommentsContainer";
 import Loading from "../../layout/Loading/Loading";
 import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
-const Post = () => {
-  const currentPostData = useSelector(selectCurrentPost);
-  const subredditDescription = useSelector(selectSubredditDescription);
-  const status = useSelector(selectStatus);
-  const dark = useSelector(selectDarkMode);
-  const history = useHistory();
-  // handle pending post
-  const post = currentPostData[0]
-    ? currentPostData[0].data.children[0].data
-    : null;
-  useEffect(() => {
-    if (post) {
-      document.title = `Post | ${post.title}`;
-    }
-  }, [post]);
-  // handle subreddit desc
-  const subredditData = subredditDescription.data;
-  //handle comments
-  const comments = currentPostData[1] ? currentPostData[1].data.children : [];
-  // only display first 30 comments
-  let commentsArr = comments.length > 30 ? comments.slice(0, 29) : comments;
 
-  //history.pushState(`/post?postId=${post.id}`);
+const Post = ({ match }) => {
+  const dispatch = useDispatch();
+  const dark = useSelector(selectDarkMode);
+  const postState = useSelector(selectCurrentPost);
+  const { post, comments, status } = postState;
+  useEffect(() => {
+    const action = { subreddit: match.params.subreddit, id: match.params.id };
+    dispatch(getPostById(action));
+  }, [dispatch]);
 
   return (
     <main className={dark ? "page dark" : "page"}>
@@ -45,13 +27,12 @@ const Post = () => {
         ) : (
           <div className="page-wrapper">
             <PostCard post={post} />
-            <CommentsContainer comments={commentsArr} />
-            <PostAside subredditData={subredditData} />
+            <CommentsContainer comments={comments} />
+            {/* <PostAside subredditData={subredditData} /> */}
           </div>
         )}
       </section>
     </main>
   );
 };
-
 export default Post;
