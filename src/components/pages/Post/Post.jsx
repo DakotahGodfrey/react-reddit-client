@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import PostCard from "../../layout/Cards/PostCard/PostCard";
 import PostAside from "../../layout/sidebar/PostAside/PostAside";
+import { useHistory } from "react-router";
 import {
   selectCurrentPost,
   selectStatus,
@@ -16,6 +17,7 @@ const Post = () => {
   const subredditDescription = useSelector(selectSubredditDescription);
   const status = useSelector(selectStatus);
   const dark = useSelector(selectDarkMode);
+  const history = useHistory();
   // handle pending post
   const post = currentPostData[0]
     ? currentPostData[0].data.children[0].data
@@ -31,6 +33,8 @@ const Post = () => {
   const comments = currentPostData[1] ? currentPostData[1].data.children : [];
   // only display first 30 comments
   let commentsArr = comments.length > 30 ? comments.slice(0, 29) : comments;
+
+  //history.pushState(`/post?postId=${post.id}`);
 
   return (
     <main className={dark ? "page dark" : "page"}>

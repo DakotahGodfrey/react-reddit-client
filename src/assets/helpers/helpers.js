@@ -1,28 +1,59 @@
 export const timeSince = (date) => {
-  var seconds = Math.floor((new Date() - date) / 1000);
+  function yearsSinceDate(date) {
+    const secondsInOneYear = 31536000;
+    const secondsSinceDate = Math.floor((new Date() - date) / 1000);
+    return ~~(secondsSinceDate / secondsInOneYear);
+  }
 
-  var interval = seconds / 31536000;
+  function monthsSinceDate(date) {
+    const secondsInOneMonth = 2592000;
+    const secondsSinceDate = Math.floor((new Date() - date) / 1000);
+    return ~~(secondsSinceDate / secondsInOneMonth);
+  }
 
-  if (interval > 1) {
-    return Math.floor(interval) + " years";
+  function daysSinceDate(date) {
+    const secondsInOneDay = 86400;
+    const secondsSinceDate = Math.floor((new Date() - date) / 1000);
+    return ~~(secondsSinceDate / secondsInOneDay);
   }
-  interval = seconds / 2592000;
-  if (interval > 1) {
-    return Math.floor(interval) + " months";
+
+  function hoursSinceDate(date) {
+    const secondsInOneHour = 3600;
+    const secondsSinceDate = Math.floor((new Date() - date) / 1000);
+    return ~~(secondsSinceDate / secondsInOneHour);
   }
-  interval = seconds / 86400;
-  if (interval > 1) {
-    return Math.floor(interval) + " days";
+
+  function minutesSinceDate(date) {
+    const secondsInOneMinute = 60;
+    const secondsSinceDate = Math.floor((new Date() - date) / 1000);
+    return ~~(secondsSinceDate / secondsInOneMinute);
   }
-  interval = seconds / 3600;
-  if (interval > 1) {
-    return Math.floor(interval) + " hours";
+
+  if (yearsSinceDate(date) >= 1) {
+    return `${yearsSinceDate(date)} years`;
   }
-  interval = seconds / 60;
-  if (interval > 1) {
-    return Math.floor(interval) + " minutes";
+
+  if (monthsSinceDate(date) >= 1) {
+    return `${monthsSinceDate(date)} months`;
   }
-  return Math.floor(seconds) + " seconds";
+
+  // leap year
+  if (monthsSinceDate(date) === 12) {
+    return `1 year`;
+  }
+
+  if (daysSinceDate(date) >= 1) {
+    return `${daysSinceDate(date)} days`;
+  }
+
+  if (hoursSinceDate(date) >= 1) {
+    return `${hoursSinceDate(date)} hours`;
+  }
+
+  if (minutesSinceDate(date) >= 1) {
+    return `${minutesSinceDate(date)} minutes`;
+  }
+  return "just now";
 };
 
 export const roundSubs = (subscribers) => {
