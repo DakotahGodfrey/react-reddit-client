@@ -50,12 +50,12 @@ const postSlice = createSlice({
       state.status = "pending";
     },
     [getSubredditDescription.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.subredditDescription = action.payload;
+      state.status = "idle";
     },
     [getSubredditDescription.rejected]: (state) => {
-      state.status = "idle";
       state.errors = "request failed";
+      state.status = "idle";
     },
   },
 });

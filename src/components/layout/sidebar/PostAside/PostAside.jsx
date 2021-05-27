@@ -2,14 +2,14 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { roundSubs } from "../../../../assets/helpers/helpers";
-const PostAside = ({ subredditData }) => {
+const PostAside = ({ subredditDescription }) => {
   const {
     display_name_prefixed,
     public_description,
     display_name,
     subscribers,
     accounts_active,
-  } = subredditData;
+  } = subredditDescription;
 
   const subscribersRounded = roundSubs(subscribers);
   const activeRounded = roundSubs(accounts_active);

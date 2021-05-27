@@ -14,9 +14,6 @@ import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 
 const Post = ({ match }) => {
   const dispatch = useDispatch();
-  const dark = useSelector(selectDarkMode);
-  const postState = useSelector(selectCurrentPost);
-  const { post, comments, status } = postState;
   useEffect(() => {
     const action = { subreddit: match.params.subreddit, id: match.params.id };
 
@@ -24,6 +21,9 @@ const Post = ({ match }) => {
     dispatch(getSubredditDescription(match.params.subreddit));
   }, [dispatch, match.params.subreddit, match.params.id]);
 
+  const dark = useSelector(selectDarkMode);
+  const postState = useSelector(selectCurrentPost);
+  const { post, comments, status, subredditDescription } = postState;
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
@@ -34,7 +34,7 @@ const Post = ({ match }) => {
           <div className="page-wrapper">
             <PostCard post={post} />
             <CommentsContainer comments={comments} />
-            <PostAside />
+            <PostAside subredditDescription={subredditDescription.data} />
           </div>
         )}
       </section>
