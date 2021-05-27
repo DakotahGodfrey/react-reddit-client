@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className={dark ? "site-nav dark" : "site-nav"}>
       {/* Logo Goes Here */}
-      <Link to="/" aria-label="home">
+      <Link to="/" aria-label="home" data-testid="home-link">
         <figure className="logo">
           <img src={logo} alt="logo" />
         </figure>
