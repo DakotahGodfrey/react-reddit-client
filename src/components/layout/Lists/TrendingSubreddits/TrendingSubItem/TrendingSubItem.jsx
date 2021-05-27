@@ -8,8 +8,7 @@ import {
   selectFilter,
 } from "../../../../pages/Subreddit/subredditSlice";
 const TrendingSubItem = ({ subreddit }) => {
-  const subredditData = subreddit.data;
-  const { display_name_prefixed, icon_img, display_name } = subredditData;
+  const { display_name_prefixed, icon_img, display_name, id } = subreddit.data;
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const handleClick = () => {
@@ -23,7 +22,7 @@ const TrendingSubItem = ({ subreddit }) => {
   return (
     <li className="trending-subreddit">
       <Link
-        to="/subreddit"
+        to={`/subreddit/r/${display_name}/${id}`}
         data-testid="anchor-link"
         className="trending-sub"
         onClick={handleClick}

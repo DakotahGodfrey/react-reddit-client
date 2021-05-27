@@ -5,12 +5,9 @@ import Navbar from "../features/Searchbar/Navbar/Navbar";
 import {
   fetchNextPagePopular,
   getPopularPosts,
-  getTrending,
+  getWorldNews,
   getTrendingSubreddits,
   selectHome,
-  setFilter,
-  setMenuHidden,
-  setTime,
 } from "./homeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../layout/Loading/Loading";
@@ -22,13 +19,11 @@ const Home = () => {
   const {
     posts,
     trendingItems,
-    currentSubreddit,
     errors,
     trendingSubreddits,
     status,
     paginationId,
     filter,
-    menuHidden,
     time,
   } = home;
 
@@ -36,44 +31,17 @@ const Home = () => {
   const handleLoadMoreClick = () => {
     const action = {
       nextPageId: paginationId,
-      filter: filter,
-      time: time,
     };
     dispatch(fetchNextPagePopular(action));
   };
-  const handleNewClick = () => {
-    dispatch(setFilter("new"));
-  };
-  const handleTopClick = () => {
-    dispatch(setFilter("top"));
-    dispatch(setMenuHidden());
-  };
-  const handleHotClick = () => {
-    dispatch(setFilter("hot"));
-  };
-  const handleAllClick = () => {
-    dispatch(setTime("all"));
-  };
-  const handleYearClick = () => {
-    dispatch(setTime("year"));
-  };
-  const handleMonthClick = () => {
-    dispatch(setTime("month"));
-  };
-  const handleDayClick = () => {
-    dispatch(setTime("day"));
-  };
+
   useEffect(() => {
     document.title = "Home | Core for Reddit";
-    const action = {
-      filter: filter,
-      time: time,
-    };
-    dispatch(getPopularPosts(action));
-    dispatch(getTrending());
+    dispatch(getPopularPosts());
+    dispatch(getWorldNews());
     dispatch(getTrendingSubreddits());
-  }, [dispatch, filter, time]);
-
+  }, [dispatch]);
+  const currentSubreddit = "popular";
   return (
     <main className={dark ? "dark page" : "page"}>
       <Navbar />
@@ -89,17 +57,9 @@ const Home = () => {
           ) : (
             <Feed
               posts={posts}
-              currentSubreddit={currentSubreddit}
               handleLoadMoreClick={handleLoadMoreClick}
-              handleNewClick={handleNewClick}
-              handleTopClick={handleTopClick}
               filter={filter}
-              handleHotClick={handleHotClick}
-              menuHidden={menuHidden}
-              handleAllClick={handleAllClick}
-              handleYearClick={handleYearClick}
-              handleMonthClick={handleMonthClick}
-              handleDayClick={handleDayClick}
+              currentSubreddit={currentSubreddit}
             />
           )}
           <Aside trendingSubreddits={trendingSubreddits} />

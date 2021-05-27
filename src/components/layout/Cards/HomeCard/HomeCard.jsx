@@ -90,7 +90,7 @@ const HomeCard = ({ post }) => {
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
       <Link
-        to="/post"
+        to={`/post/${id}`}
         aria-label={title}
         onClick={handleClick}
         data-testid="content-link"

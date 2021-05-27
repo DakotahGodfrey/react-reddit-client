@@ -6,6 +6,7 @@ import subredditReducer from "../components/pages/Subreddit/subredditSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import bookmarkReducer from "../components/pages/Bookmarks/bookmarksSlice";
+import hotReducer from "../components/pages/Hot/hotSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -21,6 +22,7 @@ const persistedSearchReducer = persistReducer(persistConfig, searchReducer);
 const store = configureStore({
   reducer: {
     home: homeReducer,
+    hot: hotReducer,
     post: persistedPostReducer,
     subreddit: persistedSubredditReducer,
     search: persistedSearchReducer,

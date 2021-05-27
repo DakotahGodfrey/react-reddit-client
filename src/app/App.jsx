@@ -6,14 +6,20 @@ import Subreddit from "../components/pages/Subreddit/Subreddit";
 import Results from "../components/pages/Results/Results";
 import NotFound from "../components/layout/NotFound/NotFound";
 import Bookmarks from "../components/pages/Bookmarks/Bookmarks";
+import Hot from "../components/pages/Hot/Hot";
 function App() {
   return (
     <div className="App" id="App">
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/post" component={Post} />
-          <Route exact path="/subreddit" component={Subreddit} />
+          <Route exact path="/post/:id" component={Post} />
+          <Route
+            exact
+            path="/subreddit/r/:display_name/:id"
+            component={Subreddit}
+          />
+          <Route exact path="/hot" component={Hot} />
           <Route exact path="/results" component={Results} />
           <Route exact path="/bookmarks" component={Bookmarks} />
           <Route component={NotFound} />

@@ -1,77 +1,44 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../pages/features/Searchbar/searchbarSlice";
-const Toolbar = ({
-  handleNewClick,
-  handleTopClick,
-  handleHotClick,
-  handleAllClick,
-  handleYearClick,
-  handleMonthClick,
-  handleDayClick,
-  filter,
-}) => {
+import { Link } from "react-router-dom";
+const Toolbar = ({ filter }) => {
   const dark = useSelector(selectDarkMode);
   return (
     <nav className={dark ? "toolbar dark" : "toolbar"}>
       <div data-testid="filter-controls" className="filter-controls">
-        <button
+        <Link
+          to="/hot"
           className={
             filter === "hot" ? "filter-option current" : "filter-option"
           }
-          onClick={handleHotClick}
-          data-testid="hot"
         >
-          Hot{" "}
+          Hot
           <i className="material-icons" aria-hidden="true">
             whatshot
           </i>
-        </button>
-        <select
+        </Link>
+        <Link
           className={
-            filter === "top" ? "filter-option top current" : "filter-option top"
+            filter === "top" ? "filter-option current" : "filter-option"
           }
-          onClick={handleTopClick}
-          data-testid="combobox"
+          to="/top"
         >
           Top
-          <option
-            className="option"
-            data-testid="all-time"
-            onClick={handleAllClick}
-          >
-            All time
-          </option>
-          <option
-            className="option"
-            data-testid="year"
-            onClick={handleYearClick}
-          >
-            Past year
-          </option>
-          <option
-            className="option"
-            data-testid="month"
-            onClick={handleMonthClick}
-          >
-            This month
-          </option>
-          <option className="option" data-testid="day" onClick={handleDayClick}>
-            Today
-          </option>
-        </select>
-        <button
+          <i className="material-icons">emoji_events</i>
+        </Link>
+        <Link
+          to="/new"
           className={
             filter === "new" ? "filter-option current" : "filter-option"
           }
-          onClick={handleNewClick}
           data-testid="new"
         >
           New{" "}
           <i aria-hidden="true" className="material-icons">
             new_releases
           </i>
-        </button>
+        </Link>
       </div>
     </nav>
   );

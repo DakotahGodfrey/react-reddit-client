@@ -6,12 +6,12 @@ import { useHistory } from "react-router";
 const SearchInput = () => {
   const dispatch = useDispatch();
   let term;
-  let history = useHistory();
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setTerm(term));
     dispatch(searchByTerm(term));
-    history.push("/results");
+    history.push(`/results?q=${term}`);
   };
   const handleChange = (e) => {
     term = e.target.value;
