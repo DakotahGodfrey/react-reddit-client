@@ -16,7 +16,7 @@ import WorldNewsCarousel from "../../layout/Carousels/WorldNews/WorldNewsCarouse
 const Home = () => {
   const dark = useSelector(selectDarkMode);
   const home = useSelector(selectHome);
-  const { posts, trendingItems, errors, status, paginationId, filter } = home;
+  const { posts, trendingItems, errors, status, paginationId } = home;
   const dispatch = useDispatch();
   const handleLoadMoreClick = () => {
     const action = {

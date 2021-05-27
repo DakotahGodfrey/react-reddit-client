@@ -19,7 +19,7 @@ const Hot = () => {
     dispatch(getTrendingSubreddits());
   }, [dispatch]);
   const hot = useSelector(selectHot);
-  const { errors, status, posts, trendingSubreddits, paginationId } = hot;
+  const { errors, status, posts, paginationId } = hot;
   const home = useSelector(selectHome);
   const { dark } = home;
   const handleLoadMoreClick = () => {

@@ -8,7 +8,7 @@ const SubredditResult = ({ subreddit }) => {
   return (
     <li className="results-subreddit">
       <Link
-        to="/subreddit"
+        to={`/r/${display_name}`}
         data-testid="subreddit-link"
         className="subreddit-link"
       >

@@ -8,7 +8,6 @@ import {
 } from "./subredditSlice";
 import Feed from "../../features/Feed/Feed";
 import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
-import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
 import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 

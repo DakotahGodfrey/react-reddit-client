@@ -23,7 +23,7 @@ const PostAside = ({ subredditData }) => {
           data-testid="aside-header"
         >
           <span>About Community</span>
-          <Link data-testid="subreddit-link" to="/subreddit">
+          <Link to={`/r/${display_name}`}>
             <h2>{display_name_prefixed}</h2>
           </Link>
         </header>
