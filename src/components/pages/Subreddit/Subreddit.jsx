@@ -2,49 +2,32 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../features/Searchbar/Navbar/Navbar";
 import {
-  fetchDestSubreddit,
   fetchNextPageBySubreddit,
   selectSubreddit,
+  fetchSubreddit,
 } from "./subredditSlice";
 import Feed from "../features/Feed/Feed";
 import Aside from "../../layout/sidebar/Aside/Aside";
 import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
 import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
-const Subreddit = () => {
-  const subreddit = useSelector(selectSubreddit);
-  const trendingSubreddits = useSelector(selectTrendingSubs);
-  const dark = useSelector(selectDarkMode);
+
+const Subreddit = ({ match }) => {
   const dispatch = useDispatch();
-  const {
-    posts,
-    errors,
-    currentSubreddit,
-    status,
-    paginationId,
-    filter,
-    menuHidden,
-    time,
-  } = subreddit;
+  useEffect(() => {
+    document.title = `Subreddit | r/${match.params.display_name}`;
+    const action = { subreddit: match.params.display_name };
+    dispatch(fetchSubreddit(action));
+  }, []);
+  const subreddit = useSelector(selectSubreddit);
+  const dark = useSelector(selectDarkMode);
+  const { paginationId, posts, errors, status } = subreddit;
   const handleLoadMoreClick = () => {
     const action = {
-      currentSubreddit,
       paginationId,
     };
-
     dispatch(fetchNextPageBySubreddit(action));
   };
-
-  useEffect(() => {
-    document.title = `Subreddit | ${currentSubreddit}`;
-    const action = {
-      filter: filter,
-      subreddit: currentSubreddit,
-      time: time,
-    };
-    dispatch(getTrendingSubreddits());
-    dispatch(fetchDestSubreddit(action));
-  }, [dispatch, filter, currentSubreddit, time]);
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
@@ -57,13 +40,11 @@ const Subreddit = () => {
           ) : (
             <Feed
               posts={posts}
-              currentSubreddit={currentSubreddit}
+              currentSubreddit={match.params.display_name}
               handleLoadMoreClick={handleLoadMoreClick}
-              filter={filter}
-              menuHidden={menuHidden}
             />
           )}
-          <Aside trendingSubreddits={trendingSubreddits} />
+          {/* <Aside trendingSubreddits={trendingSubreddits} /> */}
         </div>
       </section>
     </main>

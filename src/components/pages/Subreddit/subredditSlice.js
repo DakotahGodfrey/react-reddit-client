@@ -1,12 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { base_url } from "../../../app/api";
-export const fetchDestSubreddit = createAsyncThunk(
-  "subreddit/fetchDestSubreddit",
+export const fetchSubreddit = createAsyncThunk(
+  "subreddit/fetchSubreddit",
   async (action) => {
-    const { subreddit, filter, time } = action;
-    const response = await fetch(
-      `${base_url}r/${subreddit}/${filter}.json?t=${time}`
-    );
+    const { subreddit } = action;
+    const response = await fetch(`${base_url}r/${subreddit}/.json`);
     const data = await response.json();
     return data;
   }
@@ -14,10 +12,10 @@ export const fetchDestSubreddit = createAsyncThunk(
 export const fetchNextPageBySubreddit = createAsyncThunk(
   "subreddit/fetchNextPageBySubreddit",
   async (action) => {
-    const { currentSubreddit, paginationId, time, filter } = action;
+    const { currentSubreddit, paginationId } = action;
     try {
       const response = await fetch(
-        `${base_url}r/${currentSubreddit}/${filter}/.json?count=30&after=${paginationId}&t=${time}`
+        `${base_url}r/${currentSubreddit}.json?count=30&after=${paginationId}`
       );
       const data = await response.json();
       return data;
@@ -31,53 +29,36 @@ const subredditSlice = createSlice({
   initialState: {
     status: "idle",
     errors: "",
-    posts: "",
-    currentSubreddit: "",
+    posts: [],
     paginationId: "",
-    filter: "top",
-    menuHidden: true,
-    time: "day",
   },
-  reducers: {
-    setCurrentSubreddit(state, action) {
-      state.currentSubreddit = action.payload;
-    },
-    setFilter(state, action) {
-      state.filter = action.payload;
-    },
-    setMenu(state) {
-      state.menuHidden = !state.menuHidden;
-    },
-    setTime(state, action) {
-      state.time = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
-    [fetchDestSubreddit.pending]: (state) => {
+    [fetchSubreddit.pending]: (state) => {
       state.status = "pending";
     },
-    [fetchDestSubreddit.fulfilled]: (state, action) => {
-      state.status = "idle";
+    [fetchSubreddit.fulfilled]: (state, action) => {
       state.posts = action.payload.data ? action.payload.data.children : [];
       state.paginationId = action.payload.data
         ? action.payload.data.after
         : " ";
-    },
-    [fetchDestSubreddit.rejected]: (state) => {
       state.status = "idle";
+    },
+    [fetchSubreddit.rejected]: (state) => {
       state.errors = "request failed";
+      state.status = "idle";
     },
     [fetchNextPageBySubreddit.pending]: (state) => {
       state.status = "pending";
     },
     [fetchNextPageBySubreddit.fulfilled]: (state, action) => {
-      state.status = "idle";
       state.posts = state.posts.concat(action.payload.data.children);
       state.paginationId = action.payload.data.after;
+      state.status = "idle";
     },
     [fetchNextPageBySubreddit.rejected]: (state) => {
-      state.status = "idle";
       state.errors = "request failed";
+      state.status = "idle";
     },
   },
 });

@@ -11,20 +11,16 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const persistedSubredditReducer = persistReducer(
-  persistConfig,
-  subredditReducer
-);
+
 const persistedBookmarkReducer = persistReducer(persistConfig, bookmarkReducer);
 
-const persistedSearchReducer = persistReducer(persistConfig, searchReducer);
 const store = configureStore({
   reducer: {
     home: homeReducer,
     hot: hotReducer,
     post: postReducer,
-    subreddit: persistedSubredditReducer,
-    search: persistedSearchReducer,
+    subreddit: subredditReducer,
+    search: searchReducer,
     bookmark: persistedBookmarkReducer,
   },
   middleware: getDefaultMiddleware({
