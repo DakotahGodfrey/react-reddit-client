@@ -6,6 +6,7 @@ import {
   getPostById,
   selectCurrentPost,
   getSubredditDescription,
+  clearPost,
 } from "./postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { CommentsContainer } from "../../layout/Comments/CommentsContainer/CommentsContainer";
@@ -16,6 +17,7 @@ const Post = ({ match }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const action = { subreddit: match.params.subreddit, id: match.params.id };
+    dispatch(clearPost());
     dispatch(getPostById(action));
     dispatch(getSubredditDescription(match.params.subreddit));
   }, [dispatch, match.params.subreddit, match.params.id]);

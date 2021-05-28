@@ -29,8 +29,10 @@ const postSlice = createSlice({
     subredditDescription: {},
   },
   reducers: {
-    setCurrentPostId(state, action) {
-      state.currentPostID = action.payload;
+    clearPost(state) {
+      state.status = "pending";
+      state.comments = [];
+      state.post = {};
     },
   },
   extraReducers: {
@@ -59,6 +61,6 @@ const postSlice = createSlice({
     },
   },
 });
-export const { setCurrentPostId } = postSlice.actions;
+export const { clearPost } = postSlice.actions;
 export const selectCurrentPost = (state) => state.post;
 export default postSlice.reducer;
