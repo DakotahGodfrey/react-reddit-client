@@ -3,8 +3,12 @@ import ReactMarkdown from "react-markdown";
 const LargePost = ({ postContent }) => {
   const { title, video, image, selftext, thumbnail } = postContent;
   return (
-    <article className="post-large-content">
-      <h2 className="">{title}</h2>
+    <section
+      className="post-large-content"
+      aria-label="post-content"
+      title="post-content"
+    >
+      <h1>{title}</h1>
       {video ? (
         <video data-testid="video" controls>
           <source
@@ -21,7 +25,7 @@ const LargePost = ({ postContent }) => {
           {selftext}
         </ReactMarkdown>
       )}
-    </article>
+    </section>
   );
 };
 

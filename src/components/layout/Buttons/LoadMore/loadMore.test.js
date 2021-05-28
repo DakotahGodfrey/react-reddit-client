@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import LoadMore from "./LoadMore";
-import { BrowserRouter as Router } from "react-router-dom";
 
 const handleLoadMore = jest.fn();
 
@@ -14,7 +13,7 @@ describe("LoadMore", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
   });
-  it("should render an expand_more icon", () => {
+  it("should render an expand more icon", () => {
     const expandIcon = screen.getByText("expand_more");
     expect(expandIcon).toBeInTheDocument();
     expect(expandIcon).toHaveClass("material-icons");

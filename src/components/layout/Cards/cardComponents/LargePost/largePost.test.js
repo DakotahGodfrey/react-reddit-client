@@ -14,7 +14,7 @@ describe("Large Post", () => {
     render(<LargePost postContent={postContent} />);
   });
   it("should render an article element", () => {
-    const articleElement = screen.getByRole("article");
+    const articleElement = screen.getByRole("region");
     expect(articleElement).toBeInTheDocument();
   });
   it("should render a heading element with text equal to the title passed through props", () => {
@@ -25,7 +25,7 @@ describe("Large Post", () => {
   });
 });
 describe("Large Post Media", () => {
-  it("should render a video element and a source element if the video prop is truthy, the source should a src attribute equal to the video property", () => {
+  it("should render a video element and a source element if the video prop is truthy, the source should have a src attribute equal to the video property", () => {
     postContent.video = "src.mp4";
     render(<LargePost postContent={postContent} />);
     const video = screen.getByTestId("video");
@@ -42,7 +42,7 @@ describe("Large Post Media", () => {
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute("src", postContent.image);
   });
-  it("should render the post selftext if there is no image or video property", () => {
+  it("should render the post self text if there is no image or video property", () => {
     postContent.image = null;
     render(<LargePost postContent={postContent} />);
 
