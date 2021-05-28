@@ -2,10 +2,10 @@ import React from "react";
 import CarouselCard from "../../Cards/CarouselCard/CarouselCard";
 const WorldNewsCarousel = ({ trendingItems }) => {
   return (
-    <section data-testid="carousel-section">
+    <section>
       <h1 className="carousel-heading">r/worldnews</h1>
-      <div className="slot-left" data-testid="left-fade"></div>
-      <div className="carousel-container" data-testid="carousel-row">
+      <div className="slot-left"></div>
+      <div className="carousel-container">
         {trendingItems.map((trendingItem) => (
           <CarouselCard
             trendingItem={trendingItem}
@@ -13,7 +13,7 @@ const WorldNewsCarousel = ({ trendingItems }) => {
           />
         ))}
       </div>
-      <div className="slot-right" data-testid="right-fade"></div>
+      <div className="slot-right"></div>
     </section>
   );
 };

@@ -6,7 +6,7 @@ const Toolbar = ({ filter }) => {
   const dark = useSelector(selectDarkMode);
   return (
     <nav className={dark ? "toolbar dark" : "toolbar"}>
-      <div data-testid="filter-controls" className="filter-controls">
+      <div className="filter-controls">
         <Link
           to="/hot"
           className={
@@ -32,7 +32,6 @@ const Toolbar = ({ filter }) => {
           className={
             filter === "new" ? "filter-option current" : "filter-option"
           }
-          data-testid="new"
         >
           New{" "}
           <i aria-hidden="true" className="material-icons">

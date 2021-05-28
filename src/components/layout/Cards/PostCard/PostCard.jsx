@@ -39,10 +39,7 @@ const PostCard = ({ post }) => {
   };
   const isLarge = true;
   return (
-    <article
-      data-testid="card-large"
-      className={dark ? "post-card-large dark" : "post-card-large"}
-    >
+    <article className={dark ? "post-card-large dark" : "post-card-large"}>
       <PostBanner isLarge={isLarge} postDetails={postDetails} />
       <LargePost postContent={postContent} />
     </article>

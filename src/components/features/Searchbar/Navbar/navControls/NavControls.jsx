@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 const NavControls = ({ handleClick }) => {
   return (
-    <div className="nav-controls" data-testid="nav-control-box">
-      <button onClick={handleClick} data-testid="settings-button">
+    <div className="nav-controls">
+      <button onClick={handleClick}>
         <i className="material-icons">settings</i>
       </button>
-      <Link to="/bookmarks" data-testid="bookmark-link">
+      <Link to="/bookmarks">
         <i className="material-icons">bookmarks</i>
       </Link>
     </div>

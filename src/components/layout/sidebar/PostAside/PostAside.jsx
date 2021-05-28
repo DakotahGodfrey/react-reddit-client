@@ -15,19 +15,15 @@ const PostAside = ({ subredditDescription }) => {
   const activeRounded = roundSubs(accounts_active);
 
   return (
-    <div className="sidebar post-sidebar" data-testid="sidebar">
+    <div className="sidebar post-sidebar">
       <aside className="aside-subreddit">
-        <header
-          role="banner"
-          className="aside-header"
-          data-testid="aside-header"
-        >
+        <header role="banner" className="aside-header">
           <span>About Community</span>
           <Link to={`/r/${display_name}`}>
             <h2>{display_name_prefixed}</h2>
           </Link>
         </header>
-        <div className="aside-information" data-testid="aside-information">
+        <div className="aside-information">
           <ReactMarkdown className="aside-description">
             {public_description}
           </ReactMarkdown>

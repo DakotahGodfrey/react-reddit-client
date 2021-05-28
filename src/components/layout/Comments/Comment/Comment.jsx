@@ -13,21 +13,17 @@ const Comment = ({ comment }) => {
   const timeStamp = timeSince(postTime);
 
   return (
-    <div data-testid="comment-card" className="comment-card">
-      <div className="comment-avatar" data-testid="comment-avatar">
+    <div className="comment-card">
+      <div className="comment-avatar">
         <img
           src="https://www.redditstatic.com/avatars/avatar_default_07_7E53C1.png"
           alt="reddit snoo alien avatar"
         />
       </div>
-      <div className="comment-content" data-testid="comment-content">
-        <div className="comment-byline" data-testid="comment-byline">
-          <span className="comment-author" data-testid="comment-author">
-            u/{author}
-          </span>
-          <span className="comment-time" data-testid="comment-time">
-            {timeStamp} ago
-          </span>
+      <div className="comment-content">
+        <div className="comment-byline">
+          <span className="comment-author">u/{author}</span>
+          <span className="comment-time">{timeStamp} ago</span>
         </div>
         <ReactMarkdown
           remarkPlugins={[gfm]}

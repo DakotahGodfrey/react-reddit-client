@@ -5,10 +5,10 @@ import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
 
 const Feed = ({ posts, currentSubreddit, handleLoadMoreClick, filter }) => {
   return (
-    <section className="feed-container" data-testid="feed-container">
+    <section className="feed-container">
       <Toolbar filter={filter} />
       <h2 className="page-heading">r/{currentSubreddit}</h2>
-      <div className="posts-container" data-testid="posts-container">
+      <div className="posts-container">
         {posts[0] === "not found" ? (
           <p>Sorry, no subreddit was found with that name.</p>
         ) : (

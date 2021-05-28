@@ -32,21 +32,17 @@ const PostResult = ({ post }) => {
   };
   return (
     <li className="results-post">
-      <Link
-        to={`/r/${subreddit}/post/${id}`}
-        className="post-link"
-        data-testid="post-link"
-      >
-        <div className="results-thumbnail" data-testid="results-thumbnail">
+      <Link to={`/r/${subreddit}/post/${id}`} className="post-link">
+        <div className="results-thumbnail">
           {thumbnail === "self" || thumbnail === "default" || !thumbnail ? (
             <img src={noImgThumbnail} alt="" />
           ) : (
             <img src={thumbnail} alt="" />
           )}
         </div>
-        <div className="results-title" data-testid="results-title">
+        <div className="results-title">
           <h3>{title}</h3>
-          <div className="post-information" data-testid="post-information">
+          <div className="post-information">
             <span className="results-author">u/{author}</span>
             <span className="results-subreddit-name">
               {subreddit_name_prefixed}

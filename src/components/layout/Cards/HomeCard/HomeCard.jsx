@@ -73,7 +73,6 @@ const HomeCard = ({ post }) => {
   return (
     <section
       aria-label="user post"
-      data-testid="user-post"
       className={dark ? "post-card dark" : "post-card "}
     >
       {/* Vote Component Here */}
@@ -81,12 +80,7 @@ const HomeCard = ({ post }) => {
       {/* Post Information Here */}
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
-      <Link
-        to={`/r/${subreddit}/post/${id}`}
-        replace
-        aria-label={title}
-        data-testid="content-link"
-      >
+      <Link to={`/r/${subreddit}/post/${id}`} replace aria-label={title}>
         <PostContent postContent={postContent} />
         {/* Post Footer Here */}
       </Link>

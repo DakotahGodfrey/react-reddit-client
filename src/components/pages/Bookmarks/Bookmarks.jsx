@@ -14,8 +14,8 @@ const Bookmarks = () => {
   return (
     <main className={dark ? "dark page" : "page"}>
       <Navbar />
-      <section className="page-content" data-testid="feed">
-        <div className="page-wrapper bookmarks" data-testid="feed-wrapper">
+      <section className="page-content">
+        <div className="page-wrapper bookmarks">
           <h1 className="bookmarks-header">Your Bookmarks</h1>
           {bookmarks.map((bookmark) => (
             <HomeCard post={bookmark.children[0]} bookmarked={bookmarked} />

@@ -25,7 +25,6 @@ const SearchInput = () => {
         name="search"
         id="search"
         placeholder="Search"
-        data-testid="search"
         onChange={(e) => handleChange(e)}
         required
       />

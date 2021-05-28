@@ -7,23 +7,16 @@ const PostBanner = ({ postDetails, isLarge }) => {
   const timeStamp = timeSince(postTime);
   return (
     <div
+      role="region"
       className={isLarge ? "post-large-information" : "post-information"}
-      data-testid="post-banner"
+      aria-label="post-banner"
     >
-      <Link
-        to={`/r/${subreddit}`}
-        replace
-        data-testid="subreddit-link"
-        className="post-subreddit"
-      >
+      <Link to={`/r/${subreddit}`} replace className="post-subreddit">
         {subreddit_name_prefixed}
       </Link>
 
-      <span data-testid="author" className="post-author">
-        Posted by u/{author}{" "}
-        <span data-testid="time-stamp" className="post-date">
-          {timeStamp} ago
-        </span>
+      <span className="post-author">
+        Posted by u/{author} <span className="post-date">{timeStamp} ago</span>
       </span>
     </div>
   );

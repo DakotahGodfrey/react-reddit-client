@@ -18,13 +18,10 @@ const PostFooter = ({
   };
   const num_comments_rounded = roundComments(num_comments);
   return (
-    <footer data-testid="post-footer" className="post-footer">
-      <div data-testid="comments" className="post-links">
+    <footer className="post-footer">
+      <div className="post-links">
         <i className="material-icons">comment</i>
-        <span data-testid="num_comments">
-          {num_comments ? num_comments_rounded : null}{" "}
-        </span>{" "}
-        Comments
+        <span>{num_comments ? num_comments_rounded : null} </span> Comments
       </div>
 
       <button
@@ -33,7 +30,6 @@ const PostFooter = ({
         className="post-links"
         onClick={handleBookmark}
         aria-label="add to bookmarks"
-        data-testid="bookmark-button"
       >
         <i className="material-icons" aria-hidden="true">
           bookmark
@@ -45,7 +41,6 @@ const PostFooter = ({
         className="post-links"
         onClick={removeBookmark}
         aria-label="remove from bookmarks"
-        data-testid="remove-bookmark"
       >
         <i className="material-icons" aria-hidden="true">
           bookmark_remove

@@ -5,19 +5,12 @@ const TrendingSubItem = ({ subreddit }) => {
   const { display_name_prefixed, icon_img, display_name } = subreddit.data;
   return (
     <li className="trending-subreddit">
-      <Link
-        to={`/r/${display_name}/`}
-        data-testid="anchor-link"
-        className="trending-sub"
-      >
-        <div
-          className="trending-subreddit-content"
-          data-testid="subreddit-content"
-        >
+      <Link to={`/r/${display_name}/`} className="trending-sub">
+        <div className="trending-subreddit-content">
           <div className="trending-subreddit-icon">
             <img src={icon_img} alt="" />
           </div>
-          <span data-testid="display-name">{display_name_prefixed}</span>
+          <span>{display_name_prefixed}</span>
         </div>
       </Link>
     </li>

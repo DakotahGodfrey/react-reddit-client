@@ -10,20 +10,13 @@ const LargePost = ({ postContent }) => {
     >
       <h1>{title}</h1>
       {video ? (
-        <video data-testid="video" controls>
-          <source
-            data-testid="source"
-            src={video}
-            poster={thumbnail}
-            type="video/mp4"
-          />
+        <video controls>
+          <source src={video} poster={thumbnail} type="video/mp4" />
         </video>
       ) : image ? (
         <img src={image} alt={title} />
       ) : (
-        <ReactMarkdown data-testid="body" className="post-large-body">
-          {selftext}
-        </ReactMarkdown>
+        <ReactMarkdown className="post-large-body">{selftext}</ReactMarkdown>
       )}
     </section>
   );

@@ -31,8 +31,8 @@ const Hot = () => {
   return (
     <main className={dark ? "dark page" : "page"}>
       <Navbar />
-      <section className="page-content" data-testid="feed">
-        <div className="page-wrapper" data-testid="feed-wrapper">
+      <section className="page-content">
+        <div className="page-wrapper">
           {errors ? (
             <p className="feed-error">Sorry, something went wrong</p>
           ) : status === "pending" ? (
