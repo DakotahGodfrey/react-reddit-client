@@ -16,81 +16,60 @@ beforeEach(() => {
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <PersistGate loading={null} persistor={persistor}>
-          <Toolbar
-            handleNewClick={handleNewClick}
-            handleTopClick={handleTopClick}
-            handleHotClick={handleHotClick}
-            handleAllClick={handleAllClick}
-            handleYearClick={handleYearClick}
-            handleMonthClick={handleMonthClick}
-            handleDayClick={handleDayClick}
-            filter={"string"}
-          />
-        </PersistGate>
+        <Toolbar filter={"string"} />
       </BrowserRouter>
     </Provider>
   );
 });
 
 describe("Toolbar", () => {
-  it("should render a nav element with className toolbar", () => {
-    const nav = screen.getByRole("navigation");
-    expect(nav).toBeInTheDocument();
-    expect(nav).toHaveClass("toolbar");
+  it("renders a nav element", () => {
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
-  it("should render a div with className filter-controls", () => {
-    const filterControls = screen.getByTestId("filter-controls");
-    expect(filterControls).toBeInTheDocument();
-    expect(filterControls).toHaveClass("filter-controls");
+  it("renders a menu with a class of filter-controls", () => {
+    expect(screen.getByRole("menu")).toBeInTheDocument();
+    expect(screen.getByRole("menu")).toHaveClass("filter-controls");
   });
-  it("should render 2 buttons", () => {
-    const filterOptions = screen.getAllByRole("button");
-    expect(filterOptions.length).toEqual(2);
-  });
-  it("should render a select box", () => {
-    expect(screen.getByRole("combobox")).toBeInTheDocument();
-  });
-  it("should render 4 options", () => {
-    expect(screen.getAllByRole("option")).toHaveLength(4);
-  });
-  it("should call handleAllClick when the all time option is clicked", () => {
-    const allOpt = screen.getByTestId("all-time");
-    fireEvent.click(allOpt);
-    expect(handleAllClick).toHaveBeenCalledTimes(1);
-  });
-  it("should call handleMonthClick when the month option is clicked", () => {
-    const monthOpt = screen.getByTestId("month");
-    fireEvent.click(monthOpt);
-    expect(handleMonthClick).toHaveBeenCalledTimes(1);
-  });
-  it("should call handledayClick when the day option is clicked", () => {
-    const dayOpt = screen.getByTestId("day");
-    fireEvent.click(dayOpt);
-    expect(handleDayClick).toHaveBeenCalledTimes(1);
-  });
-  it("should call handleYearClick when the day option is clicked", () => {
-    const yearOpt = screen.getByTestId("year");
-    fireEvent.click(yearOpt);
-    expect(handleYearClick).toHaveBeenCalledTimes(1);
-  });
-  describe("Hot Button", () => {
-    it("should call handleTopClick when clicked", () => {
-      const hotButton = screen.getByTestId("hot");
-      fireEvent.click(hotButton);
-      expect(handleHotClick).toHaveBeenCalledTimes(1);
+  describe("hot link", () => {
+    it("renders a link to the hot page", () => {
+      expect(screen.getByText("Hot")).toBeInTheDocument();
+      expect(screen.getByText("Hot")).toHaveAttribute("href", "/hot");
+    });
+    it("renders an fire icon that's hidden from screenReaders", () => {
+      expect(screen.getByText("whatshot")).toBeInTheDocument();
+      expect(screen.getByText("whatshot")).toHaveClass("material-icons");
+      expect(screen.getByText("whatshot")).toHaveAttribute(
+        "aria-hidden",
+        "true"
+      );
     });
   });
-  describe("Top Button", () => {
-    it("should call  handleTopClick when clcike ", () => {
-      fireEvent.click(screen.getByRole("combobox"));
-      expect(handleTopClick).toHaveBeenCalledTimes(1);
+  describe("top link", () => {
+    it("renders a link to the top page", () => {
+      expect(screen.getByText("Top")).toBeInTheDocument();
+      expect(screen.getByText("Top")).toHaveAttribute("href", "/top");
+    });
+    it("renders an trophy icon that's hidden from screenReaders", () => {
+      expect(screen.getByText("emoji_events")).toBeInTheDocument();
+      expect(screen.getByText("emoji_events")).toHaveClass("material-icons");
+      expect(screen.getByText("emoji_events")).toHaveAttribute(
+        "aria-hidden",
+        "true"
+      );
     });
   });
-  describe("New Button", () => {
-    it("should call handleNewClick when clicked", () => {
-      fireEvent.click(screen.getByTestId("new"));
-      expect(handleNewClick).toHaveBeenCalledTimes(1);
+  describe("new link", () => {
+    it("renders a link to the new page", () => {
+      expect(screen.getByText("New")).toBeInTheDocument();
+      expect(screen.getByText("New")).toHaveAttribute("href", "/new");
+    });
+    it("renders an new icon that's hidden from screenReaders", () => {
+      expect(screen.getByText("new_releases")).toBeInTheDocument();
+      expect(screen.getByText("new_releases")).toHaveClass("material-icons");
+      expect(screen.getByText("new_releases")).toHaveAttribute(
+        "aria-hidden",
+        "true"
+      );
     });
   });
 });
