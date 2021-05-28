@@ -1,5 +1,5 @@
 import React from "react";
-const ResultsBanner = ({ term, resultNum, status }) => {
+const ResultsBanner = ({ term, resultsTotal, status }) => {
   return (
     <header
       className="results-display"
@@ -13,8 +13,8 @@ const ResultsBanner = ({ term, resultNum, status }) => {
         <span className="results-count">Searching...</span>
       ) : (
         <span className="results-count">
-          {resultNum > 0
-            ? `Results: ${resultNum}`
+          {resultsTotal > 0
+            ? `Results: ${resultsTotal}`
             : "No results found, try narrowing your search"}
         </span>
       )}

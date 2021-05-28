@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectDarkMode } from "../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 import ufo from "../../../assets/media/404ufo.svg";
 import { Link } from "react-router-dom";
 

@@ -1,29 +1,28 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import homeReducer from "../components/pages/Home/homeSlice";
 import postReducer from "../components/pages/Post/postSlice";
-import searchReducer from "../components/pages/features/Searchbar/searchbarSlice";
+import searchReducer from "../components/features/Searchbar/searchbarSlice";
 import subredditReducer from "../components/pages/Subreddit/subredditSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import bookmarkReducer from "../components/pages/Bookmarks/bookmarksSlice";
+import hotReducer from "../components/pages/Hot/hotSlice";
+import trendingSidebarReducer from "../components/features/TrendingSidebar/trendingSidebarSlice";
 const persistConfig = {
   key: "root",
   storage,
 };
-const persistedPostReducer = persistReducer(persistConfig, postReducer);
-const persistedSubredditReducer = persistReducer(
-  persistConfig,
-  subredditReducer
-);
+
 const persistedBookmarkReducer = persistReducer(persistConfig, bookmarkReducer);
 
-const persistedSearchReducer = persistReducer(persistConfig, searchReducer);
 const store = configureStore({
   reducer: {
     home: homeReducer,
-    post: persistedPostReducer,
-    subreddit: persistedSubredditReducer,
-    search: persistedSearchReducer,
+    hot: hotReducer,
+    post: postReducer,
+    subreddit: subredditReducer,
+    search: searchReducer,
+    trendingSidebar: trendingSidebarReducer,
     bookmark: persistedBookmarkReducer,
   },
   middleware: getDefaultMiddleware({

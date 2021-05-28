@@ -1,32 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
-import {
-  fetchDestSubreddit,
-  setCurrentSubreddit,
-  selectFilter,
-} from "../../../../pages/Subreddit/subredditSlice";
+
 const TrendingSubItem = ({ subreddit }) => {
-  const subredditData = subreddit.data;
-  const { display_name_prefixed, icon_img, display_name } = subredditData;
-  const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
-  const handleClick = () => {
-    const action = {
-      subreddit: display_name,
-      filter: filter,
-    };
-    dispatch(fetchDestSubreddit(action));
-    dispatch(setCurrentSubreddit(display_name));
-  };
+  const { display_name_prefixed, icon_img, display_name } = subreddit.data;
   return (
     <li className="trending-subreddit">
       <Link
-        to="/subreddit"
+        to={`/r/${display_name}/`}
         data-testid="anchor-link"
         className="trending-sub"
-        onClick={handleClick}
       >
         <div
           className="trending-subreddit-content"

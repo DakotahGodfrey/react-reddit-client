@@ -1,76 +1,32 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
-  fetchDestSubreddit,
   fetchNextPageBySubreddit,
   selectSubreddit,
-  setFilter,
-  setMenu,
-  setTime,
+  fetchSubreddit,
 } from "./subredditSlice";
-import Feed from "../features/Feed/Feed";
-import Aside from "../../layout/sidebar/Aside/Aside";
-import { getTrendingSubreddits, selectTrendingSubs } from "../Home/homeSlice";
+import Feed from "../../features/Feed/Feed";
+import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
 import Loading from "../../layout/Loading/Loading";
-import { selectDarkMode } from "../features/Searchbar/searchbarSlice";
-const Subreddit = () => {
-  const subreddit = useSelector(selectSubreddit);
-  const trendingSubreddits = useSelector(selectTrendingSubs);
-  const dark = useSelector(selectDarkMode);
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
+
+const Subreddit = ({ match }) => {
   const dispatch = useDispatch();
-  const {
-    posts,
-    errors,
-    currentSubreddit,
-    status,
-    paginationId,
-    filter,
-    menuHidden,
-    time,
-  } = subreddit;
+  useEffect(() => {
+    document.title = `Subreddit | r/${match.params.display_name}`;
+    const action = { subreddit: match.params.display_name };
+    dispatch(fetchSubreddit(action));
+  }, [dispatch, match.params.display_name]);
+  const subreddit = useSelector(selectSubreddit);
+  const dark = useSelector(selectDarkMode);
+  const { paginationId, posts, errors, status } = subreddit;
   const handleLoadMoreClick = () => {
     const action = {
-      currentSubreddit,
       paginationId,
-      time,
-      filter,
     };
-
     dispatch(fetchNextPageBySubreddit(action));
   };
-  const handleNewClick = () => {
-    dispatch(setFilter("new"));
-  };
-  const handleTopClick = () => {
-    dispatch(setFilter("top"));
-    dispatch(setMenu());
-  };
-  const handleHotClick = () => {
-    dispatch(setFilter("hot"));
-  };
-  const handleAllClick = () => {
-    dispatch(setTime("all"));
-  };
-  const handleYearClick = () => {
-    dispatch(setTime("year"));
-  };
-  const handleMonthClick = () => {
-    dispatch(setTime("month"));
-  };
-  const handleDayClick = () => {
-    dispatch(setTime("day"));
-  };
-  useEffect(() => {
-    document.title = `Subreddit | ${currentSubreddit}`;
-    const action = {
-      filter: filter,
-      subreddit: currentSubreddit,
-      time: time,
-    };
-    dispatch(getTrendingSubreddits());
-    dispatch(fetchDestSubreddit(action));
-  }, [dispatch, filter, currentSubreddit, time]);
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
@@ -83,20 +39,11 @@ const Subreddit = () => {
           ) : (
             <Feed
               posts={posts}
-              currentSubreddit={currentSubreddit}
+              currentSubreddit={match.params.display_name}
               handleLoadMoreClick={handleLoadMoreClick}
-              handleNewClick={handleNewClick}
-              handleTopClick={handleTopClick}
-              handleHotClick={handleHotClick}
-              handleAllClick={handleAllClick}
-              handleYearClick={handleYearClick}
-              handleMonthClick={handleMonthClick}
-              handleDayClick={handleDayClick}
-              filter={filter}
-              menuHidden={menuHidden}
             />
           )}
-          <Aside trendingSubreddits={trendingSubreddits} />
+          <TrendingSidebar />
         </div>
       </section>
     </main>

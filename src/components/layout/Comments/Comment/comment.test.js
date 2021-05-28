@@ -9,9 +9,9 @@ const avatarSource =
   "https://www.redditstatic.com/avatars/avatar_default_07_7E53C1.png";
 const comment = {
   data: {
-    author: "author",
-    body: "body",
-    created_utc: 111222,
+    author: "J.R.R Tolkein",
+    body: "some shit",
+    created_utc: Math.round(Date.now() / 1000) - 31536000 * 1,
   },
 };
 beforeEach(() => {
@@ -46,6 +46,7 @@ describe("Comment", () => {
   it("should render an element with a testid of comment-time.", () => {
     const commentTime = screen.getByTestId("comment-time");
     expect(commentTime).toBeInTheDocument();
+    expect(commentTime).toHaveTextContent("just now ago");
   });
   it("should render an element a textContent equal to the body prop", () => {
     const commentBody = screen.getByText(comment.data.body);

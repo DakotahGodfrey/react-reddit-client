@@ -1,28 +1,19 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
-import {
-  fetchDestSubreddit,
-  setCurrentSubreddit,
-} from "../../../pages/Subreddit/subredditSlice";
-import { useDispatch } from "react-redux";
 import { roundSubs } from "../../../../assets/helpers/helpers";
-const PostAside = ({ subredditData }) => {
-  const dispatch = useDispatch();
+const PostAside = ({ subredditDescription }) => {
   const {
     display_name_prefixed,
     public_description,
     display_name,
     subscribers,
     accounts_active,
-  } = subredditData;
-  const handleClick = () => {
-    dispatch(setCurrentSubreddit(display_name));
-    dispatch(fetchDestSubreddit(display_name));
-  };
+  } = subredditDescription;
 
   const subscribersRounded = roundSubs(subscribers);
   const activeRounded = roundSubs(accounts_active);
+
   return (
     <div className="sidebar post-sidebar" data-testid="sidebar">
       <aside className="aside-subreddit">
@@ -32,11 +23,7 @@ const PostAside = ({ subredditData }) => {
           data-testid="aside-header"
         >
           <span>About Community</span>
-          <Link
-            data-testid="subreddit-link"
-            to="/subreddit"
-            onClick={handleClick}
-          >
+          <Link to={`/r/${display_name}`}>
             <h2>{display_name_prefixed}</h2>
           </Link>
         </header>

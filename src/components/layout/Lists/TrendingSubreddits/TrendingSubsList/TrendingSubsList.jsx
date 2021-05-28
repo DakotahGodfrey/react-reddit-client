@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectDarkMode } from "../../../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../../../features/Searchbar/searchbarSlice";
 import TrendingSubItem from "../TrendingSubItem/TrendingSubItem";
 const TrendingSubsList = ({ trendingSubreddits }) => {
   const dark = useSelector(selectDarkMode);

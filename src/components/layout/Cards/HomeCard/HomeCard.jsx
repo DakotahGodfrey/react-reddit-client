@@ -4,12 +4,9 @@ import PostContent from "../cardComponents/PostContent/PostContent";
 import PostFooter from "../cardComponents/PostFooter/PostFooter";
 import { urlReplace } from "../../../../app/api";
 import { Link } from "react-router-dom";
-import {
-  getPostById,
-  getSubredditDescription,
-} from "../../../pages/Post/postSlice";
+
 import { useDispatch, useSelector } from "react-redux";
-import { selectDarkMode } from "../../../pages/features/Searchbar/searchbarSlice";
+import { selectDarkMode } from "../../../features/Searchbar/searchbarSlice";
 import {
   addBookmarkById,
   removeFavorite,
@@ -46,6 +43,7 @@ const HomeCard = ({ post }) => {
     subreddit_name_prefixed,
     subreddit,
     d,
+    id,
   };
   const postContent = {
     title,
@@ -59,14 +57,7 @@ const HomeCard = ({ post }) => {
   const dark = useSelector(selectDarkMode);
 
   const dispatch = useDispatch();
-  const handleClick = () => {
-    const postToGet = {
-      subreddit,
-      id,
-    };
-    dispatch(getPostById(postToGet));
-    dispatch(getSubredditDescription(postToGet.subreddit));
-  };
+
   const handleBookmark = () => {
     const postToAdd = {
       subreddit,
@@ -78,6 +69,7 @@ const HomeCard = ({ post }) => {
   const removeBookmark = () => {
     dispatch(removeFavorite(id));
   };
+
   return (
     <section
       aria-label="user post"
@@ -90,9 +82,9 @@ const HomeCard = ({ post }) => {
       <PostBanner postDetails={postDetails} />
       {/* Post Content Here */}
       <Link
-        to="/post"
+        to={`/r/${subreddit}/post/${id}`}
+        replace
         aria-label={title}
-        onClick={handleClick}
         data-testid="content-link"
       >
         <PostContent postContent={postContent} />

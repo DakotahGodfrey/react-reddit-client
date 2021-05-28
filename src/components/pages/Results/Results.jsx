@@ -1,42 +1,47 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ResultsBanner from "../../layout/Results/ResultsBanner/ResultsBanner";
 import SubredditResults from "../../layout/Results/SubredditResults/SubredditResults";
-import Navbar from "../features/Searchbar/Navbar/Navbar";
+import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
-  selectDarkMode,
-  selectResults,
-  selectStatus,
-  selectTerm,
-} from "../features/Searchbar/searchbarSlice";
-import PostResults from "../../layout/Results/PostResults/PostResults";
+  searchByTerm,
+  selectSearch,
+} from "../../features/Searchbar/searchbarSlice";
 import Loading from "../../layout/Loading/Loading";
+import { useLocation } from "react-router";
+import PostResults from "../../layout/Results/PostResults/PostResults";
 const Results = () => {
+  const search = useSelector(selectSearch);
+  const { status, dark, subredditResults, postResults } = search;
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search).get("search");
+  const resultsTotal = subredditResults.length + postResults.length;
   useEffect(() => {
-    document.title = `Results | ${term ? term : null}`;
-  });
-  const results = useSelector(selectResults);
-  const term = useSelector(selectTerm);
-  const status = useSelector(selectStatus);
-  const subredditsArray = results[0] ? results[0].data.children : [];
-  const postsArray = results[1] ? results[1].data.children : [];
-  const resultNum = subredditsArray.length + postsArray.length;
-  const dark = useSelector(selectDarkMode);
+    dispatch(searchByTerm(params));
+    document.title = `Results | ${params ? params : " "}`;
+  }, [params]);
+
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
-      <ResultsBanner term={term} resultNum={resultNum} status={status} />
-      <section className="page-content results" data-testid="feed">
+      <ResultsBanner
+        term={params}
+        status={status}
+        resultsTotal={resultsTotal}
+      />
+      <section className="page-content results">
         {status === "pending" ? (
           <Loading />
-        ) : resultNum === 0 ? null : (
+        ) : (
           <div className="results-wrapper">
             <article className="results-subreddits">
-              <SubredditResults subredditsArray={subredditsArray} />
+              <SubredditResults subredditResults={subredditResults} />
             </article>
             <article className="results-posts">
-              <PostResults postsArray={postsArray} />
+              <PostResults postResults={postResults} />
             </article>
+            <article className="results-posts"></article>
           </div>
         )}
       </section>

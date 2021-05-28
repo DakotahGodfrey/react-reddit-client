@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { base_url } from "../../../../app/api";
+import { base_url } from "../../../app/api";
 
 export const searchByTerm = createAsyncThunk(
   "search/searchByTerm",
@@ -17,7 +17,8 @@ const searchBarSlice = createSlice({
   initialState: {
     errors: "",
     status: "idle",
-    results: [],
+    subredditResults: [],
+    postResults: [],
     term: "",
     showSettings: false,
     darkMode: false,
@@ -38,8 +39,9 @@ const searchBarSlice = createSlice({
       state.status = "pending";
     },
     [searchByTerm.fulfilled]: (state, action) => {
+      state.subredditResults = action.payload[0].data.children;
+      state.postResults = action.payload[1].data.children;
       state.status = "idle";
-      state.results = action.payload;
     },
     [searchByTerm.rejected]: (state) => {
       state.errors = "request failed";
@@ -48,9 +50,7 @@ const searchBarSlice = createSlice({
   },
 });
 export const { setTerm, setShowSettings, setDarkMode } = searchBarSlice.actions;
-export const selectTerm = (state) => state.search.term;
-export const selectResults = (state) => state.search.results;
-export const selectStatus = (state) => state.search.status;
 export const selectShowSettings = (state) => state.search.showSettings;
 export const selectDarkMode = (state) => state.search.darkMode;
+export const selectSearch = (state) => state.search;
 export default searchBarSlice.reducer;
