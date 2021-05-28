@@ -20,7 +20,7 @@ const Results = () => {
   useEffect(() => {
     dispatch(searchByTerm(params));
     document.title = `Results | ${params ? params : " "}`;
-  }, [params]);
+  }, [params, dispatch]);
 
   return (
     <main className={dark ? "page dark" : "page"}>

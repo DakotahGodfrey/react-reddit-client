@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  getPostById,
-  getSubredditDescription,
-} from "../../../../pages/Post/postSlice";
+
 import { addBookmarkById } from "../../../../pages/Bookmarks/bookmarksSlice";
 import { useDispatch } from "react-redux";
 import PostFooter from "../../../Cards/cardComponents/PostFooter/PostFooter";
