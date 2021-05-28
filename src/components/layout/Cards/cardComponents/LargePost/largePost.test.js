@@ -34,7 +34,7 @@ describe("Large Post Media", () => {
     expect(source).toBeInTheDocument();
     expect(source).toHaveAttribute("src", postContent.video);
   });
-  it("should render an image element if the imapge prop is truthy and the video prop is falsy, the img src should be equal to the img prop", () => {
+  it("should render an image element if the image prop is truthy and the video prop is falsy, the img src should be equal to the img prop", () => {
     postContent.video = null;
     render(<LargePost postContent={postContent} />);
 
@@ -45,7 +45,6 @@ describe("Large Post Media", () => {
   it("should render the post self text if there is no image or video property", () => {
     postContent.image = null;
     render(<LargePost postContent={postContent} />);
-
     const body = screen.getByText(postContent.selftext);
     expect(body).toBeInTheDocument();
     expect(body).toHaveTextContent(postContent.selftext);

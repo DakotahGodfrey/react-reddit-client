@@ -1,11 +1,9 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "./PostBanner";
 import PostBanner from "./PostBanner";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import store, { persistor } from "../../../../../app/store";
-import { PersistGate } from "redux-persist/integration/react";
+
 import { timeSince } from "../../../../../assets/helpers/helpers";
 
 let postDetails = {
@@ -16,17 +14,12 @@ let postDetails = {
 };
 const timeStamp = timeSince(Date.parse(postDetails.d));
 let isLarge;
-const handleClick = jest.fn();
 
 beforeEach(() => {
   render(
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router>
-          <PostBanner postDetails={postDetails} isLarge={isLarge} />
-        </Router>
-      </PersistGate>
-    </Provider>
+    <Router>
+      <PostBanner postDetails={postDetails} isLarge={isLarge} />
+    </Router>
   );
 });
 
