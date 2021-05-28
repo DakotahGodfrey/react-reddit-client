@@ -22,14 +22,6 @@ const PostResult = ({ post }) => {
     subreddit_name_prefixed,
   } = post.data;
   const dispatch = useDispatch();
-  const handleClick = () => {
-    const postToGet = {
-      subreddit,
-      id,
-    };
-    dispatch(getPostById(postToGet));
-    dispatch(getSubredditDescription(postToGet.subreddit));
-  };
   const handleBookmark = () => {
     const postToAdd = {
       subreddit,
@@ -44,8 +36,7 @@ const PostResult = ({ post }) => {
   return (
     <li className="results-post">
       <Link
-        to="/post"
-        onClick={handleClick}
+        to={`/r/${subreddit}/post/${id}`}
         className="post-link"
         data-testid="post-link"
       >

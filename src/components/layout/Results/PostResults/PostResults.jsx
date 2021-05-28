@@ -1,9 +1,9 @@
 import React from "react";
 import PostResult from "./PostResult/PostResult";
-const PostResults = ({ postsArray }) => {
+const PostResults = ({ postResults }) => {
   return (
     <ul className="results-posts-container">
-      {postsArray.map((post) => (
+      {postResults.map((post) => (
         <PostResult post={post} key={post.data.id} />
       ))}
     </ul>
