@@ -14,11 +14,11 @@ import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 
 const Post = ({ match }) => {
   const dispatch = useDispatch();
-  const action = { subreddit: match.params.subreddit, id: match.params.id };
   useEffect(() => {
+    const action = { subreddit: match.params.subreddit, id: match.params.id };
     dispatch(getPostById(action));
     dispatch(getSubredditDescription(match.params.subreddit));
-  }, []);
+  }, [dispatch, match.params.subreddit, match.params.id]);
 
   const dark = useSelector(selectDarkMode);
   const postState = useSelector(selectCurrentPost);
