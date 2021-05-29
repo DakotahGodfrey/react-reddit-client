@@ -6,81 +6,122 @@ import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 
 describe("Results Banner", () => {
-  it("should render an element with testid equal to results-display", () => {
+  describe("header", () => {
     let term;
-    let resultsNum;
+    let resultsTotal;
     let status;
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <PersistGate loading={null} persistor={persistor}>
-            <ResultsBanner term={term} resultNum={resultsNum} status={status} />
-          </PersistGate>
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(screen.getByTestId("results-display")).toBeInTheDocument();
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <ResultsBanner
+              status={status}
+              term={term}
+              resultsTotal={resultsTotal}
+            />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+    it("renders without error", () => {
+      const headerEl = screen.getByText(/Query/).closest("header");
+      expect(headerEl).toHaveClass("results-display");
+    });
+    it("is a live region", () => {
+      const headerEl = screen.getByText(/Query/).closest("header");
+      expect(headerEl).toHaveAttribute("aria-live", "assertive");
+    });
   });
-  it("should render a span with text content set to the term prop", () => {
-    let term = "searchterm";
-    let resultsNum;
+  describe("Query Span", () => {
+    let term = "searched";
+    let resultsTotal;
     let status;
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <PersistGate loading={null} persistor={persistor}>
-            <ResultsBanner term={term} resultNum={resultsNum} status={status} />
-          </PersistGate>
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(screen.getByText(`Query: ${term}`));
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <ResultsBanner
+              status={status}
+              term={term}
+              resultsTotal={resultsTotal}
+            />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+    it("renders without error", () => {
+      expect(screen.getByText(/Query/)).toBeInTheDocument();
+      expect(screen.getByText(/Query/)).toHaveClass("results-term");
+    });
+    it("renders with the proper text content", () => {
+      expect(screen.getByText(/Query/)).toHaveTextContent(`Query: ${term}`);
+    });
   });
-  it("should render a span with text content equal to searching... if status is pending", () => {
-    let term = "searchterm";
-    let resultsNum;
+});
+describe("Results total", () => {
+  describe("Status pending", () => {
+    let term;
     let status = "pending";
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <PersistGate loading={null} persistor={persistor}>
-            <ResultsBanner term={term} resultNum={resultsNum} status={status} />
-          </PersistGate>
-        </BrowserRouter>
-      </Provider>
-    );
-    status = "pending";
-    expect(screen.getByText("Searching...")).toBeInTheDocument();
+    let resultsTotal;
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <ResultsBanner
+              status={status}
+              term={term}
+              resultsTotal={resultsTotal}
+            />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+    it("renders a message to the user", () => {
+      expect(screen.getByText("Searching...")).toBeInTheDocument();
+    });
   });
-  it("should render a span with text content set to resultsNum", () => {
-    let term = "searchterm";
-    let resultsNum = 23;
-    let status = "idle";
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <PersistGate loading={null} persistor={persistor}>
-            <ResultsBanner term={term} resultNum={resultsNum} status={status} />
-          </PersistGate>
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(screen.getByText(`Results: ${resultsNum}`)).toBeInTheDocument();
+  describe("No results returned", () => {
+    let term;
+    let status;
+    let resultsTotal = 0;
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <ResultsBanner
+              status={status}
+              term={term}
+              resultsTotal={resultsTotal}
+            />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+    it("should render a message to the user with the proper text", () => {
+      expect(
+        screen.getByText("No results found, try narrowing your search")
+      ).toBeInTheDocument();
+    });
   });
-  it("should render a message that informs the user if no results were found", () => {
-    let errorMsg = "No results found, try narrowing your search";
-    let term = "searchterm";
-    let resultsNum = 0;
-    let status = "idle";
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <PersistGate loading={null} persistor={persistor}>
-            <ResultsBanner term={term} resultNum={resultsNum} status={status} />
-          </PersistGate>
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(screen.getByText(errorMsg)).toBeInTheDocument();
+  describe("Results returned", () => {
+    let term;
+    let status;
+    let resultsTotal = 44;
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <ResultsBanner
+              status={status}
+              term={term}
+              resultsTotal={resultsTotal}
+            />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+    it("should render a message to the user with the proper text", () => {
+      expect(screen.getByText(`Results: ${resultsTotal}`)).toBeInTheDocument();
+    });
   });
 });
