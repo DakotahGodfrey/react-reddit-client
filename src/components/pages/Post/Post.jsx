@@ -28,11 +28,11 @@ const Post = ({ match }) => {
   return (
     <main className={dark ? "page dark" : "page"}>
       <Navbar />
-      <section className="page-content">
+      <section aria-label="post-content" className="page-content">
         {status === "pending" ? (
           <Loading />
         ) : (
-          <div className="page-wrapper">
+          <div data-testid="page-wrapper" className="page-wrapper">
             <PostCard post={post} />
             <CommentsContainer comments={comments} />
             {subredditDescription.data ? (
