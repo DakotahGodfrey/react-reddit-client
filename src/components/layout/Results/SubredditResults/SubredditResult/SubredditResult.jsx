@@ -7,11 +7,7 @@ const SubredditResult = ({ subreddit }) => {
     subreddit.data;
   return (
     <li className="results-subreddit">
-      <Link
-        to={`/r/${display_name}`}
-        data-testid="subreddit-link"
-        className="subreddit-link"
-      >
+      <Link to={`/r/${display_name}`} className="subreddit-link">
         <h3 className="results-subreddit-title">{display_name_prefixed}</h3>
 
         <ReactMarkdown
