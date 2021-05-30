@@ -37,15 +37,15 @@ const PostResult = ({ post }) => {
         className="post-link"
         data-testid="post-link"
       >
-        <div className="results-thumbnail" data-testid="results-thumbnail">
+        <figure className="results-thumbnail">
           {thumbnail === "self" || thumbnail === "default" || !thumbnail ? (
             <img src={noImgThumbnail} alt="" />
           ) : (
             <img src={thumbnail} alt="" />
           )}
-        </div>
-        <div className="results-title" data-testid="results-title">
-          <h3>{title}</h3>
+        </figure>
+        <div className="results-header">
+          <span className="results-title">{title}</span>
           <div className="post-information" data-testid="post-information">
             <span className="results-author">u/{author}</span>
             <span className="results-subreddit-name">

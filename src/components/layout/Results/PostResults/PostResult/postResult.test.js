@@ -1,84 +1,231 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/lib/integration/react";
 import { Provider } from "react-redux";
-import store, { persistor } from "../../../../../app/store";
+import store from "../../../../../app/store";
 import PostResult from "./PostResult";
 import noImgThumbnail from "../../../../../assets/media/img_placeholder.png";
-const post = {
-  data: {
-    title: "title",
-    subreddit_name_prefixed: "r/test",
-    id: 2342,
-    author: "author",
-    created_utc: 2342342342,
-  },
+
+const generatePost = (
+  subreddit,
+  id,
+  thumbnail,
+  title,
+  num_comments,
+  author,
+  subreddit_name_prefixed
+) => {
+  return {
+    data: {
+      subreddit,
+      id,
+      thumbnail,
+      title,
+      num_comments,
+      author,
+      subreddit_name_prefixed,
+    },
+  };
 };
-
-beforeEach(() => {
-  render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <PersistGate loading={null} persistor={persistor}>
-          <PostResult post={post} />{" "}
-        </PersistGate>
-      </BrowserRouter>
-    </Provider>
-  );
-});
-
 describe("Post Result", () => {
-  it("should render a list item", () => {
-    expect(screen.getByRole("listitem")).toBeInTheDocument();
-  });
-  it("should render a link to the post page", () => {
-    const linkEl = screen.getByTestId("post-link");
-    expect(linkEl).toBeInTheDocument();
-    expect(linkEl).toHaveAttribute("href", "/post");
-  });
-  it("should render an element with testid results-thumbnail", () => {
-    expect(screen.getByTestId("results-thumbnail")).toBeInTheDocument();
-  });
-  describe("Thumbnail image", () => {
-    it("should render an image element with a src of noImgThumbnail if the thumbnail property is falsy", () => {
-      const image = screen.getByRole("img");
-      expect(image).toHaveAttribute("src", noImgThumbnail);
+  describe("List item ", () => {
+    const post = generatePost(
+      "aww",
+      23324,
+      "src.png",
+      "title",
+      4543,
+      "23423",
+      "r/awww"
+    );
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <PostResult post={post} />
+          </BrowserRouter>
+        </Provider>
+      );
     });
-    it("should render an image element with a src of noImgThumbnail if the thumbnail property is default", () => {
-      post.data.thumbnail = "default";
-      const image = screen.getByRole("img");
-      expect(image).toHaveAttribute("src", noImgThumbnail);
+    it("renders a list item with class results-post", () => {
+      expect(screen.getByRole("listitem")).toBeInTheDocument();
+      expect(screen.getByRole("listitem")).toHaveClass("results-post");
     });
-    it("should render an image element with a src of noImgThumbnail if the thumbnail property is self", () => {
-      post.data.thumbnail = "self";
-      const image = screen.getByRole("img");
-      expect(image).toHaveAttribute("src", noImgThumbnail);
+    it("renders a link to the post path with a class of post-link", () => {
+      expect(screen.getByTestId("post-link")).toHaveAttribute(
+        "href",
+        `/r/${post.data.subreddit}/post/${post.data.id}`
+      );
+      expect(screen.getByTestId("post-link")).toHaveClass("post-link");
     });
-    // it("should render an image element with a src equal to the thumbnail property", () => {
-    //   post.data.thumbnail = "src.png";
-    //   const image = screen.getByRole("img");
-    //   expect(image).toHaveAttribute("src", post.data.thumbnail);
-    // });
   });
-  it("should render an element with test-id results-title", () => {
-    expect(screen.getByTestId("results-title")).toBeInTheDocument();
+
+  describe("Results thumbnail", () => {
+    describe("thumbnail container", () => {
+      const post = generatePost(
+        "aww",
+        23324,
+        "src.png",
+        "title",
+        4543,
+        "23423",
+        "r/awww"
+      );
+      beforeEach(() => {
+        render(
+          <Provider store={store}>
+            <BrowserRouter>
+              <PostResult post={post} />
+            </BrowserRouter>
+          </Provider>
+        );
+      });
+      it("renders a div with a class of results-thumbnail", () => {
+        expect(screen.getByRole("figure")).toBeInTheDocument();
+        expect(screen.getByRole("figure")).toHaveClass("results-thumbnail");
+      });
+    });
+    describe("valid thumbnail prop", () => {
+      const post = generatePost(
+        "aww",
+        23324,
+        "src.png",
+        "title",
+        4543,
+        "23423",
+        "r/awww"
+      );
+      beforeEach(() => {
+        render(
+          <Provider store={store}>
+            <BrowserRouter>
+              <PostResult post={post} />
+            </BrowserRouter>
+          </Provider>
+        );
+      });
+      it("renders an image element with a src equal to the thumbnail prop", () => {
+        expect(screen.getByRole("img")).toHaveAttribute(
+          "src",
+          `${post.data.thumbnail}`
+        );
+      });
+    });
+    describe("false thumbnail prop", () => {
+      const post = generatePost(
+        "aww",
+        23324,
+        "",
+        "title",
+        4543,
+        "23423",
+        "r/awww"
+      );
+      beforeEach(() => {
+        render(
+          <Provider store={store}>
+            <BrowserRouter>
+              <PostResult post={post} />
+            </BrowserRouter>
+          </Provider>
+        );
+      });
+      it("renders an image place holder", () => {
+        expect(screen.getByRole("img")).toHaveAttribute("src", noImgThumbnail);
+      });
+    });
+    describe("self thumbnail prop", () => {
+      const post = generatePost(
+        "aww",
+        23324,
+        "self",
+        "title",
+        4543,
+        "23423",
+        "r/awww"
+      );
+      beforeEach(() => {
+        render(
+          <Provider store={store}>
+            <BrowserRouter>
+              <PostResult post={post} />
+            </BrowserRouter>
+          </Provider>
+        );
+      });
+      it("renders an image place holder", () => {
+        expect(screen.getByRole("img")).toHaveAttribute("src", noImgThumbnail);
+      });
+    });
+    describe("default thumbnail prop", () => {
+      const post = generatePost(
+        "aww",
+        23324,
+        "default",
+        "title",
+        4543,
+        "23423",
+        "r/awww"
+      );
+      beforeEach(() => {
+        render(
+          <Provider store={store}>
+            <BrowserRouter>
+              <PostResult post={post} />
+            </BrowserRouter>
+          </Provider>
+        );
+      });
+      it("renders an image place holder", () => {
+        expect(screen.getByRole("img")).toHaveAttribute("src", noImgThumbnail);
+      });
+    });
   });
-  it("should render a heading with text content equal to the title property of the post", () => {
-    expect(screen.getByRole("heading")).toHaveTextContent(post.data.title);
-  });
-  it("should render an element with testid of result-title", () => {
-    expect(screen.getByTestId("results-title")).toBeInTheDocument();
-  });
-  it("should render an element with test-id of post-information", () => {
-    expect(screen.getByTestId("post-information")).toBeInTheDocument();
-  });
-  it("should render an element  with text-content equal to the author property", () => {
-    expect(screen.getByText(`u/${post.data.author}`)).toBeInTheDocument();
-  });
-  it("should render an element with text content equal to the subreddit_name_prefixed prop", () => {
-    expect(
-      screen.getByText(post.data.subreddit_name_prefixed)
-    ).toBeInTheDocument();
+
+  describe("Results title", () => {
+    const post = generatePost(
+      "aww",
+      23324,
+      "default",
+      "title",
+      4543,
+      "23423",
+      "r/awww"
+    );
+    beforeEach(() => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <PostResult post={post} />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
+
+    it("renders a div with the class results-header", () => {
+      const div = screen
+        .getByText(post.data.title)
+        .closest("div.results-header");
+      expect(div).toBeInTheDocument();
+      expect(div).toHaveClass("results-header");
+    });
+    it("renders a element with the class name results-title and the proper text", () => {
+      expect(screen.getByText(post.data.title)).toBeInTheDocument();
+    });
+    it("renders a div with the class post-information", () => {
+      const div = screen.getByTestId("post-information");
+      expect(div).toBeInTheDocument();
+      expect(div).toHaveClass("post-information");
+    });
+    it("renders an element with class results-author and the proper tex ", () => {
+      expect(screen.getByText(`u/${post.data.author}`)).toHaveClass(
+        "results-author"
+      );
+    });
+    it("renders an element with class results-subreddit-name and the proper tex ", () => {
+      expect(
+        screen.getByText(`${post.data.subreddit_name_prefixed}`)
+      ).toHaveClass("results-subreddit-name");
+    });
   });
 });

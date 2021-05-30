@@ -1,8 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import store, { persistor } from "../../../../../app/store";
+import store from "../../../../../app/store";
 import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
 import SubredditResult from "./SubredditResult";
 
 const subreddit = {
@@ -16,9 +15,7 @@ beforeEach(() => {
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <PersistGate loading={null} persistor={persistor}>
-          <SubredditResult subreddit={subreddit} />
-        </PersistGate>
+        <SubredditResult subreddit={subreddit} />
       </BrowserRouter>
     </Provider>
   );
@@ -29,10 +26,9 @@ describe("Subreddit Result", () => {
     expect(screen.getByRole("listitem")).toBeInTheDocument();
   });
   it("should render a link to the subreddit page", () => {
-    expect(screen.getByTestId("subreddit-link")).toHaveAttribute(
-      "href",
-      "/subreddit"
-    );
+    expect(
+      screen.getByText(subreddit.data.display_name_prefixed).closest("a")
+    ).toHaveAttribute("href", `/r/${subreddit.data.display_name}`);
   });
   it("should render a heading with text content equal to the display_name_prefixed prop", () => {
     expect(screen.getByRole("heading")).toHaveTextContent(

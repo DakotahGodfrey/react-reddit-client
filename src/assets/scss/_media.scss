@@ -15,6 +15,17 @@
     }
   }
 }
+.carousel {
+  &-container {
+    scroll-snap-type: x mandatory;
+  }
+  &-card {
+    scroll-snap-align: center;
+    &:hover {
+      transform: none;
+    }
+  }
+}
 .page .page-content.results {
   margin: 0 1rem;
 }

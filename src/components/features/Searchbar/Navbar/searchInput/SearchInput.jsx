@@ -18,7 +18,11 @@ const SearchInput = () => {
     history.push(`/results?search=${term}`);
   };
   return (
-    <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
+    <form
+      className="search-form"
+      aria-label="search-form"
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <input
         type="search"
         aria-label="Search Reddit"

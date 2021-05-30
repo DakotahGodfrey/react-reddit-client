@@ -8,6 +8,7 @@
     grid-column: 1;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-out;
+    margin-bottom: 3rem;
     &:hover {
       box-shadow: 0 3px 4px rgba($color: $bg-dark-secondary, $alpha: 1);
     }

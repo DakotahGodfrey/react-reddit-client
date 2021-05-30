@@ -5,7 +5,7 @@ import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
 
 const Feed = ({ posts, currentSubreddit, handleLoadMoreClick, filter }) => {
   return (
-    <section className="feed-container" data-testid="feed-container">
+    <section className="feed-container" role="feed">
       <Toolbar filter={filter} />
       <h2 className="page-heading">r/{currentSubreddit}</h2>
       <div className="posts-container" data-testid="posts-container">
