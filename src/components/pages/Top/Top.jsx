@@ -11,16 +11,27 @@ import Loading from "../../layout/Loading/Loading";
 import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
 import Feed from "../../features/Feed/Feed";
 import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
+import { useLocation } from "react-router";
 const Top = ({ match }) => {
   const dark = useSelector(selectDarkMode);
   const path = match.path;
+  const location = useLocation();
   const currentSubreddit = match.params.currentSubreddit;
+  const timeQueryParam = new URLSearchParams(location.search).get("t");
   const dispatch = useDispatch();
+
   useEffect(() => {
+    const action = { currentSubreddit: currentSubreddit, time: timeQueryParam };
     document.title = `${match.params.currentSubreddit} | Top`;
-    dispatch(fetchTopPosts(match.params.currentSubreddit));
+    dispatch(fetchTopPosts(action));
     dispatch(getTrendingSubreddits());
-  }, [dispatch, match.params.currentSubreddit]);
+  }, [
+    dispatch,
+    match.params.currentSubreddit,
+    timeQueryParam,
+    currentSubreddit,
+  ]);
+
   const top = useSelector(selectTop);
   const { errors, status, posts, paginationId } = top;
   const handleLoadMoreClick = () => {
@@ -42,6 +53,7 @@ const Top = ({ match }) => {
             <Feed
               posts={posts}
               path={path}
+              timeQueryParam={timeQueryParam}
               handleLoadMoreClick={handleLoadMoreClick}
               currentSubreddit={currentSubreddit}
             />

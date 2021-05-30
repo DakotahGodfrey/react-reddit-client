@@ -3,9 +3,12 @@ import { base_url } from "../../../app/api";
 
 export const fetchTopPosts = createAsyncThunk(
   "top/fetchTopPosts",
-  async (currentSubreddit) => {
+  async (action) => {
+    const { currentSubreddit, time } = action;
     try {
-      const response = await fetch(`${base_url}r/${currentSubreddit}/top.json`);
+      const response = await fetch(
+        `${base_url}r/${currentSubreddit}/top/.json?t=${time}`
+      );
       const data = await response.json();
       return data;
     } catch (error) {
