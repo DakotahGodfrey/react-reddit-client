@@ -25,10 +25,10 @@ const Toolbar = ({ path, currentSubreddit }) => {
         </li>
         <li role="menuitem">
           <Link
+            to={`/r/${currentSubreddit}/top/?t=today`}
             className={
               path.includes("/top") ? "filter-option current" : "filter-option"
             }
-            to={`/r/${currentSubreddit}/top/?t=today`}
           >
             Top
             <i aria-hidden="true" className="material-icons">
@@ -38,7 +38,7 @@ const Toolbar = ({ path, currentSubreddit }) => {
         </li>
         <li role="menuitem">
           <Link
-            to="/new"
+            to={`/r/${currentSubreddit}/new`}
             className={
               path.includes("/new") ? "filter-option current" : "filter-option"
             }
