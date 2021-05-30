@@ -26,7 +26,6 @@ describe("Subreddit Result", () => {
     expect(screen.getByRole("listitem")).toBeInTheDocument();
   });
   it("should render a link to the subreddit page", () => {
-    screen.debug();
     expect(
       screen.getByText(subreddit.data.display_name_prefixed).closest("a")
     ).toHaveAttribute("href", `/r/${subreddit.data.display_name}`);

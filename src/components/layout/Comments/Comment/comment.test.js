@@ -39,14 +39,14 @@ describe("Comment", () => {
   });
   describe("timeStamp", () => {
     describe("comment posted minutes ago", () => {
-      const minutesAgo = Math.round(Date.now() / 1000) - 60 * 2;
+      const minutesAgo = Math.round(Date.now() / 1000) - 60;
       const comment = generateComment("F. Scott", "much ado", minutesAgo);
       beforeEach(() => {
         render(<Comment comment={comment} />);
       });
 
       it("renders an element with text: posted x minutes ago", () => {
-        expect(screen.getByText("2 minutes ago")).toBeInTheDocument();
+        expect(screen.getByText("1 minutes ago")).toBeInTheDocument();
       });
     });
   });
