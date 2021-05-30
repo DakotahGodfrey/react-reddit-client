@@ -37,6 +37,8 @@ const Top = ({ match }) => {
   const handleLoadMoreClick = () => {
     const action = {
       nextPageId: paginationId,
+      currentSubreddit: currentSubreddit,
+      time: timeQueryParam,
     };
     dispatch(fetchNextPageTop(action));
   };
