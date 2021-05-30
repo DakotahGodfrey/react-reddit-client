@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { base_url } from "../../../app/api";
 
-export const getHotPosts = createAsyncThunk(
-  "hot/getHotPosts",
+export const fetchTopPosts = createAsyncThunk(
+  "top/fetchTopPosts",
   async (currentSubreddit) => {
     try {
-      const response = await fetch(`${base_url}r/${currentSubreddit}/hot.json`);
+      const response = await fetch(`${base_url}r/${currentSubreddit}/top.json`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -14,7 +14,7 @@ export const getHotPosts = createAsyncThunk(
   }
 );
 export const getTrendingSubreddits = createAsyncThunk(
-  "hot/getTrendingSubreddits",
+  "top/getTrendingSubreddits",
   async () => {
     try {
       const response = await fetch(
@@ -28,13 +28,13 @@ export const getTrendingSubreddits = createAsyncThunk(
   }
 );
 
-export const fetchNextPageHot = createAsyncThunk(
-  "hot/fetchNextPagePopular",
+export const fetchNextPageTop = createAsyncThunk(
+  "top/fetchNextPagePopular",
   async (action) => {
     const { nextPageId } = action;
     try {
       const response = await fetch(
-        `${base_url}/hot.json?count=30&after=${nextPageId}`
+        `${base_url}/Top.json?count=30&after=${nextPageId}`
       );
       const data = await response.json();
       return data;
@@ -50,21 +50,21 @@ const initialState = {
   trendingSubreddits: [],
   paginationId: "",
 };
-const hotSlice = createSlice({
-  name: "hot",
+const topSlice = createSlice({
+  name: "top",
   initialState,
   reducers: {},
   extraReducers: {
-    [getHotPosts.pending]: (state) => {
+    [fetchTopPosts.pending]: (state) => {
       state.status = "pending";
     },
-    [getHotPosts.fulfilled]: (state, action) => {
+    [fetchTopPosts.fulfilled]: (state, action) => {
       state.status = "pending";
       state.posts = action.payload.data.children;
       state.paginationId = action.payload.data.after;
       state.status = "idle";
     },
-    [getHotPosts.rejected]: (state) => {
+    [fetchTopPosts.rejected]: (state) => {
       state.status = "idle";
       state.errors = "request failed";
     },
@@ -81,20 +81,20 @@ const hotSlice = createSlice({
       state.errors = "request failed";
       state.status = "idle";
     },
-    [fetchNextPageHot.pending]: (state) => {
+    [fetchNextPageTop.pending]: (state) => {
       state.status = "pending";
     },
-    [fetchNextPageHot.fulfilled]: (state, action) => {
+    [fetchNextPageTop.fulfilled]: (state, action) => {
       state.posts = state.posts.concat(action.payload.data.children);
       state.paginationId = action.payload.data.after;
       state.status = "idle";
     },
-    [fetchNextPageHot.rejected]: (state) => {
+    [fetchNextPageTop.rejected]: (state) => {
       state.errors = "request failed";
       state.status = "idle";
     },
   },
 });
 
-export const selectHot = (state) => state.hot;
-export default hotSlice.reducer;
+export const selectTop = (state) => state.top;
+export default topSlice.reducer;

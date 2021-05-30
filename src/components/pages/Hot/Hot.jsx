@@ -15,7 +15,7 @@ import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 const Hot = ({ match }) => {
   const dark = useSelector(selectDarkMode);
   const path = match.path;
-  console.log(path);
+  const currentSubreddit = match.params.currentSubreddit;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getHotPosts(match.params.currentSubreddit));
@@ -43,6 +43,7 @@ const Hot = ({ match }) => {
               posts={posts}
               path={path}
               handleLoadMoreClick={handleLoadMoreClick}
+              currentSubreddit={currentSubreddit}
             />
           )}
           <TrendingSidebar />

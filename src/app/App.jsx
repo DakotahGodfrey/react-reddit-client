@@ -7,6 +7,7 @@ import Results from "../components/pages/Results/Results";
 import NotFound from "../components/layout/NotFound/NotFound";
 import Bookmarks from "../components/pages/Bookmarks/Bookmarks";
 import Hot from "../components/pages/Hot/Hot";
+import Top from "../components/pages/Top/Top";
 function App() {
   return (
     <div className="App" id="App">
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/r/:display_name/" component={Subreddit} />
           <Route path="/r/:subreddit/post/:id" component={Post} />
           <Route exact path="/r/:currentSubreddit/hot" component={Hot} />
+          <Route exact path="/r/:currentSubreddit/top" component={Top} />
           <Route path="/results" component={Results} />
           <Route exact path="/bookmarks" component={Bookmarks} />
           <Route component={NotFound} />
