@@ -2,16 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 import { Link } from "react-router-dom";
-const Toolbar = ({ filter }) => {
+const Toolbar = ({ path, currentSubreddit }) => {
   const dark = useSelector(selectDarkMode);
   return (
     <nav className={dark ? "toolbar dark" : "toolbar"}>
       <ul role="menu" className="filter-controls">
         <li role="menuitem">
           <Link
-            to="/hot"
+            to={`/r/${currentSubreddit}/hot`}
             className={
-              filter === "hot" ? "filter-option current" : "filter-option"
+              path.includes("/hot") ? "filter-option current" : "filter-option"
             }
           >
             Hot
@@ -23,9 +23,9 @@ const Toolbar = ({ filter }) => {
         <li role="menuitem">
           <Link
             className={
-              filter === "top" ? "filter-option current" : "filter-option"
+              path.includes("/top") ? "filter-option current" : "filter-option"
             }
-            to="/top"
+            to={`/r/${currentSubreddit}/top`}
           >
             Top
             <i aria-hidden="true" className="material-icons">
@@ -37,7 +37,7 @@ const Toolbar = ({ filter }) => {
           <Link
             to="/new"
             className={
-              filter === "new" ? "filter-option current" : "filter-option"
+              path.includes("/new") ? "filter-option current" : "filter-option"
             }
             data-testid="new"
           >

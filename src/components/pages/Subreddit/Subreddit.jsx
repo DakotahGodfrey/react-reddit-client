@@ -13,6 +13,7 @@ import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 
 const Subreddit = ({ match }) => {
   const dispatch = useDispatch();
+  const path = match.path;
   useEffect(() => {
     document.title = `Subreddit | r/${match.params.display_name}`;
     const action = { subreddit: match.params.display_name };
@@ -41,6 +42,7 @@ const Subreddit = ({ match }) => {
               posts={posts}
               currentSubreddit={match.params.display_name}
               handleLoadMoreClick={handleLoadMoreClick}
+              path={path}
             />
           )}
           <TrendingSidebar />
