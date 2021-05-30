@@ -7,7 +7,6 @@ import {
   fetchNextPageTop,
   fetchTopPosts,
 } from "./topSlice";
-import { selectHome } from "../Home/homeSlice";
 import Loading from "../../layout/Loading/Loading";
 import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
 import Feed from "../../features/Feed/Feed";
@@ -18,9 +17,10 @@ const Top = ({ match }) => {
   const currentSubreddit = match.params.currentSubreddit;
   const dispatch = useDispatch();
   useEffect(() => {
+    document.title = `${match.params.currentSubreddit} | Top`;
     dispatch(fetchTopPosts(match.params.currentSubreddit));
     dispatch(getTrendingSubreddits());
-  }, [dispatch]);
+  }, [dispatch, match.params.currentSubreddit]);
   const top = useSelector(selectTop);
   const { errors, status, posts, paginationId } = top;
   const handleLoadMoreClick = () => {
