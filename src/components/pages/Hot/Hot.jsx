@@ -8,20 +8,21 @@ import {
   fetchNextPageHot,
 } from "./hotSlice";
 import { selectHome } from "../Home/homeSlice";
-
 import Loading from "../../layout/Loading/Loading";
 import TrendingSidebar from "../../features/TrendingSidebar/TrendingSidebar";
 import Feed from "../../features/Feed/Feed";
-const Hot = () => {
+import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
+const Hot = ({ match }) => {
+  const dark = useSelector(selectDarkMode);
+  const path = match.path;
+  console.log(path);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getHotPosts());
+    dispatch(getHotPosts(match.params.currentSubreddit));
     dispatch(getTrendingSubreddits());
   }, [dispatch]);
   const hot = useSelector(selectHot);
   const { errors, status, posts, paginationId } = hot;
-  const home = useSelector(selectHome);
-  const { dark } = home;
   const handleLoadMoreClick = () => {
     const action = {
       nextPageId: paginationId,
@@ -38,7 +39,11 @@ const Hot = () => {
           ) : status === "pending" ? (
             <Loading />
           ) : (
-            <Feed posts={posts} handleLoadMoreClick={handleLoadMoreClick} />
+            <Feed
+              posts={posts}
+              path={path}
+              handleLoadMoreClick={handleLoadMoreClick}
+            />
           )}
           <TrendingSidebar />
         </div>

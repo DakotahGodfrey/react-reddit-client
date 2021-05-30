@@ -3,10 +3,20 @@ import Toolbar from "../../layout/Toolbar/Toolbar";
 import HomeCard from "../../layout/Cards/HomeCard/HomeCard";
 import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
 
-const Feed = ({ posts, currentSubreddit, handleLoadMoreClick, filter }) => {
+const Feed = ({
+  posts,
+  currentSubreddit,
+  handleLoadMoreClick,
+  filter,
+  path,
+}) => {
   return (
     <section className="feed-container" role="feed">
-      <Toolbar filter={filter} />
+      <Toolbar
+        filter={filter}
+        path={path}
+        currentSubreddit={currentSubreddit}
+      />
       <h2 className="page-heading">r/{currentSubreddit}</h2>
       <div className="posts-container" data-testid="posts-container">
         {posts[0] === "not found" ? (

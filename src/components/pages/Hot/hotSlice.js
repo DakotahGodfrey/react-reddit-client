@@ -1,15 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { base_url } from "../../../app/api";
 
-export const getHotPosts = createAsyncThunk("hot/getHotPosts", async () => {
-  try {
-    const response = await fetch(`${base_url}/hot.json`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
+export const getHotPosts = createAsyncThunk(
+  "hot/getHotPosts",
+  async (currentSubreddit) => {
+    try {
+      const response = await fetch(`${base_url}r/${currentSubreddit}/hot.json`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 export const getTrendingSubreddits = createAsyncThunk(
   "home/getTrendingSubreddits",
   async () => {
