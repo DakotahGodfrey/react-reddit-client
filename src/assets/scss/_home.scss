@@ -32,14 +32,14 @@
         background-image: linear-gradient(
           to right,
           $bg-dark-primary,
-          transparent 100%
+          rgba($bg-dark-primary, 0) 100%
         );
       }
       .slot-right {
         background-image: linear-gradient(
           to left,
           $bg-dark-primary,
-          transparent 100%
+          rgba($bg-dark-primary, 0) 100%
         );
       }
       &-container {

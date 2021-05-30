@@ -75,11 +75,11 @@
   top: 65px;
   bottom: 0;
   z-index: 1;
-  background-image: linear-gradient(to right, #dae0e6, transparent 100%);
+  background-image: linear-gradient(to right, #dae0e6, rgba(#dae0e6, 0) 100%);
 }
 
 .slot-right {
   @extend.slot-left;
   right: 0;
-  background-image: linear-gradient(to left, #dae0e6, transparent 100%);
+  background-image: linear-gradient(to left, #dae0e6, rgba(#dae0e6, 0) 100%);
 }
