@@ -10,7 +10,7 @@ const NavControls = ({ handleDarkToggle, dark, isContact }) => {
         <i className="material-icons">{dark ? "light_mode" : "nights_stay"}</i>
       </button>
       <Link to="/contact">
-        <i className="material-icons">{!isContact ? "email" : "drafts"}</i>
+        <i className="material-icons">email</i>
       </Link>
     </div>
   );

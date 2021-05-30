@@ -35,6 +35,15 @@
     .page-wrapper {
       margin: 5rem 0;
     }
+    .post-card {
+      border-radius: 0;
+      &-large {
+        border-radius: 0;
+      }
+    }
+    .comment-card {
+      border-radius: 0;
+    }
   }
   .results-thumbnail {
     display: none;

@@ -5,6 +5,7 @@ import SubredditResults from "../../layout/Results/SubredditResults/SubredditRes
 import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import {
   searchByTerm,
+  selectDarkMode,
   selectSearch,
 } from "../../features/Searchbar/searchbarSlice";
 import Loading from "../../layout/Loading/Loading";
@@ -12,7 +13,8 @@ import { useLocation } from "react-router";
 import PostResults from "../../layout/Results/PostResults/PostResults";
 const Results = () => {
   const search = useSelector(selectSearch);
-  const { status, dark, subredditResults, postResults } = search;
+  const { status, subredditResults, postResults } = search;
+  const dark = useSelector(selectDarkMode);
   const dispatch = useDispatch();
   const location = useLocation();
   const params = new URLSearchParams(location.search).get("search");

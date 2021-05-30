@@ -109,8 +109,19 @@
     }
     a.post-subreddit {
       &:hover {
-        color: $link-color;
+        color: #0ecbfa;
       }
+    }
+    a.post-links {
+      &:hover {
+        color: #0ecbfa;
+      }
+    }
+    button.post-links:disabled {
+      color: $bg-dark-grey;
+    }
+    .contact-main a {
+      color: #0ecbfa;
     }
   }
   .page-content {

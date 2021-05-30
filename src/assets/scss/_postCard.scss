@@ -100,9 +100,13 @@ a.post-links {
 }
 
 button.post-links {
+  i {
+    transition: all 0.4s ease;
+  }
   &:hover {
     i {
       transform: scale(1.5);
+      color: #ff0000;
     }
   }
   &:disabled {

@@ -12,7 +12,7 @@ import {
   removeFavorite,
 } from "../../../pages/Bookmarks/bookmarksSlice";
 
-const HomeCard = ({ post }) => {
+const HomeCard = ({ post, bookmarked }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const {
     title,
@@ -97,6 +97,7 @@ const HomeCard = ({ post }) => {
         handleBookmark={handleBookmark}
         isBookmarked={isBookmarked}
         removeBookmark={removeBookmark}
+        bookmarked={bookmarked}
       />
     </section>
   );
