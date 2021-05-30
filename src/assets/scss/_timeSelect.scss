@@ -1,18 +1,24 @@
 .time-select {
   ul {
     display: flex;
-    justify-content: space-evenly;
     width: 100%;
     padding: 10px;
     button {
       border: $bg-dark-primary 2px solid;
       padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
       border-radius: 50px;
       font-size: 1.6rem;
       min-height: 3.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i {
+        margin: 0 0 0 0.5rem;
+      }
       &.current {
-        background-color: $bg-dark-primary;
         color: $bg-light;
+        background: $bg-dark-secondary;
       }
     }
   }

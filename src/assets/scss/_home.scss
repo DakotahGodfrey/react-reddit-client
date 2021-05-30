@@ -27,8 +27,27 @@
         }
       }
     }
-    .time-select.toolbar {
+    .contact-main {
       background-color: $bg-dark-secondary;
+      .contact-form {
+        form {
+          .form-fields {
+            input {
+              border-color: $bg-light;
+              color: $bg-light;
+              &:focus {
+                border-color: transparent;
+                border-bottom-color: $bg-light;
+              }
+            }
+          }
+          button[type="submit"] {
+            border-color: $bg-light;
+          }
+        }
+      }
+    }
+    .time-select.toolbar {
       color: $bg-light;
       button {
         border-color: $bg-light;
@@ -86,6 +105,11 @@
       color: $bg-light;
       button {
         color: $bg-light;
+      }
+    }
+    a.post-subreddit {
+      &:hover {
+        color: $link-color;
       }
     }
   }

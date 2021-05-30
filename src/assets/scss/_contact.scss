@@ -1,0 +1,108 @@
+.contact-main {
+  display: grid;
+  justify-content: center;
+  margin: 10rem auto 0 auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content 1fr;
+  max-width: 120rem;
+  gap: 2rem;
+  background-color: $bg-light;
+  padding: 3.5rem;
+  border-radius: 20px;
+  header {
+    grid-column: 1 / span 2;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: solid $bg-dark-secondary 2px;
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 200;
+    }
+    h2 {
+      padding-top: 2rem;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.8rem;
+      margin-top: 1.5rem;
+    }
+  }
+  h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 200;
+  }
+  .contact-form {
+    form {
+      display: grid;
+      .form-fields {
+        margin-bottom: 2rem;
+        label {
+          display: block;
+          font-size: 2rem;
+          font-weight: 200;
+        }
+        input {
+          width: 80%;
+          font-size: 1.6rem;
+          padding: 1rem;
+          border: 2px solid $bg-dark-secondary;
+          margin: 1rem 2rem 0 0.55rem;
+          transition: border-color 0.4s ease-out;
+          &:focus {
+            outline: none;
+            border-color: transparent;
+            border-bottom-color: $bg-dark-secondary;
+          }
+        }
+        textarea {
+          @extend input;
+          resize: none;
+        }
+      }
+      button[type="submit"] {
+        padding: 1rem;
+        border: 2px solid $bg-dark-secondary;
+        margin: 1rem 2rem 0 0.55rem;
+        font-size: 1.8rem;
+        width: 80%;
+        color: inherit;
+      }
+    }
+  }
+  aside {
+    margin: 0 2rem;
+    ul {
+      display: grid;
+    }
+    li {
+      span {
+        font-size: 2rem;
+        font-weight: 200;
+        display: flex;
+        align-items: center;
+        i {
+          margin-left: 0.5rem;
+        }
+      }
+      a {
+        display: block;
+        font-size: 1.6rem;
+        margin: 1rem 2rem 1.8rem 0.55rem;
+        border: 2px solid transparent;
+        padding: 1rem 0;
+        color: hsl(182, 69%, 60%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-main {
+    display: flex;
+    flex-direction: column;
+    article {
+      margin-bottom: 4rem;
+    }
+  }
+}

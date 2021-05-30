@@ -52,7 +52,9 @@ const HomeCard = ({ post }) => {
     thumbnail,
   };
   const postLinks = {
-    num_comments,
+    num_comments: num_comments,
+    subreddit: subreddit,
+    id: id,
   };
   const dark = useSelector(selectDarkMode);
 

@@ -37,7 +37,7 @@ const Home = ({ match }) => {
       <header className="carousel">
         <WorldNewsCarousel trendingItems={trendingItems} />
       </header>
-      <section className="page-content" data-testid="feed">
+      <section className="page-content">
         <div className="page-wrapper" data-testid="feed-wrapper">
           {errors ? (
             <p className="feed-error">Sorry, something went wrong</p>

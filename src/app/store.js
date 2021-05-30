@@ -16,6 +16,7 @@ const persistConfig = {
 };
 
 const persistedBookmarkReducer = persistReducer(persistConfig, bookmarkReducer);
+const persistedSearhReducer = persistReducer(persistConfig, searchReducer);
 
 const store = configureStore({
   reducer: {
@@ -25,7 +26,7 @@ const store = configureStore({
     top: topReducer,
     newSlice: newReducer,
     subreddit: subredditReducer,
-    search: searchReducer,
+    search: persistedSearhReducer,
     trendingSidebar: trendingSidebarReducer,
     bookmark: persistedBookmarkReducer,
   },

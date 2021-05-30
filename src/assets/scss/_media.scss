@@ -45,6 +45,11 @@
   .filter-controls {
     justify-content: space-evenly;
   }
+  .time-select {
+    ul {
+      justify-content: space-evenly;
+    }
+  }
 }
 @media screen and( max-width:350px) {
   section {

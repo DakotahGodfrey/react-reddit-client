@@ -39,7 +39,7 @@ const TimeSelect = ({ timeQueryParam }) => {
             onClick={() => handleClick("all")}
             className={timeQueryParam === "all" ? "current" : null}
           >
-            All Time
+            Alltime
           </button>
         </li>
       </ul>
