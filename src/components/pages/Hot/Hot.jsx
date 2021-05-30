@@ -26,6 +26,7 @@ const Hot = ({ match }) => {
   const handleLoadMoreClick = () => {
     const action = {
       nextPageId: paginationId,
+      currentSubreddit: currentSubreddit,
     };
     dispatch(fetchNextPageHot(action));
   };

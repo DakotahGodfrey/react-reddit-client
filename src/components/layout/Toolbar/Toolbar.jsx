@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 const Toolbar = ({ path, currentSubreddit }) => {
   const dark = useSelector(selectDarkMode);
   return (
-    <nav className={dark ? "toolbar dark" : "toolbar"}>
+    <nav
+      className={dark ? "toolbar dark" : "toolbar"}
+      style={path.includes("top") ? { marginBottom: "2rem" } : null}
+    >
       <ul role="menu" className="filter-controls">
         <li role="menuitem">
           <Link
@@ -25,7 +28,7 @@ const Toolbar = ({ path, currentSubreddit }) => {
             className={
               path.includes("/top") ? "filter-option current" : "filter-option"
             }
-            to={`/r/${currentSubreddit}/top`}
+            to={`/r/${currentSubreddit}/top/?t=today`}
           >
             Top
             <i aria-hidden="true" className="material-icons">

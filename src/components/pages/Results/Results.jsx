@@ -17,6 +17,7 @@ const Results = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search).get("search");
   const resultsTotal = subredditResults.length + postResults.length;
+
   useEffect(() => {
     dispatch(searchByTerm(params));
     document.title = `Results | ${params ? params : " "}`;

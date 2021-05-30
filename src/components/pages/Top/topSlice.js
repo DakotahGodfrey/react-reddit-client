@@ -3,9 +3,12 @@ import { base_url } from "../../../app/api";
 
 export const fetchTopPosts = createAsyncThunk(
   "top/fetchTopPosts",
-  async (currentSubreddit) => {
+  async (action) => {
+    const { currentSubreddit, time } = action;
     try {
-      const response = await fetch(`${base_url}r/${currentSubreddit}/top.json`);
+      const response = await fetch(
+        `${base_url}r/${currentSubreddit}/top/.json?t=${time}`
+      );
       const data = await response.json();
       return data;
     } catch (error) {
@@ -29,12 +32,12 @@ export const getTrendingSubreddits = createAsyncThunk(
 );
 
 export const fetchNextPageTop = createAsyncThunk(
-  "top/fetchNextPagePopular",
+  "top/fetchNextPageTop",
   async (action) => {
-    const { nextPageId } = action;
+    const { nextPageId, currentSubreddit, time } = action;
     try {
       const response = await fetch(
-        `${base_url}/Top.json?count=30&after=${nextPageId}`
+        `${base_url}r/${currentSubreddit}/top.json?count=30&after=${nextPageId}&t=${time}`
       );
       const data = await response.json();
       return data;
@@ -49,6 +52,7 @@ const initialState = {
   errors: "",
   trendingSubreddits: [],
   paginationId: "",
+  time: "",
 };
 const topSlice = createSlice({
   name: "top",

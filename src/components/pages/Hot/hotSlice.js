@@ -29,12 +29,12 @@ export const getTrendingSubreddits = createAsyncThunk(
 );
 
 export const fetchNextPageHot = createAsyncThunk(
-  "hot/fetchNextPagePopular",
+  "hot/fetchNextPageHot",
   async (action) => {
-    const { nextPageId } = action;
+    const { nextPageId, currentSubreddit } = action;
     try {
       const response = await fetch(
-        `${base_url}/hot.json?count=30&after=${nextPageId}`
+        `${base_url}/${currentSubreddit}/hot.json?count=30&after=${nextPageId}`
       );
       const data = await response.json();
       return data;

@@ -2,6 +2,7 @@ import React from "react";
 import Toolbar from "../../layout/Toolbar/Toolbar";
 import HomeCard from "../../layout/Cards/HomeCard/HomeCard";
 import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
+import TimeSelect from "../../layout/Selects/TimeSelect/TimeSelect";
 
 const Feed = ({
   posts,
@@ -9,6 +10,7 @@ const Feed = ({
   handleLoadMoreClick,
   filter,
   path,
+  timeQueryParam,
 }) => {
   return (
     <section className="feed-container" role="feed">
@@ -17,6 +19,9 @@ const Feed = ({
         path={path}
         currentSubreddit={currentSubreddit}
       />
+      {path.includes("top") ? (
+        <TimeSelect timeQueryParam={timeQueryParam} />
+      ) : null}
       <h2 className="page-heading">r/{currentSubreddit}</h2>
       <div className="posts-container" data-testid="posts-container">
         {posts[0] === "not found" ? (

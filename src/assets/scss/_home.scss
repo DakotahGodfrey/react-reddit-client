@@ -27,6 +27,17 @@
         }
       }
     }
+    .time-select.toolbar {
+      background-color: $bg-dark-secondary;
+      color: $bg-light;
+      button {
+        border-color: $bg-light;
+        &.current {
+          background: $bg-light;
+          color: $bg-dark-primary;
+        }
+      }
+    }
     .carousel {
       .slot-left {
         background-image: linear-gradient(
