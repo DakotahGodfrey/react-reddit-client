@@ -17,8 +17,4 @@ describe("Post Page", () => {
     expect(screen.getByRole("region")).toBeInTheDocument();
     expect(screen.getByRole("region")).toHaveClass("page-content");
   });
-  // it("should render a page-wrapper element with class page-wrapper", () => {
-  //   expect(screen.getByTestId("page-wrapper")).toBeInTheDocument();
-  //   expect(screen.getByTestId("page-wrapper")).toHaveClass("page-wrapper");
-  // });
 });
