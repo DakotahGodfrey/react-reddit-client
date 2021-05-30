@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const PostFooter = ({
   postLinks,
   handleBookmark,
@@ -6,7 +7,7 @@ const PostFooter = ({
   bookmarked,
   removeBookmark,
 }) => {
-  const { num_comments } = postLinks;
+  const { num_comments, subreddit, id } = postLinks;
   const roundComments = (comments) => {
     let roundedComments;
     if (comments >= 1000000) {
@@ -17,15 +18,22 @@ const PostFooter = ({
     return roundedComments;
   };
   const num_comments_rounded = roundComments(num_comments);
+  const currentSubreddit = subreddit;
+  console.log(currentSubreddit);
   return (
     <footer data-testid="post-footer" className="post-footer">
-      <div data-testid="comments" className="post-links">
+      <Link
+        to={`r/${currentSubreddit}/post/${id}`}
+        replace
+        data-testid="comments"
+        className="post-links"
+      >
         <i className="material-icons">comment</i>
         <span data-testid="num_comments">
-          {num_comments ? num_comments_rounded : null}{" "}
+          {num_comments_rounded ? num_comments_rounded : "0"}
         </span>{" "}
         Comments
-      </div>
+      </Link>
 
       <button
         style={bookmarked ? { display: "none" } : null}

@@ -10,7 +10,7 @@ $bg-light-grey: #d8d8d8;
 $bg-dark-primary: #111;
 $bg-dark-secondary: #272729;
 $bg-dark-grey: #444;
-$link-color: #0044ff; // Global Resets
+$link-color: blue; // Global Resets
 * {
   box-sizing: border-box;
   margin: 0;
@@ -39,4 +39,10 @@ ul {
 a {
   text-decoration: none;
   color: $text-dark;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }

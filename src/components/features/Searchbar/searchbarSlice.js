@@ -20,15 +20,11 @@ const searchBarSlice = createSlice({
     subredditResults: [],
     postResults: [],
     term: "",
-    showSettings: false,
     darkMode: false,
   },
   reducers: {
     setTerm(state, action) {
       state.term = action.payload;
-    },
-    setShowSettings(state) {
-      state.showSettings = !state.showSettings;
     },
     setDarkMode(state) {
       state.darkMode = !state.darkMode;

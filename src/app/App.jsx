@@ -9,6 +9,7 @@ import Bookmarks from "../components/pages/Bookmarks/Bookmarks";
 import Hot from "../components/pages/Hot/Hot";
 import Top from "../components/pages/Top/Top";
 import New from "../components/pages/New/New";
+import Contact from "../components/pages/Contact/Contact";
 function App() {
   return (
     <div className="App" id="App">
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/r/:currentSubreddit/new" component={New} />
           <Route path="/results" component={Results} />
           <Route exact path="/bookmarks" component={Bookmarks} />
+          <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
       </Router>

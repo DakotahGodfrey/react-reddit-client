@@ -3,21 +3,11 @@ import logo from "../../../../assets/media/logoSmall.png";
 import NavControls from "./navControls/NavControls";
 import SearchInput from "./searchInput/SearchInput";
 import { Link } from "react-router-dom";
-import SettingsModal from "../../../layout/Modals/SettingsModal/SettingsModal";
-import {
-  selectShowSettings,
-  setShowSettings,
-  setDarkMode,
-  selectDarkMode,
-} from "../searchbarSlice";
+import { setDarkMode, selectDarkMode } from "../searchbarSlice";
 import { useDispatch, useSelector } from "react-redux";
-const Navbar = () => {
+const Navbar = (isContact) => {
   const dispatch = useDispatch();
-  const show = useSelector(selectShowSettings);
   const dark = useSelector(selectDarkMode);
-  const handleClick = () => {
-    dispatch(setShowSettings());
-  };
   const handleDarkToggle = () => {
     dispatch(setDarkMode());
   };
@@ -32,11 +22,10 @@ const Navbar = () => {
       {/* Search Input Here */}
       <SearchInput />
       {/* navControls Here */}
-      <NavControls handleClick={handleClick} />
-      <SettingsModal
-        show={show}
-        handleClick={handleClick}
+      <NavControls
         handleDarkToggle={handleDarkToggle}
+        dark={dark}
+        isContact={isContact}
       />
     </nav>
   );

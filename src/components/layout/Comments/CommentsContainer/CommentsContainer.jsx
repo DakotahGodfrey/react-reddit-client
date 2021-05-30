@@ -1,5 +1,4 @@
 import React from "react";
-import Loading from "../../Loading/Loading";
 import Comment from "../Comment/Comment";
 
 export const CommentsContainer = ({ comments }) => {
@@ -10,7 +9,11 @@ export const CommentsContainer = ({ comments }) => {
           <Comment comment={comment} key={comment.data.id} />
         ))
       ) : (
-        <Loading />
+        <article style={{ display: "block" }} className="comment-card">
+          <div className="comment-content">
+            <p style={{ textAlign: "center" }}>No comments yet!</p>
+          </div>
+        </article>
       )}
     </section>
   );

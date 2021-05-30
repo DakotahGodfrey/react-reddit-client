@@ -12,7 +12,7 @@ import {
   removeFavorite,
 } from "../../../pages/Bookmarks/bookmarksSlice";
 
-const HomeCard = ({ post }) => {
+const HomeCard = ({ post, bookmarked }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const {
     title,
@@ -52,7 +52,9 @@ const HomeCard = ({ post }) => {
     thumbnail,
   };
   const postLinks = {
-    num_comments,
+    num_comments: num_comments,
+    subreddit: subreddit,
+    id: id,
   };
   const dark = useSelector(selectDarkMode);
 
@@ -95,6 +97,7 @@ const HomeCard = ({ post }) => {
         handleBookmark={handleBookmark}
         isBookmarked={isBookmarked}
         removeBookmark={removeBookmark}
+        bookmarked={bookmarked}
       />
     </section>
   );
