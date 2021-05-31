@@ -17,6 +17,9 @@
         background-color: $bg-dark-secondary;
         color: $bg-light;
         -webkit-appearance: none;
+        &:focus {
+          border-color: $bg-light-grey;
+        }
       }
       i {
         color: $bg-light;
@@ -58,7 +61,7 @@
       transition: box-shadow 0.6s linear;
       &:focus {
         outline: none;
-        border: 2px solid $bg-light-grey;
+        border: 2px solid $bg-dark-secondary;
       }
       &:hover {
         box-shadow: 0 2px 4px inset rgba($color: $bg-dark-primary, $alpha: 0.5);
