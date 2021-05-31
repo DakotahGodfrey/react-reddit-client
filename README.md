@@ -28,12 +28,6 @@ This project was completed as part of the [Codecademy's](https://www.codecademy.
 - [x] App gets 90+ scores on [Lighthouse](https://web.dev/measure/)
   - Note: it is understood that how media assets like videos and images are sent to the client, may impact performance. It is okay to have a score below 90 for Performance **if** they are related to media from Reddit.
 
-**OPTIONAL EXTRAS:**
-
-- [ ] Set up a custom domain.
-- [x] set up CI/CD workflow to automatically deploy your application when the master branch in the repository changes.
-- [ ] Make it a progressive web app,
-
 ## Project Setup
 
 ### **The API**
@@ -49,10 +43,6 @@ The following is a description from Codecademy of the API used for this project:
 > Original URL: https://www.reddit.com/r/popular/<br>
 > JSON URL: https://www.reddit.com/r/popular.json "
 
-### **Wireframes**
-
-For this project I used pen and paper to sketch out the the layouts and design for the various components of the application. You can view the [wireframes in this shared google drive folder](https://drive.google.com/drive/u/0/folders/1-3_-mmoRuCtq_8cmj6fGyj6nWEXLgJ4H).
-
 ## Technologies Used
 
 This project makes use of the following technologies:
@@ -67,7 +57,7 @@ For application state management.
 
 ### **Redux-Persist:**
 
-To save application state to local storage.
+To save the user's bookmarks and theme preference to local storage.
 
 ### **React-Markdown:**
 
@@ -75,17 +65,12 @@ To display any markdown returned from the API.
 
 ### **React-Router:**
 
-to handle the applications various routes.
-
-### **Lighthouse**
-
-to audit the application and ensure it follows best practices, you can view a copy of the current [desktop scores here](./public/desktop_lighthouse_scores.pdf), and [mobile scores here](./public/mobile_lighthouse_scores.pdf).
+to handle internal routing.
 
 ### **Cypress**
+  For writing and executing E2E tests.
   
-For writing and executing E2E tests.
 ## Features
-
 - ### Search
   Users are able to search for both subreddits and individual posts with a search term.
 - ### Home Page
