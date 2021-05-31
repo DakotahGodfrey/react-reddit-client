@@ -1,0 +1,35 @@
+.site-footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $bg-dark-secondary;
+  color: $bg-light;
+  justify-content: space-between;
+  .copyright-container {
+    padding: 1rem;
+    a {
+      text-decoration: underline;
+      color: #0ecbfa;
+    }
+    font-size: 1rem;
+  }
+  .socials {
+    display: flex;
+    li {
+      margin: 0 rem;
+      font-size: 1.6rem;
+      a {
+        color: #0ecbfa;
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}

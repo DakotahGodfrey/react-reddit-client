@@ -42,7 +42,7 @@ const postSlice = createSlice({
     [getPostById.fulfilled]: (state, action) => {
       state.status = "idle";
       state.post = action.payload[0].data.children[0].data;
-      state.comments = action.payload[1].data.children;
+      state.comments = action.payload[1].data.children.slice(0, 30);
     },
     [getPostById.rejected]: (state) => {
       state.status = "idle";

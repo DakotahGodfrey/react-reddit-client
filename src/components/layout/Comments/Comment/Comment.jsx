@@ -11,11 +11,29 @@ const Comment = ({ comment }) => {
   d.setUTCSeconds(utcSeconds);
   const postTime = Date.parse(d);
   const timeStamp = timeSince(postTime);
+  const avatars = [
+    "20",
+    "12",
+    "10",
+    "20",
+    "01",
+    "02",
+    "03",
+    "04",
+    "09",
+    "15",
+    "17",
+    "19",
+  ];
+  const randIndex = avatars[Math.floor(Math.random() * avatars.length)];
+  const avatarBackgrounds = ["D4E815", "0DD3BB", "FF66AC", "EA0027", "46A508"];
+  const randAvatarBg =
+    avatarBackgrounds[Math.floor(Math.random() * avatarBackgrounds.length)];
   return (
     <article className="comment-card">
       <figure className="comment-avatar">
         <img
-          src="https://www.redditstatic.com/avatars/avatar_default_07_7E53C1.png"
+          src={`https://www.redditstatic.com/avatars/avatar_default_${randIndex}_${randAvatarBg}.png`}
           alt="reddit user avatar"
         />
       </figure>

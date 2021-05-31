@@ -10,6 +10,7 @@ import Hot from "../components/pages/Hot/Hot";
 import Top from "../components/pages/Top/Top";
 import New from "../components/pages/New/New";
 import Contact from "../components/pages/Contact/Contact";
+import SiteFooter from "../components/layout/SiteFooter/SiteFooter";
 function App() {
   return (
     <div className="App" id="App">
@@ -27,6 +28,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Router>
+      <SiteFooter />
     </div>
   );
 }

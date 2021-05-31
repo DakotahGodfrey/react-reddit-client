@@ -2,6 +2,7 @@ import React from "react";
 import Comment from "../Comment/Comment";
 
 export const CommentsContainer = ({ comments }) => {
+  console.log(comments.length);
   return (
     <section className="post-large-comments" data-testid="comments-container">
       {comments.length !== 0 ? (

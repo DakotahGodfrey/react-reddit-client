@@ -3,6 +3,7 @@ import Toolbar from "../../layout/Toolbar/Toolbar";
 import HomeCard from "../../layout/Cards/HomeCard/HomeCard";
 import LoadMore from "../../layout/Buttons/LoadMore/LoadMore";
 import TimeSelect from "../../layout/Selects/TimeSelect/TimeSelect";
+import SiteFooter from "../../layout/SiteFooter/SiteFooter";
 
 const Feed = ({
   posts,

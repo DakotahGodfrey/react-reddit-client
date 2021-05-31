@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import placeholderIcon from "../../../../../assets/media/subIconPlaceholder.svg";
 const TrendingSubItem = ({ subreddit }) => {
   const { display_name_prefixed, icon_img, display_name } = subreddit.data;
   return (
@@ -15,11 +16,7 @@ const TrendingSubItem = ({ subreddit }) => {
         >
           <div className="trending-subreddit-icon">
             <img
-              src={
-                icon_img
-                  ? icon_img
-                  : "https://www.redditstatic.com/avatars/avatar_default_20_7E53C1.png"
-              }
+              src={icon_img ? icon_img : "https://i.redd.it/n8l2g84ydsl01.png"}
               alt=""
             />
           </div>

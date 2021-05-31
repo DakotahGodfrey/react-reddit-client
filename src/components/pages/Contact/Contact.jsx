@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Navbar from "../../features/Searchbar/Navbar/Navbar";
 import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
+import bmcLogo from "../../../assets/media/bmc-logo-yellow.png";
 const Contact = () => {
   const dark = useSelector(selectDarkMode);
   return (
@@ -10,10 +11,13 @@ const Contact = () => {
       <main className="contact-main">
         <header>
           <h1>Hey there,</h1>
-          <h2>My name's Dakotah, I hope you're enjoing this app.</h2>
+          <h2>
+            My name's Dakotah, I built this Reddit client as part of a
+            Codecademy course, I hope you're enjoying it.
+          </h2>
           <p>
-            If you have any feedback, or you just want to say hi! Feel free to
-            get in touch!
+            If you have any feedback, or you just want to say hi. Feel free to
+            get in touch.
           </p>
         </header>
 
@@ -48,35 +52,41 @@ const Contact = () => {
           </form>
         </article>
         <aside className="social-links">
-          <h3>Or if your prefer, you can reach out on social media</h3>
+          <h3>My social media</h3>
           <ul>
             <li>
               <span>
-                Twitter
-                <i className="fab fa-twitter"></i>
+                <i className="fab fa-twitter"></i> Twitter:
               </span>
               <a href="https://twitter.com/dakotah_dev">@dakotah_dev</a>
             </li>
             <li>
               <span>
-                Github <i className="fab fa-github"></i>
+                <i className="fab fa-github"></i> Github:
               </span>
               <a href="https://github.com/DakotahGodfrey">@DakotahGodfrey</a>
             </li>
             <li>
               <span>
-                Linkedin <i className="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i> Linkedin:
               </span>
               <a href="https://linkedin.com/dakotah_dev">@dakotah_godfrey</a>
             </li>
             <li>
               <span>
-                My Website <i className="fas fa-code"></i>
+                <i className="fas fa-globe"></i> My Portfolio:
               </span>
               <a href="https://dakotahg.dev">dakotahg.dev</a>
             </li>
           </ul>
         </aside>
+        <p className="bmc">
+          If you really enjoyed the app you can support me at{" "}
+          <a href="https://www.buymeacoffee.com/dakotahgb">
+            {" "}
+            <img src={bmcLogo} alt="" /> Buy Me A Coffee
+          </a>
+        </p>
       </main>
     </div>
   );
