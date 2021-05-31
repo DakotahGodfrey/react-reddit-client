@@ -5,6 +5,7 @@ import { selectDarkMode } from "../../features/Searchbar/searchbarSlice";
 import bmcLogo from "../../../assets/media/bmc-logo-yellow.png";
 const Contact = () => {
   const dark = useSelector(selectDarkMode);
+  document.title = "Contact The Developer";
   return (
     <div className={dark ? "dark page" : "page"}>
       <Navbar isContact={true} />
