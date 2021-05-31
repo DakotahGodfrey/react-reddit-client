@@ -24,6 +24,9 @@
           color: $bg-light;
           a {
             color: $bg-light;
+            &:hover {
+              color: #0ecbfa;
+            }
           }
         }
       }

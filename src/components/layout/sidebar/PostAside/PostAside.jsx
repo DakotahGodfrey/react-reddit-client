@@ -19,8 +19,8 @@ const PostAside = ({ subredditDescription }) => {
       <aside className="aside-subreddit">
         <header className="aside-header">
           <span>About Community</span>
-          <Link to={`/r/${display_name}`}>
-            <h2>{display_name_prefixed}</h2>
+          <Link className="subreddit-link" to={`/r/${display_name}`}>
+            {display_name_prefixed}
           </Link>
         </header>
         <div className="aside-information">

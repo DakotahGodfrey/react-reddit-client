@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import placeholderIcon from "../../../../../assets/media/subIconPlaceholder.svg";
 const TrendingSubItem = ({ subreddit }) => {
   const { display_name_prefixed, icon_img, display_name } = subreddit.data;
   return (
