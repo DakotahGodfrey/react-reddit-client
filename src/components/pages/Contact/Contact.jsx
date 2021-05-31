@@ -24,6 +24,7 @@ const Contact = () => {
         <article className="contact-form">
           <h3>Send me an e-mail</h3>
           <form name="contact" method="POST" aria-label="contact form">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="form-fields">
               <label htmlFor="name">Name</label>
               <input
