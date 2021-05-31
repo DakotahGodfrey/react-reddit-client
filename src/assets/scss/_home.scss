@@ -33,6 +33,9 @@
     }
     .contact-main {
       background-color: $bg-dark-secondary;
+      .contact-link {
+        color: $bg-light;
+      }
       .contact-form {
         form {
           .form-fields {

@@ -12,8 +12,14 @@ const Contact = () => {
         <header>
           <h1>Hey there,</h1>
           <h2>
-            My name's Dakotah, I built this Reddit client as part of a
-            Codecademy course, I hope you're enjoying it.
+            My name's Dakotah, I built this Reddit client as part of{" "}
+            <a
+              className="contact-link"
+              href="https://www.codecademy.com/learn/paths/front-end-engineer-career-path"
+            >
+              Codecademy's Frontend engineering pathway
+            </a>
+            , I hope you're enjoying it.
           </h2>
           <p>
             If you have any feedback, or you just want to say hi. Feel free to

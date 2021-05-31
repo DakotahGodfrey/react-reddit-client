@@ -9,6 +9,14 @@
   background-color: $bg-light;
   padding: 3.5rem;
   border-radius: 20px;
+  .contact-link {
+    text-decoration: dashed underline #0ecbfa;
+    &:hover {
+      background-color: $link-color;
+      color: $bg-light;
+      text-decoration-color: $bg-light;
+    }
+  }
   header {
     grid-column: 1 / span 2;
     margin-bottom: 3rem;

@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project was completed as part of the [Codecademy's](https://www.codecademy.com/) frontend engineering pathway. The goal of the project was to design, develop, and document a robust [Reddit](https://www.reddit.com/) client using [React](https://reactjs.org/) & [Redux](https://redux.js.org/). The application must also adhere to the following requirements:
+This project was completed as part of the [Codecademy's](https://www.codecademy.com/learn/paths/front-end-engineer-career-path) frontend engineering pathway. The goal of the project was to design, develop, and document a robust [Reddit](https://www.reddit.com/) client using [React](https://reactjs.org/) & [Redux](https://redux.js.org/). The application must also adhere to the following requirements:
 
 ### **Project Requirements:**
 
@@ -68,9 +68,11 @@ To display any markdown returned from the API.
 to handle internal routing.
 
 ### **Cypress**
-  For writing and executing E2E tests.
-  
+
+For writing and executing E2E tests.
+
 ## Features
+
 - ### Search
   Users are able to search for both subreddits and individual posts with a search term.
 - ### Home Page
@@ -85,38 +87,36 @@ to handle internal routing.
   Users are able to save and view post's they enjoy.
 - ### Continuous Integration
   This application is hosted through [netlify](https://www.netlify.com/) with a CI workflow to automatically deploy changes pushed to the main branch.
+
 ## Gallery
-  ### Home 
-  
-  ![Screenshot 2021-05-31 12 54 11 PM](https://user-images.githubusercontent.com/78933339/120223544-bb716180-c20f-11eb-8d03-f50408aaa4e9.png)
-  
-  ### Post Page
-  
-  ![Screenshot 2021-05-31 12 55 00 PM](https://user-images.githubusercontent.com/78933339/120223598-d3e17c00-c20f-11eb-80dc-94cd8d94166b.png)
-  
-  ### Subreddit Page
-  
-  ![Screenshot 2021-05-31 12 55 25 PM](https://user-images.githubusercontent.com/78933339/120223659-efe51d80-c20f-11eb-84ae-a73366db672d.png)
 
-  ### Top Page
-  
-  ![Screenshot 2021-05-31 12 55 34 PM](https://user-images.githubusercontent.com/78933339/120223780-21f67f80-c210-11eb-9945-4bb4ca6112bd.png)
-  
-  ### Search Results
-  
-  ![Screenshot 2021-05-31 12 55 44 PM](https://user-images.githubusercontent.com/78933339/120223816-333f8c00-c210-11eb-8e62-60d2b16556b8.png)
-  
-  ### Bookmarks Page 
-  
-  ![Screenshot 2021-05-31 12 56 19 PM](https://user-images.githubusercontent.com/78933339/120223847-3d618a80-c210-11eb-822e-b61af4b4ee53.png)
+### Home
 
-  ### Contact The Developer
-  
-  ![Screenshot 2021-05-31 12 56 30 PM](https://user-images.githubusercontent.com/78933339/120223870-494d4c80-c210-11eb-8762-b01241b566bb.png)
+![Screenshot 2021-05-31 12 54 11 PM](https://user-images.githubusercontent.com/78933339/120223544-bb716180-c20f-11eb-8d03-f50408aaa4e9.png)
 
+### Post Page
 
-  
-  
+![Screenshot 2021-05-31 12 55 00 PM](https://user-images.githubusercontent.com/78933339/120223598-d3e17c00-c20f-11eb-80dc-94cd8d94166b.png)
+
+### Subreddit Page
+
+![Screenshot 2021-05-31 12 55 25 PM](https://user-images.githubusercontent.com/78933339/120223659-efe51d80-c20f-11eb-84ae-a73366db672d.png)
+
+### Top Page
+
+![Screenshot 2021-05-31 12 55 34 PM](https://user-images.githubusercontent.com/78933339/120223780-21f67f80-c210-11eb-9945-4bb4ca6112bd.png)
+
+### Search Results
+
+![Screenshot 2021-05-31 12 55 44 PM](https://user-images.githubusercontent.com/78933339/120223816-333f8c00-c210-11eb-8e62-60d2b16556b8.png)
+
+### Bookmarks Page
+
+![Screenshot 2021-05-31 12 56 19 PM](https://user-images.githubusercontent.com/78933339/120223847-3d618a80-c210-11eb-822e-b61af4b4ee53.png)
+
+### Contact The Developer
+
+![Screenshot 2021-05-31 12 56 30 PM](https://user-images.githubusercontent.com/78933339/120223870-494d4c80-c210-11eb-8762-b01241b566bb.png)
 
 ## Plans for Future Features:
 
@@ -148,7 +148,7 @@ npm run build || yarn build
 
 #Execute jest test suite
 npm run test || yarn test
-  
-#Execute Cypress E2E Tests: 
-npm run cypress || yarn run cypress 
+
+#Execute Cypress E2E Tests:
+npm run cypress || yarn run cypress
 ```
